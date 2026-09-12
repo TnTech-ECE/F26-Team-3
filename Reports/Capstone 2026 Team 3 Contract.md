@@ -3,17 +3,12 @@
 Team Members:
 
 Nicolas Campbell
-
 Lucy Dunn
-
 Sean Ottaway
-
 Gabe Simpkins
-
 Andrew Singletary
 
 **Electrical and Computer Engineering Department**
-
 **Tennessee Technological University**
 
 **Introduction**
@@ -25,7 +20,6 @@ This teamwork contract outlines the agreed-upon expectations, responsibilities, 
 **1\. Participation (Engagement and Effort in the Project)**
 
 Each team member is expected to:
-
 - Actively participate in all team meetings and discussions.
 - Engage fully in project activities and contribute ideas.
 - Notify the team in advance if they are unable to attend a meeting or meet an obligation.
@@ -33,7 +27,6 @@ Each team member is expected to:
 **2\. Contribution (Progress on the Project)**
 
 Each team member is expected to:
-
 - Complete assigned tasks diligently and on time.
 - Contribute equal effort to the project's progress.
 - Share expertise and assist others when needed.
@@ -41,7 +34,6 @@ Each team member is expected to:
 **3\. Communication**
 
 Team communication should be:
-
 - Professional, respectful, and considerate.
 - Conducted through agreed-upon channels (e.g., email, phone number, Microsoft Teams).
 - Responsive, with replies to inquiries within 24 hours on weekdays.
@@ -49,7 +41,6 @@ Team communication should be:
 **4\. Meetings**
 
 Expectation Regarding Team Meetings Include:
-
 - Frequency: The team will plan to meet twice a week on Mondays and Wednesdays at 4 PM unless otherwise agreed upon. Additional meetings can be called as needed.
 - Attendance: Members are expected to attend all major meetings; absences should be communicated in advance.
 - Preparation: Members should come prepared, having completed any agreed-upon tasks or research.
@@ -57,7 +48,6 @@ Expectation Regarding Team Meetings Include:
 **5\. Conduct**
 
 Team members will:
-
 - Treat each other with respect and courtesy.
 - Listen actively and allow others to express their ideas without interruption.
 - Address disagreements professionally and constructively.
@@ -65,7 +55,6 @@ Team members will:
 **6\. Conflict Resolution**
 
 The team will:
-
 - Address conflicts promptly through open dialogue.
 - Use a step-by-step approach to resolve issues:
   - Discuss the issue privately between involved parties.
@@ -77,7 +66,6 @@ The team will:
 **7\. Deadlines**
 
 Regarding deadlines:
-
 - All team-set and instructor-set deadlines are to be met.
 - If a member anticipates difficulty meeting a deadline, they must inform the team as soon as possible.
 - The team will collaboratively adjust workloads to ensure project timelines are maintained.
@@ -89,48 +77,39 @@ Listed below are the roles we have designated for our group:
 **Team Leader/Coordinator: Nicolas Campbell**
 
 Responsibilities:
-
 - Schedule and coordinate team meetings.
 - Facilitate meetings to ensure all voices are heard.
 - Monitor project timelines and milestones.
 - Will turn in all needed solo submissions
 
 Powers Granted:
-
 - Authority to make minor decisions to keep the project on track after team consultation.
 
 Expectation Changes:
-
 - In addition to regular duties, the Team Leader will handle organizational tasks but remain equally responsible for project work.
 
 **Team Co-Leader/Coordinator:** **Sean Ottaway**
 
 Responsibilities:
-
 - Facilitate meetings to ensure all voices are heard when Team Leader is absent.
 - Help manage project timelines and milestones with Team Leader.
 
 Powers Granted:
-
 - Authority to make minor decisions in Team Leader's absence to keep the project on track after team consultation.
 
 Expectation Changes:
-
 - In addition to regular duties, the Team Co-Leader will assist with organizational tasks but remain equally responsible for project work.
 
 **Secretary: Andrew Singletary**
 
 Responsibilities:
-
 - Take detailed notes during meetings.
 - Distribute meeting minutes to all team members within 24 hours.
 
 Powers Granted:
-
 - May request clarifications during meetings to ensure accurate record-keeping.
 
 Expectation Changes:
-
 - Ensures documentation is maintained without reducing their responsibility in other project areas.
 
 **Additional Agreements**
