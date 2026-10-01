@@ -1,16 +1,16 @@
-# {Name of the Project} - Your project should have a catchy and functional name
+# SEAL Data Logger
 
 The descriptions and information in all readme files in the starter repo (including this one) must be edited. All section descriptions must be deleted. Any failure to remove the description information (like the statement that you are currently reading) will be heavily penalized!
 
 ## Executive Summary
 
-Give the elevator pitch and abstract for the project. It should allow interested visitors to broadly understand the motivation for the project and what the project has accomplished.
+Unmanned vehicles can be found all over the world being used by the military to scout in harsh environments without using human resources. Because the environment is a big factor in warfare and defense, there is a strong drive to improve these vehicles to withstand such harsh environments. Data loggers gain such information about these different environments, but often they can only function on one type of vehicle, measure individual elements of the environment, or format information poorly. This causes inefficiency and higher costs to obtain this mission-critical information. 
 
+To address these needs, Team 3 is conducting research and development to find a lower-cost, modular, and mass-producible PCB able to obtain accurate time stamps and measure magnetic fields, temperature, pressure, and dynamic movement around these vehicles. Once this data logger obtains these measurements, it needs to write this information in uLog formatting onto a microSD card for military personnel to plan around. This self-contained system will integrate five sensors, a microcontroller, and a power source in a mountable PCB while staying under $3,000 for the process of developing it.  
 
 ## Capabilities
 
 Here explain in more detail (though not as much as will be given in the datasheet) what the version of this project in this repo is capable of doing.
-
 
 ## Salient Outcomes
 
@@ -45,7 +45,6 @@ Use this space to recognize anyone that you feel has had an impact on the projec
 ## Repo Organization
 
 Give the layout of the repo and what can be found where. Make it easy on those who are interested by making the headings of the various things in this section clickable links to the relevant folder or file in the repo.
-
 
 ### Reports
 
