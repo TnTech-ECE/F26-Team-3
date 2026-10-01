@@ -4,8 +4,6 @@ The descriptions and information in all readme files in the starter repo (includ
 
 ## Executive Summary
 
-Unmanned vehicles can be found all over the world being used by the military to scout in harsh environments without using human resources. Because the environment is a big factor in warfare and defense, there is a strong drive to improve these vehicles to withstand such harsh environments. Data loggers gain such information about these different environments, but often they can only function on one type of vehicle, measure individual elements of the environment, or format information poorly. This causes inefficiency and higher costs to obtain this mission-critical information. 
-
 To address these needs, Team 3 is conducting research and development to find a lower-cost, modular, and mass-producible PCB able to obtain accurate time stamps and measure magnetic fields, temperature, pressure, and dynamic movement around these vehicles. Once this data logger obtains these measurements, it needs to write this information in uLog formatting onto a microSD card for military personnel to plan around. This self-contained system will integrate five sensors, a microcontroller, and a power source in a mountable PCB while staying under $3,000 for the process of developing it.  
 
 ## Capabilities
