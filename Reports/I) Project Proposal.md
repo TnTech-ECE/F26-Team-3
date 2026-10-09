@@ -124,7 +124,41 @@ The Data Logger (DL) has several specifications and constraints given by this pr
 &emsp; &emsp; From these findings, there are all kinds of different quality and prices of DL's that exist to accomplish the goals of Team 3's DL. If a company needs their DL to be usable for all 3 types of vehicles, they are looking at spending anywhere from $1430 - $2460 not including the shipping cost. With Team 3's DL, the costs will be significantly less, and there is no process required to combine one of these solutions with add-ons to fulfill all the specifications and constraints listed in this document. This will lead to Team 3's DL becoming the best solution available after development.
 
 ## Measures of Success
-- Andrew
+&emsp; &emsp; To ensure the accuracy and consistency of the DL, comparisons will be made to equipment of each type. In addition, the efficiency of the DL will be observed. These will be checked using the following: 
+1. Sensor Data Measurement
+    - Each sensor will have readings taken for a set environment, and the data will be compared to sensors outside of the DL for accuracy.
+    - Data measurement will be defined based on these error ranges in early testing:
+      - Acceleration & Velocity: ± 5 %
+      - Magnetic Field Strength: ± 5 %
+      - Temperature: ± 2 °C
+      - Pressure: ± 5 Pa
+      - Absolute Time: ± 2 s
+    - The final error ranges for success should be:
+      - Acceleration & Velocity: ± 5 %
+      - Magnetic Field Strength: ± 5 %
+      - Temperature: ± 1 °C
+      - Pressure: ± 1 Pa
+      - Absolute Time: ± 1 s<br>
+2. Power System Efficiency
+    - The power system of the module shall be able to run all five sensors measuring data at the same time. 
+    - The system shall run the MCU and SD card writing unit as well along with the sensors.
+    - The system shall be rechargeable while onboard and last for more than one operation.
+    - Success is found when the DL can run all five sensors, the MCU, and the SD card writer without part failure from current and voltage draw.
+    - Success is also reliant on the power system running for longer than 1 day without recharging.<br> 
+3. Data Processing and Transmission System
+    - The power system of the module shall be able to run all five sensors measuring data at the same time. 
+    - The system shall run the MCU and SD card writing unit as well along with the sensors.
+    - The system shall be rechargeable while onboard and last for more than one operation.
+    - Success is found when the DL can run all five sensors, the MCU, and the SD card writer without part failure from current and voltage draw. <br>
+4. Data Storage System
+    - With the data now in uLog format, it must be transmitted to the SD Card writer to write the data onto an SD card to be observed after operation. 
+    - Success can be observed when an SD card put into the writer can be taken out and read off the SD card with timestamps indicated for each set of data. <br>
+5. System Consistency in Different Environments 
+    - This DL must be able to function properly in any environment. 
+    - This measure will be met when the DL consistently gains accurate information on the SD card from the sensors in multiple different environments.<br><br>
+
+&emsp; &emsp; All these indications are important to the success of the DL, but it is not a complete success unless it meets the criteria listed earlier in this document as well.<br><br>
+
 
 ## Resources
 &emsp; &emsp; The necessary resources expected for our data logger drone attachment mostly correspond to the creation of a specifically designed PCB, and the components and sensors associated with the final design. This data logger will collect information regarding GPS position, altitude, temperature, and pressure. This logger will be able to write to a microSD card for removable storage as well as house a battery. 
