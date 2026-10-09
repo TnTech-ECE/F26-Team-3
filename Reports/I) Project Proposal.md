@@ -26,6 +26,7 @@ The Data Logger (DL) has several specifications and constraints given by this pr
 - The DL shall be wallet sized (Approx. 1in x 3in x 4in.)
 - The DL may be easily attached to the outside of a UAS, UGV, or USV
 
+
 2.	Electronics
 - The DL shall have an onboard battery with enough charge to run multiple missions without being recharged
 - The DL shall record the following types of data
@@ -37,6 +38,7 @@ The Data Logger (DL) has several specifications and constraints given by this pr
 - The DL shall have an embedded LED active when data is being logged
 - The DL may use recommended MCU (STM32G474RET6) and JST connections for software updates and changes
 
+
 3.	Data
 - The DL shall write timestamped data onto an SD (or microSD) card in uLog format
 - Data shall be measured at a high enough resolution to be unimpeachable
@@ -46,6 +48,7 @@ The Data Logger (DL) has several specifications and constraints given by this pr
 1.	General Operation Constraints
 - The DL project budget shall not exceed $3,000
 - The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC)
+
 
 2.	Safety and Compliance Constraints
 - The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation
@@ -66,6 +69,7 @@ The Data Logger (DL) has several specifications and constraints given by this pr
   - Does not come with the thermometer.
   - Comes at a High Price Tag of $750 per unit
 
+
 2.	Mapir DAQ-A [4]
 - Pros
   - Comes at a cheaper price of $400 per unit 
@@ -73,6 +77,7 @@ The Data Logger (DL) has several specifications and constraints given by this pr
 - Cons
   - Does not come with an on-board battery.
   - Does not come with a barometer, thermometer, or magnetometer.
+
 
 3.	Takeaways
 - The main takeaway with this type of DL is that they are highly priced for the size of the units.  These vehicles must come with a baseline of an IMU and GPS to be operational. These takeaways will be considered for Team 3’s DL.
@@ -86,6 +91,7 @@ The Data Logger (DL) has several specifications and constraints given by this pr
   - Where it is a full Plug-and-Play IoT ecosystem, the $79.95 price tag only comes with the base sensors, and this includes the IMU and Magnetometer. Everything else has to be purchased after hand.
   - Does not come inside of a rigid box and is just the board by itself.
 
+
 2.	Gulf Coast Data Concepts IMU-GPS [6]
 - Pros
   - Comes with 4 of the 5 sensors that the Team 3 DL will be using.
@@ -93,6 +99,7 @@ The Data Logger (DL) has several specifications and constraints given by this pr
 - Cons
   - Comes at the Higher Price of $360.
   - Comes at a bigger size than Team 3’s stakeholder's desire.
+
 
 3.	Takeaways
 - One Main Takeaway from the UGVs DLs is that they come at a cheaper price than UAVs DLs because they are not limited by size. In addition, they are more universal in the quantity of chips that can be used to track whatever is needed in the business specs without having to pay extra for unnecessary sensors.	
@@ -107,6 +114,7 @@ The Data Logger (DL) has several specifications and constraints given by this pr
   - Comes at a higher price of $950.00
   - Battery is not rechargeable and must be replaced.
 
+
 2.	DST Magnetic Field Strength Data Recorder [8]
 - Pros
   - It includes 4 of the 5 sensors that the Team 3 DL will have.
@@ -114,6 +122,7 @@ The Data Logger (DL) has several specifications and constraints given by this pr
 - Cons
   - Comes in at the highest price out of all the DLs at a price of $1350.00 per unit.
   - The software that is required to run it is sold adds an additional cost separate from the unit price.
+
 
 3.	Takeaways
 - The biggest take away is that the GPS signal is unable to function the second that the DL hits the water. This makes one of the stakeholder’s desired sensors rendered useless. Another takeaway is that with waterproofing the system the price goes up significantly to accommodate.
