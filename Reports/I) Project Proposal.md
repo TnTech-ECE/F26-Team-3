@@ -153,13 +153,62 @@ Other Personnel
 •	Instructor: Dr. Christopher Storm Johnson
 
 ### Timeline
-** Gantt Chart in Progress ** 
+** Gantt Chart in Progress ** <br><br>
 
 ## Specific Implications
 
+&emsp; &emsp; There are many benefits to the DL that Team 3 is developing. The solution for onboard data measurement and storage for autonomous vehicles with this DL can be viewed in four major sets of implications: 
+
+#### *Technical Implications*
+
+&emsp; &emsp; Developing a data logging module is an in-depth hands-on project. There is quite a bit of component research and testing that needs to be conducted. While there are readily available and universal off the shelf units, this DL is designed specifically for the company's autonomous vehicles and is much more cost effective than the competitors. This DL collects data from onboard sensors that measure GPS time stamps, pressure, temperature, electromagnetic fields, and writes the data to a micro-SD card. This unit is self-contained and features its own battery power source with support for USB-C charging.  
+
+#### *Manufacturing Implications*  
+
+&emsp; &emsp; This DL is designed to use readily manufactured and widely available components. The module features its own PCB that can be easily manufactured by most PCB manufacturing companies without going through a custom manufacturer. The cost to develop and manufacture the DL will be well under the $3,000.00 budget allocated for the project.  
+
+#### *Operational Implications*  
+
+&emsp; &emsp; This DL is developed to be a self-contained unit that utilizes the shelf components that do not require maintenance intervals. If one of the DLs malfunctions or needs to be replaced, a new one can be easily swapped in without requiring the knowledge of an engineer.  
+
+#### *Strategic Implications*  
+
+&emsp; &emsp; This DL is designed specifically to integrate with the company's already existing autonomous vehicles and can be mounted or affixed anywhere the company would like and does not need any extra connections, excluding the battery charging cable.<br><br>
+
+&emsp; &emsp; With all these implications, the DL will benefit the stakeholder's needs for autonomous vehicle data logging in many ways to help with further development of their autonomous charging stations and other technology.<br><br>
+
 ## Broader Implications, Ethics, and Responsibility as Engineers
+&emsp; &emsp; Due to the rising issue of public trust with data collecting technology, a device such as this DL measuring environmental conditions and saving this data could pose global and societal implications. While the DL is only used to collect information about the environment and collects time stamps regarding the autonomous vehicle, the sensors the DL utilizes might lead to public distrust as the sensors can be implemented to collect unsolicited information. These implications are not as important since the DL will not be widely available for this to occur.  
+
+&emsp; &emsp; A device such as this DL contains and implements various modules that can potentially be used for intrusive surveillance. This could further influence the modern and ongoing public trust issues that are present within the tech industry in terms of selling private information. With this DL, any extra "features" that could be added to the DL might bring ethical issues such as using GPS tracking for purposes outside the DL's scope as well as sensitive location data logged by the DL.  
+
+&emsp; &emsp; Environmental implications would cover the operations and carbon footprint of the manufacturing process for the DL. This DL uses special sensors and components that are manufactured using semiconductors and other materials. Accessibility to these components could pose an issue with few locations being able to manufacture and procure these semiconductors found in the DL. A way to avoid this issue would be to use components that are readily available and manufactured from trusted and well-known companies to prevent addition difficulties from obtaining more obscure materials. Another potential issue would be the module detaching from the vehicle during operation, potentially disrupting aquatic and terrestrial life as well as their environments. To prevent this, the DL will have support for rugged mounting hardware to keep the module from affecting wildlife and the environment. 
+
+&emsp; &emsp; In terms of economic implications, choosing and pricing components come into play. As engineers, we need to come up with a good and economical price to return on investment value to deliver the best piece of hardware for the right cost. If the sensors and components are too cheap, we might face issues with reliability, causing complications for the company and the vehicles utilizing them. If the project is too expensive, the company would lose their investment in the development of the module. This will be a major focus of the DL to be not very expensive while still utilizing trusted technology to get the job done. 
+
+&emsp; &emsp; With the development and planning of this module, there are important ethical considerations when it comes to the operation and implementation of the DL. The team of engineers responsible for the development of this project must consider the previously mentioned implications and adhere to the following ethical standards:
+- Team members who are responsible for the software will program the modules to only capture data within the project scope.
+- Team members who are responsible for hardware will construct and develop the DL to comply with basic safety standards as well as staying within project scope.<br><br>
 
 ## References
+
+[1] J. Sanchez, “Ruggedized Storage for UAV/Drone Data Logging: Why Consumer-Grade Storage Falls Short,” Delkin Industrial, Jan. 28, 2026. https://www.delkin.com/blog/rugged-uav-data-logging-storage/ (accessed Oct. 09, 2026).  
+
+[2] “Drone Simulation,” www.mathworks.com. https://www.mathworks.com/discovery/drone-simulation.html (accessed Oct. 09, 2026).  
+
+[3] “Federal Hazardous Substances Act (FHSA) Requirements,” CPSC.gov, Apr. 04, 2016. https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/FHSA-Requirements (accessed Oct. 09, 2026). 
+
+[4] Yost Labs, "3-Space™ Data Logger Nav with BLE & GPS,” Yost Labs, https://yostlabs.com/product/data-logger-nav-ble-gps/?srsltid=AU7gw4WEJ3qvT_4odsTwyClEaaVQxsDjtb8ClRZoBbiuZgtiw0GERoP8 (accessed Oct. 08, 2026) 
+
+[5] MAPIR, “DAQ-A,” MAPIR, 2026. https://www.mapir.camera/products/daq-a (accessed Oct. 08, 2026). 
+
+[6] “SparkFun DataLogger IoT - 9DoF,” Sparkfun.com, 2025. https://www.sparkfun.com/sparkfun-datalogger-iot-9dof.html (Accessed Oct. 08, 2026). 
+
+[7] “IMU-GPS - Gulf Coast Data Concepts,” Gulf Coast Data Concepts - Simple yet versatile data acquisition, Sept. 06, 2024. https://gulfcoastdataconcepts.com/index.php/product/imu-gps/ (Accessed Oct. 08, 2026). 
+
+[8] Lowell Instruments, LLC, “Universal User Guide for TCM-x Current Meters, MAT-1 Data Logger, and Domino Software.” Lowell Instruments, LLC, East Falmouth, MA 02536, Feb. 2022. Accessed: Oct. 08, 2026. [Online]. Available: https://www.onsetcomp.com/sites/default/files/2025-07/Universal_User_Guide_Lowell_CurrentMeters_Loggers.pdf 
+
+[9] “DST Magnetic Field Strength Data Recorder,” MicroDAQ, LLC, 2026. https://microdaq.com/star-oddi-dst-magnetic-field-strength-data-recorder.php (accessed Oct. 08, 2026). 
 
 ## Statement of Contributions
 These are the contributions the team made to this document:
