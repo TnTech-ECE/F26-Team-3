@@ -166,7 +166,7 @@
 
 
 ### Timeline
-<img src="Documentation/Meeting Minutes/Online Gantt 20261019.png" alt="Project Gantt chart" width="800">
+![Online Gantt 20261019](https://hackmd.io/_uploads/H1ZFtjQnMx.png)
 
 
 ### Budget
