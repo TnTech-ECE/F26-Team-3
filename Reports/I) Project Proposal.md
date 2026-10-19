@@ -165,8 +165,8 @@
 &emsp; &emsp; The necessary resources expected for our data logger drone attachment mostly correspond to the creation of a specifically designed PCB, and the components and sensors associated with the final design. This data logger will collect information regarding GPS position, altitude, temperature, and pressure. This logger will be able to write to a microSD card for removable storage as well as house a battery. 
 
 
-Timeline
-*Gantt Chart in progress*
+### Timeline
+![Project Gantt chart](<Documentation/Meeting Minutes/Online Gantt 20261019.png>)
 
 
 ### Budget
