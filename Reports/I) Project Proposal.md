@@ -166,7 +166,8 @@
 
 
 ### Timeline
-![Online Gantt 20261019](https://hackmd.io/_uploads/H1ZFtjQnMx.png)
+![Capstone Gantt](https://hackmd.io/_uploads/HymNoo73Gl.png)
+
 
 
 ### Budget
