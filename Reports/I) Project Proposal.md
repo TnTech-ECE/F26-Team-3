@@ -166,7 +166,7 @@
 
 
 ### Timeline
-![Project Gantt chart](<Documentation/Meeting Minutes/Online Gantt 20261019.png>)
+<img src="Documentation/Meeting Minutes/Online Gantt 20261019.png" alt="Project Gantt chart" width="800">
 
 
 ### Budget
