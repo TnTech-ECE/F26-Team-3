@@ -1,6 +1,7 @@
 # <div align="center">Project Proposal - Team 3</div>
 <div align="center">Nicolas Campbell, Lucy Dunn, Sean Ottaway, Gabriel Simpkins, & Andrew Singletary</div>
 
+
 ## Introduction
 &emsp; &emsp; Unmanned vehicles can be found all over the world being used by the military to scout in harsh environments without using human resources. Because the environment is a big factor in warfare and defense, there is a strong drive to improve these vehicles to withstand such harsh environments. Data loggers gain such information about these different environments, but often they can only function on one type of vehicle, measure individual elements of the environment, or format information poorly. This causes inefficiency and higher costs to obtain this mission-critical information. 
 
