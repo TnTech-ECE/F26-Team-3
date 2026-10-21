@@ -29,8 +29,7 @@
 - The DL shall be less than 500g in mass
 - The DL shall be entirely self-contained
 - The DL shall be wallet sized (Approx. 1in x 3in x 4in.)
-- The DL may be easily attached to the outside of a UAS or UGV
-
+- The DL may be easily attached to the outside of a UAS, UGV, or USV
 2\.	Electronics
 - The DL shall have an onboard battery with enough charge to run multiple missions without being recharged
 - The DL shall record the following types of data
@@ -41,7 +40,6 @@
   - Absolute time
 - The DL shall have an embedded LED active when data is being logged
 - The DL may use recommended MCU (STM32G474RET6) and JST connections for software updates and changes
-
 3\.	Data
 - The DL shall write timestamped data onto an SD (or microSD) card in uLog format
 - Data shall be measured at a high enough resolution to be unimpeachable
@@ -52,7 +50,6 @@
 1\.	General Operation Constraints
 - The DL project budget shall not exceed $3,000
 - The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC)
-
 2\.	Safety and Compliance Constraints
 - The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation
 - The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [3]
@@ -81,7 +78,6 @@
     - Cons
       - Does not come with an on-board battery.
       - Does not come with a barometer, thermometer, or magnetometer.
-
 3.	Takeaways
     - The main takeaway with data loggers for this type of UV is that they are highly priced for the size of the units.  These vehicles must come with a baseline of an IMU and GPS to be operational. These takeaways will be considered for Team 3’s DL. <br><br>
 
@@ -102,7 +98,6 @@
     - Cons
       - Comes at the Higher Price of $360.
       - Comes at a bigger size than Team 3’s stakeholder's desire.
-
 3.	Takeaways
     - One Main Takeaway from the UGVs data loggers is that they come at a cheaper price than UAVs DLs because they are not limited by size.  
     - Another takeaway is that they are more universal in the quantity of chips that can be used to track whatever is needed in the business specs without paying extra for unnecessary sensors. <br><br>
@@ -168,7 +163,6 @@ Team 3
 - Andrew Singletary:
   - Current Skills: Signal Processing, Circuit Analysis, C/C++
   - Skills to Learn: Embedded Systems, Microcontroller Processing, PCB Assembly
-
 Other Personnel
 •	Planned Supervisor: Dr. Tarek Elfouly
 •	Valinor Dispatch Contact: John Cain
