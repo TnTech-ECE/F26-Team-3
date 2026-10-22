@@ -1,6 +1,7 @@
 # <div align="center">Project Proposal - Team 3</div>
 <div align="center">Nicolas Campbell, Lucy Dunn, Sean Ottaway, Gabriel Simpkins, & Andrew Singletary</div>
 
+
 ## Introduction
 &emsp; &emsp; Unmanned vehicles can be found all over the world being used widely to understand the environment they are being used in without using human resources. Because the environment is a big factor in all parts of the industry, there is a strong drive to improve these vehicles to withstand any condition. Data loggers gain such information about these different environments, but often they can only function on one type of vehicle, measure individual elements of the environment, or format information poorly. This causes inefficiency and higher costs to obtain this critical information. 
 
@@ -8,24 +9,27 @@
 
 &emsp; &emsp; This proposal outlines the background of Data Loggers and a thorough evaluation of existing solutions. It will address the difficulties involved with such an embedded system and further elaborate on the need for this project. This will distinguish the restrictions on the data logger along with definitions of the measurements of success for the data logger. It will present the details of the budget, proficiencies of the team and assisting experts, the timeline with milestones of the project, and more about the stakeholder of this project, Valinor Dispatch. Finally, the proposal will end by discussing the implications of success and ethics concerns related to this data logger. 
 
+
 ## Formulating the Problem
 &emsp; &emsp; For data measurement, unmanned vehicles (UVs) typically only have an onboard IMU and do not have dedicated memory drives for data tracking. The Data Logger will be able to track IMU data, temperature, pressure, magnetic field strength, and log all of this data with absolute-time timestamps. Dedicated data logger units like this one exist only at high price points or high footprints. The Data Logger being designed in this project must be portable and easily transferable to any unmanned vehicles. A dedicated unit for data tracking will free up the UV to focus on navigation and achieve the task given to it while gaining more accurate data. This can help the user learn more about environments for future tasks of any UV with tasks in the same area. 
+
 
 ### Background
 &emsp; &emsp; Recording data for environments is critical for consistent operations. Rough terrain and harsh environments make recording data from UVs difficult [5]. Recording environmental data can help the user learn more about potential hazards and environmental changes to impact the success of the UV in its task. Data like this can inform critical decision-making for the desired task to get done. These can also be important to track for simulation purposes. Tracking these data points (IMU data, temperature, pressure, magnetic field strength) can help to make simulations of the UV environments more accurate, leading to better maneuverability control and an improved UV model to be used in the future [1]. 
 
 &emsp; &emsp; Designing a product that meets all the criteria provided for this project requires a knowledge of sensors, embedded systems, MCUs, and PCB design. Additionally, this product will have to meet several specifications and constraints set by Valinor Dispatch, governing bodies, or the group themselves. While there are other comparable solutions, many fall short of the desired specifications of this project. These alternative solutions are taxing on the budget, don’t measure all the required data, or don’t save the data to be observed in the future. In addition, they are often too large to be portable and transferable to other types of UV's without modification. With this background, Team 3's Data Logger will aim to achieve these goals, but there are some more specifications to look at. 
 
+
 ### Specifications and Constraints
 &emsp; &emsp; Team 3's Data Logger (DL) has many specifications and constraints given by Valinor Dispatch as well as electrical and communication governing bodies required for the project. These specifications are to help Valinor evaluate the environments their unmanned vehicles are working in and help improve their vehicles based on the performance of them inside these environments. Here are the specifics for this DL project: 
+
 
 #### Specifications
 1\.	Physical Attributes
 - The DL shall be less than 500g in mass
 - The DL shall be entirely self-contained
 - The DL shall be wallet sized (Approx. 1in x 3in x 4in.)
-- The DL may be easily attached to the outside of a UAS or UGV
-
+- The DL may be easily attached to the outside of a UAS, UGV, or USV
 2\.	Electronics
 - The DL shall have an onboard battery with enough charge to run multiple missions without being recharged
 - The DL shall record the following types of data
@@ -36,17 +40,16 @@
   - Absolute time
 - The DL shall have an embedded LED active when data is being logged
 - The DL may use recommended MCU (STM32G474RET6) and JST connections for software updates and changes
-
 3\.	Data
 - The DL shall write timestamped data onto an SD (or microSD) card in uLog format
 - Data shall be measured at a high enough resolution to be unimpeachable
 - The DL may follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers for this prototype
 
+
 #### Constraints
 1\.	General Operation Constraints
 - The DL project budget shall not exceed $3,000
 - The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC)
-
 2\.	Safety and Compliance Constraints
 - The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation
 - The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [2]
@@ -55,10 +58,12 @@
 
 &emsp; &emsp; With all these specifications for the DL, there are many alternative solutions that try to achieve the same goal as Team 3's DL. What are these existing solutions? 
 
+
 ## Survey of Existing Solutions
 &emsp; &emsp; When looking at Existing Solutions, the traditional data logger has a minimum of at least 3 of the 5 sensors that Team 3 will be using. This helps make it a standalone data logger and does not require use of any onboard sensors of the vehicle it is mounted to. This gives the user a second source of data that can help verify the sensor data on the Unmanned Vehicle. This Survey of Existing Solutions shall look at the separate data loggers for various types of Unmanned Vehicles.  
 
 &emsp; &emsp; The first type of UV, UAV's, typically requires its data logger to have the capability to utilize all 5 sensors that are going to be used in this project. There are many solutions currently available, however none of the existing solutions that were found used all 5. Here are some of the solutions Team 3 has found while researching for existing solutions. 
+
 1.	YOST LABS 3-Space Data Logger Nav with BLE & GPS [8]
     - Pros
         - Has 4 out of the 5 sensors that shall be used in Team 3’s DL.
@@ -96,12 +101,12 @@
     - Cons
       - Comes at the Higher Price of $360
       - Comes at a bigger size than Valinor Dispatch's would like for the project
-
 3.	Takeaways
     - One Main Takeaway from the UGVs data loggers is that they come at a cheaper price than UAVs DLs because they are not limited by size.  
     - Another takeaway is that they are more universal in the quantity of chips that can be used to track whatever is needed in the business specs without paying extra for unnecessary sensors. <br><br>
 
 &emsp; &emsp; From these findings, there are all kinds of different quality and prices of DL's that exist to accomplish the goals of Team 3's DL. If a company needs their data logger to be usable for both types of vehicles, they are looking at spending anywhere from $400 - $1,110 without the shipping costs included. With Team 3's DL, the costs will be less, and there is no process required to combine one of these solutions with add-ons to fulfill all the specifications and constraints listed in this document. This will lead to Team 3's DL becoming the best solution available after development. <br><br>
+
 
 ## Measures of Success
 &emsp; &emsp; To ensure the accuracy and consistency of the DL, comparisons will be made with established units of various types to ensure the measurements are accurate. In addition, the efficiency of the DL will be verified so Team 3's DL will become the best solution. These will be checked using the following measurements of success: 
@@ -151,6 +156,7 @@
 ### Budget
 The budget given by Valinor Dispatch for this project ranges from $2k - $3k, but the expected costs will fall below this threshold. For physical components including the PCB, it is expected that the total cost will be around $150, which includes the MCU and the programmer. Another $50 has been budgeted for any external casing that will be needed.  
 
+
 ### Personel
 Team 3 
 - Nicolas Campbell:
@@ -172,21 +178,26 @@ Other Personnel
 - Instructor: Dr. Christopher Storm Johnson
   - Dr. Johnson is the main supervisor over the project progress and documentation for this project. All documentation will be put through him to be approved before moving on in the development of this DL. Lastly, if any interpersonal matters escalate to negatively affect the development process, he will act as oversight and mediator if necessary to help progress this project. 
 
+
 ## Specific Implications
 
 &emsp; &emsp; There are many benefits to the DL Team 3 is developing. The solution for onboard data measurement and storage for autonomous vehicles with this DL can be viewed through four major sets of implications: 
+
 
 #### *Technical Implications*
 
 &emsp; &emsp; Developing a data logging module is an in-depth hands-on project. There is quite a bit of component research and testing that needs to be conducted. While there are readily available and universal off the shelf units, this DL is designed specifically for the company's autonomous vehicles and is much more cost effective than the competitors. This DL collects data from onboard sensors that measure GPS time stamps, pressure, temperature, electromagnetic fields, and writes the data to a micro-SD card. This unit is self-contained and features its own battery power source with support for USB-C charging. With these inclusions, it will stand out against other data loggers used for Unmanned Vehicles. 
 
+
 #### *Manufacturing Implications*  
 
 &emsp; &emsp; This DL is designed to use readily manufactured and widely available components. The module will feature its own PCB that can be easily manufactured by most PCB manufacturing companies without going through a custom manufacturer. The cost to develop and manufacture the DL will be well under the $3,000.00 budget allocated for the project.  
 
+
 #### *Operational Implications*  
 
 &emsp; &emsp; This DL will be developed to be a self-contained unit that utilizes the shelf components that do not require maintenance intervals. If one of the DLs malfunctions or needs to be replaced, a new one can be easily swapped in without requiring the knowledge of an engineer. This will allow for sustainability of the DL without being replaced frequently. 
+
 
 #### *Strategic Implications*  
 
@@ -195,6 +206,7 @@ Other Personnel
 &emsp; &emsp; With all these implications, the DL will benefit Valinor Dispatch's needs for autonomous vehicle data logging in many ways to help with further development of their autonomous charging stations and other technology; however, there are some considerations that are required in the process of this DL. <br><br>
 
 ## Broader Implications, Ethics, and Responsibility as Engineers
+
 &emsp; &emsp; Due to the rising issue of public trust with data collecting technology, a device such as this DL measuring environmental conditions and saving this data could pose global and societal implications. While the DL is only used to collect information about the environment and collects time stamps regarding the autonomous vehicle, the sensors the DL utilizes might lead to public distrust as the sensors can be implemented to collect unsolicited information. These implications are not as important since the DL will not be widely available for this to occur.  
 
 &emsp; &emsp; A device such as this DL contains and implements various modules that can potentially be used for intrusive surveillance. This could further influence the modern and ongoing public trust issues that are present within the tech industry in terms of selling private information. With this DL, any extra "features" that could be added to the DL might bring ethical issues such as using GPS tracking for purposes outside the DL's scope as well as sensitive location data logged by the DL. Team 3 will heavily consider this in the way the DL will be programmed. 
@@ -234,4 +246,3 @@ Lucy Dunn: Resources, Budget, Timeline, & Personnel<br>
 Sean Ottaway: Specific Implications & Broader Implications<br>
 Gabriel Simpkins: Background, Specifications, & Constraints<br>
 Andrew Singletary: Introduction, Measures of Success, & Broader Implications
-
