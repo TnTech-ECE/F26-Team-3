@@ -165,11 +165,11 @@ Team 3
   - Skills: C/C++, Circuit Analysis, Microcontroller Processing, Signal Processing
 
 Other Personnel
-•	Planned Supervisor: Dr. Tarek Elfouly
+- Planned Supervisor: Dr. Tarek Elfouly
   - Dr. Elfouly has a multitude of experience working with embedded systems, communicating with sensors using various languages, and programming microcontrollers. This makes him a great choice to help advise the development of this project. 
-•	Valinor Dispatch Contact: John Cain
+- Valinor Dispatch Contact: John Cain
   - John Cain along with Valinor Dispatch is the customer of this project, and they are looking to utilize this project once it is fully developed to influence future improvements of their unmanned vehicles. They are also looking to obtain information related to any environment they may be sending unmanned vehicles to for many purposes like navigation of these vehicles. 
-•	Instructor: Dr. Christopher Storm Johnson
+- Instructor: Dr. Christopher Storm Johnson
   - Dr. Johnson is the main supervisor over the project progress and documentation for this project. All documentation will be put through him to be approved before moving on in the development of this DL. Lastly, if any interpersonal matters escalate to negatively affect the development process, he will act as oversight and mediator if necessary to help progress this project. 
 
 ## Specific Implications
