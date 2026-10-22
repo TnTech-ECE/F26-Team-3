@@ -5,9 +5,9 @@
 ## Introduction
 &emsp; &emsp; Unmanned vehicles can be found all over the world being used widely to understand the environment they are being used in without using human resources. Because the environment is a big factor in all parts of the industry, there is a strong drive to improve these vehicles to withstand any condition. Data loggers gain such information about these different environments, but often they can only function on one type of vehicle, measure individual elements of the environment, or format information poorly. This causes inefficiency and higher costs to obtain this critical information. 
 
-&emsp; &emsp; To address these needs, Team 3 is conducting research and development to find a lower-cost, modular, and mass-producible data logger module able to obtain accurate time stamps and measure magnetic fields, temperature, pressure, and dynamic movement around these vehicles. Once this data logger obtains these measurements, it will be able to write this information in uLog formatting onto a microSD card to be easily understood and interpreted. This self-contained system will integrate five sensors, a microcontroller, and a power source while being mountable to unmanned vehicles and staying under $3,000 for the process of developing the module.  
+&emsp; &emsp; To address these needs, Team 3 is conducting research and development to find a lower-cost, modular, and mass-producible data logger module able to obtain accurate time stamps and measure magnetic fields, temperature, pressure, and dynamic movement around these vehicles. Once this data logger obtains these measurements, it will be able to write this information in uLog formatting onto a microSD card to be easily understood and interpreted. This self-contained system will integrate five sensors, a microcontroller, and a power source while being mountable to unmanned vehicles and staying under $3,000 for the process of developing the module. This project is being developed for Valinor Dispatch to help with analysis of environments for various tasks of their unmanned vehicles and the health of these vehicles in these environments.   
 
-&emsp; &emsp; This proposal outlines the background of Data Loggers and a thorough evaluation of existing solutions. It will address the difficulties involved with such an embedded system and further elaborate on the need for this project. This will distinguish the restrictions on the data logger along with definitions of the measurements of success for the data logger. It will present the details of the budget, proficiencies of the team and assisting experts, and a timeline with milestones of the project. Finally, the proposal will end by discussing the implications of success and ethics concerns related to this data logger. 
+&emsp; &emsp; This proposal outlines the background of Data Loggers and a thorough evaluation of existing solutions. It will address the difficulties involved with such an embedded system and further elaborate on the need for this project. This will distinguish the restrictions on the data logger along with definitions of the measurements of success for the data logger. It will present the details of the budget, proficiencies of the team and assisting experts, the timeline with milestones of the project, and more about the stakeholder of this project, Valinor Dispatch. Finally, the proposal will end by discussing the implications of success and ethics concerns related to this data logger. 
 
 
 ## Formulating the Problem
@@ -17,11 +17,11 @@
 ### Background
 &emsp; &emsp; Recording data for environments is critical for consistent operations. Rough terrain and harsh environments make recording data from UVs difficult [5]. Recording environmental data can help the user learn more about potential hazards and environmental changes to impact the success of the UV in its task. Data like this can inform critical decision-making for the desired task to get done. These can also be important to track for simulation purposes. Tracking these data points (IMU data, temperature, pressure, magnetic field strength) can help to make simulations of the UV environments more accurate, leading to better maneuverability control and an improved UV model to be used in the future [1]. 
 
-&emsp; &emsp; Designing a product that meets all the criteria provided for this project requires a knowledge of sensors, embedded systems, MCUs, and PCB design. Additionally, this product will have to meet several specifications and constraints set by the project stakeholders, governing bodies, or the group themselves. While there are other comparable solutions, many fall short of the desired specifications of this project. These alternative solutions are taxing on the budget, don’t measure all the required data, or don’t save the data to be observed in the future. In addition, they are often too large to be portable and transferable to other types of UV's without modification. With this background, Team 3's Data Logger will aim to achieve these goals, but there are some more specifications to look at. 
+&emsp; &emsp; Designing a product that meets all the criteria provided for this project requires a knowledge of sensors, embedded systems, MCUs, and PCB design. Additionally, this product will have to meet several specifications and constraints set by Valinor Dispatch, governing bodies, or the group themselves. While there are other comparable solutions, many fall short of the desired specifications of this project. These alternative solutions are taxing on the budget, don’t measure all the required data, or don’t save the data to be observed in the future. In addition, they are often too large to be portable and transferable to other types of UV's without modification. With this background, Team 3's Data Logger will aim to achieve these goals, but there are some more specifications to look at. 
 
 
 ### Specifications and Constraints
-&emsp; &emsp; Team 3's Data Logger (DL) has many specifications and constraints given by this project's stakeholders as well as electrical and communication governing bodies required for the project. Here are the specifics for the DL: 
+&emsp; &emsp; Team 3's Data Logger (DL) has many specifications and constraints given by Valinor Dispatch as well as electrical and communication governing bodies required for the project. These specifications are to help Valinor evaluate the environments their unmanned vehicles are working in and help improve their vehicles based on the performance of them inside these environments. Here are the specifics for this DL project: 
 
 
 #### Specifications
@@ -60,7 +60,7 @@
 
 
 ## Survey of Existing Solutions
-&emsp; &emsp; When looking at Existing Solutions, the traditional data logger has a minimum of at least 3 of the 5 sensors that Team 3 will be using. This helps make it a standalone data logger and does not require use of any onboard sensors of the vehicle it is mounted to. This gives the user a second source of data that can help verify the sensor data on the Unmanned Vehicle. This Survey of Existing Solutions shall look at the separate data loggers for various types of Unmanned Vehicles. 
+&emsp; &emsp; When looking at Existing Solutions, the traditional data logger has a minimum of at least 3 of the 5 sensors that Team 3 will be using. This helps make it a standalone data logger and does not require use of any onboard sensors of the vehicle it is mounted to. This gives the user a second source of data that can help verify the sensor data on the Unmanned Vehicle. This Survey of Existing Solutions shall look at the separate data loggers for various types of Unmanned Vehicles.  
 
 &emsp; &emsp; The first type of UV, UAV's, typically requires its data logger to have the capability to utilize all 5 sensors that are going to be used in this project. There are many solutions currently available, however none of the existing solutions that were found used all 5. Here are some of the solutions Team 3 has found while researching for existing solutions. 
 
@@ -68,9 +68,9 @@
     - Pros
         - Has 4 out of the 5 sensors that shall be used in Team 3’s DL.
         - Has a custom tracking engine that is able to pick up everywhere that GPS is not available to track.
-        - Had the option for both MicroSD card data logging or can send its data via Bluetooth.
+        - Has the option for both MicroSD card data logging or can send its data via Bluetooth
     - Cons 
-        - Does not come with the thermometer.
+        - Does not come with the thermometer
         - Comes at a High Price Tag of $750 per unit
 
 2.	Mapir DAQ-A [6]
@@ -78,8 +78,9 @@
       - Comes at a cheaper price of $400 per unit 
       - Has support for the companies Camera exposure logging
     - Cons
-      - Does not come with an on-board battery.
-      - Does not come with a barometer, thermometer, or magnetometer.
+      - Does not come with an on-board battery
+      - Does not come with a barometer, thermometer, or magnetometer
+
 3.	Takeaways
     - The main takeaway with data loggers for this type of UV is that they are highly priced for the size of the units.  These vehicles must come with a baseline of an IMU and GPS to be operational. These takeaways will be considered for Team 3’s DL. <br><br>
 
@@ -88,18 +89,18 @@
 1.	SparkFun DataLogger IoT- 9DoF [7]
     - Pros
       - Comes at the cheapest price as any on this list at $79.95
-      - Is built to be a full Plug-and-Play IoT ecosystem meaning that sensors on their supported list can be plugged directly into the board and work immediately without coding them in.
+      - Is built to be a full Plug-and-Play IoT ecosystem meaning that sensors on their supported list can be plugged directly into the board and work immediately without coding them in
     - Cons
       - Where it is a full Plug-and-Play IoT ecosystem, the $79.95 price tag only comes with the base sensors, and this includes the IMU and Magnetometer. Everything else has to be purchased after obtaining this particular data logger.
-      - Does not come inside of a rigid box and is just the board by itself.
+      - Does not come inside of a rigid box and is just the board by itself
 
 2.	Gulf Coast Data Concepts IMU-GPS [3]
     - Pros
-      - Comes with 4 of the 5 sensors that the Team 3 DL will be using.
+      - Comes with 4 of the 5 sensors that the Team 3 DL will be using
       - Does come inside of the dust proof box
     - Cons
-      - Comes at the Higher Price of $360.
-      - Comes at a bigger size than Team 3’s stakeholder's desire.
+      - Comes at the Higher Price of $360
+      - Comes at a bigger size than Valinor Dispatch's would like for the project
 3.	Takeaways
     - One Main Takeaway from the UGVs data loggers is that they come at a cheaper price than UAVs DLs because they are not limited by size.  
     - Another takeaway is that they are more universal in the quantity of chips that can be used to track whatever is needed in the business specs without paying extra for unnecessary sensors. <br><br>
@@ -145,7 +146,7 @@
 
 
 ## Resources
-&emsp; &emsp; The necessary resources expected for Team 3's DL mostly correspond to the creation of a specifically designed PCB along with the components and sensors associated with the final design. This DL will collect information regarding GPS position, altitude, temperature, and pressure. It will be able to write to a microSD card for removable storage as well as house a battery.  
+&emsp; &emsp; The necessary resources expected for Team 3's DL mostly correspond to the creation of a specifically designed PCB along with the components and sensors associated with the final design. This DL will collect information regarding GPS position, altitude, temperature, and pressure. It will be able to write to a microSD card for removable storage as well as house a battery. An important consideration is the personnel working on the project. Listed below are the resources and how they are expected to be utilized throughout the development of this DL.
 
 
 ### Timeline
@@ -153,22 +154,29 @@
 
 
 ### Budget
-The budget given by Valinor Dispatch for this project ranges from $2k - $3k, but the expected costs will fall below this threshold. For physical components including the PCB, it is expected that the total cost will be around $150, which includes the MCU and the programmer. Another $50 has been budgeted for any external casing that will be needed.
+The budget given by Valinor Dispatch for this project ranges from $2k - $3k, but the expected costs will fall below this threshold. For physical components including the PCB, it is expected that the total cost will be around $150, which includes the MCU and the programmer. Another $50 has been budgeted for any external casing that will be needed.  
 
 
 ### Personel
 Team 3 
-- Nicolas Campbell: System Health Analysis, Circuitry, KiCad, Labview, Control Systems
-- Lucy Dunn: C/C++, VHDL, Assembly, LTSpice, Soldering, Embedded Systems
-- Sean Ottaway: PCB Design, Circuitry, Mechanical Systems KiCad, C/C++ Programming
-- Gabriel Simpkins: Microcontrollers, C/C++, Soldering, Circuit Analysis
+- Nicolas Campbell:
+  - Skills: CAD, Circuitry, Control Systems, LabVIEW, System Health Analysis
+- Lucy Dunn:
+  - Skills: Assembly, C/C++, LTSpice, Soldering, VHDL
+- Sean Ottaway:
+  - Skills: C/C++, Circuitry, KiCad, Mechanical Systems, PCB Design
+- Gabriel Simpkins:
+  - Skills: C/C++, Circuit Analysis, Microcontroller Processing, Soldering
 - Andrew Singletary:
-  - Current Skills: Signal Processing, Circuit Analysis, C/C++
-  - Skills to Learn: Embedded Systems, Microcontroller Processing, PCB Assembly
+  - Skills: C/C++, Circuit Analysis, Microcontroller Processing, Signal Processing
+
 Other Personnel
-•	Planned Supervisor: Dr. Tarek Elfouly
-•	Valinor Dispatch Contact: John Cain
-•	Instructor: Dr. Christopher Storm Johnson
+- Planned Supervisor: Dr. Tarek Elfouly
+  - Dr. Elfouly has a multitude of experience working with embedded systems, communicating with sensors using various languages, and programming microcontrollers. This makes him a great choice to help advise the development of this project. 
+- Valinor Dispatch Contact: John Cain
+  - John Cain along with Valinor Dispatch is the customer of this project, and they are looking to utilize this project once it is fully developed to influence future improvements of their unmanned vehicles. They are also looking to obtain information related to any environment they may be sending unmanned vehicles to for many purposes like navigation of these vehicles. 
+- Instructor: Dr. Christopher Storm Johnson
+  - Dr. Johnson is the main supervisor over the project progress and documentation for this project. All documentation will be put through him to be approved before moving on in the development of this DL. Lastly, if any interpersonal matters escalate to negatively affect the development process, he will act as oversight and mediator if necessary to help progress this project. 
 
 
 ## Specific Implications
@@ -193,9 +201,9 @@ Other Personnel
 
 #### *Strategic Implications*  
 
-&emsp; &emsp; This DL is designed specifically to integrate with the company's already existing autonomous vehicles and will be mountable to any vehicle the stakeholder would like and does not need any extra connections, excluding the battery charging cable. This makes the DL unique from competing data loggers and easily used on any task the stakeholder desires to use an Unmanned Vehicle on. <br><br>
+&emsp; &emsp; This DL is designed specifically to integrate with the company's already existing autonomous vehicles and will be mountable to any vehicle Valinor Dispatch would like and does not need any extra connections, excluding the battery charging cable. This makes the DL unique from competing data loggers and easily used for any task Valinor Dispatch desires to utilize Unmanned Vehicles on. <br><br>
 
-&emsp; &emsp; With all these implications, the DL will benefit the stakeholder's needs for autonomous vehicle data logging in many ways to help with further development of their autonomous charging stations and other technology; however, there are some considerations that are required in the process of this DL. <br><br>
+&emsp; &emsp; With all these implications, the DL will benefit Valinor Dispatch's needs for autonomous vehicle data logging in many ways to help with further development of their autonomous charging stations and other technology; however, there are some considerations that are required in the process of this DL. <br><br>
 
 ## Broader Implications, Ethics, and Responsibility as Engineers
 
@@ -203,15 +211,15 @@ Other Personnel
 
 &emsp; &emsp; A device such as this DL contains and implements various modules that can potentially be used for intrusive surveillance. This could further influence the modern and ongoing public trust issues that are present within the tech industry in terms of selling private information. With this DL, any extra "features" that could be added to the DL might bring ethical issues such as using GPS tracking for purposes outside the DL's scope as well as sensitive location data logged by the DL. Team 3 will heavily consider this in the way the DL will be programmed. 
 
-&emsp; &emsp; Environmental implications would cover the operations and carbon footprint of the manufacturing process for the DL. This DL uses special sensors and components that are manufactured using semiconductors and other materials. Accessibility to these components could pose an issue with few locations being able to manufacture and procure these semiconductors found in the DL. Team 3 will avoid this issue by using components that are readily available and manufactured from trusted and well-known companies to prevent addition difficulties from obtaining more obscure materials. Another potential issue would be the module detaching from the vehicle during operation, potentially disrupting terrestrial and aerial life as well as their environments. To prevent this, this DL will have the capability of using M4 screws via the screw mounts in this DL to keep the module from affecting wildlife and the environment. 
+&emsp; &emsp; Environmental implications would cover the operations and carbon footprint of the manufacturing process for the DL. This DL uses special sensors and components that are manufactured using semiconductors and other materials. Accessibility to these components could pose an issue with few locations being able to manufacture and procure these semiconductors found in the DL. Team 3 will avoid this issue by using components that are readily available and manufactured from trusted and well-known companies to prevent addition difficulties from obtaining more obscure materials. Another potential issue would be the module detaching from the vehicle during operation, potentially disrupting terrestrial and aerial life as well as their environments. To prevent this, this DL will have the capability of using M4 screws via the screw mounts in this DL to keep the module from affecting wildlife and the environment.
 
-&emsp; &emsp; In terms of economic implications, choosing and pricing components come into play. As engineers, Team 3 needs to come up with a good and economical price to return on investment value to deliver the best piece of hardware for the right cost. If the sensors and components are too cheap, there might be issues with reliability for the DL, causing complications for the stakeholder and the vehicles utilizing them. If the project is too expensive, the stakeholder would lose their investment in the development of this module. This will be a major focus for Team 3 to keep the DL inexpensive while still utilizing trusted technology to meet the specifications. 
+&emsp; &emsp; In terms of economic implications, choosing and pricing components come into play. As engineers, Team 3 needs to come up with a good and economical price to return on investment value to deliver the best piece of hardware for the right cost. If the sensors and components are too cheap, there might be issues with reliability for the DL, causing complications for Valinor and the vehicles utilizing them. If the project is too expensive, Valinor Dispatch would lose their investment in the development of this module. This will be a major focus for Team 3 to keep the DL inexpensive while still utilizing trusted technology to meet the specifications. 
 
 &emsp; &emsp; With the development and planning of this module, there are important ethical considerations when it comes to the operation and implementation of the DL. The team of engineers responsible for the development of this project must consider the previously mentioned implications and adhere to the following ethical standards: 
 - Team members who are responsible for the software will program the modules to only capture data within the project scope.
 - Team members who are responsible for hardware will construct and develop the DL to comply with basic safety standards as well as staying within project scope.<br><br>
 
-&emsp; &emsp; In summary, Team 3 will be developing this DL with success being measured based on these considerations, the specifications, and the measures of success listed in this document. When it meets all these standards, it will bring the promised benefits also listed and fulfill the stakeholder's request for the DL, which will demonstrate innovation through Team 3's development of this project.
+&emsp; &emsp; In summary, Team 3 will be developing this DL with success being measured based on these considerations, the specifications, and the measures of success listed in this document. When it meets all these standards, it will bring the promised benefits also listed and fulfill Valinor Dispatch's request for the DL, which will demonstrate innovation through Team 3's development of this project. 
 
 ## References
 
