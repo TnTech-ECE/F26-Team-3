@@ -49,14 +49,14 @@
 #### Constraints
 1\.	General Operation Constraints
 - The DL project budget shall not exceed $3,000
-- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC)
-2\.	Safety and Compliance Constraints
-- The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation
-- The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [2]
+- The DL shall have a large operating temperature range (-20ºC ~ 60ºC)
+2\.	Standards and Safety Constraints
+- The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [3]
+- The DL shall be subject to IP67 rating for Dust and Water resistance [4] 
+- The DL shall conform to IEEE standards for thermal disipation and handheld devices [9]
 - The DL shall ensure the PCB and battery are properly grounded, avoiding electrical shorts or shock
-- The DL shall be subject to IP67 rating for Dust and Water resistance [4] <br><br>
+- The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation
 
-&emsp; &emsp; With all these specifications for the DL, there are many alternative solutions that try to achieve the same goal as Team 3's DL. What are these existing solutions? 
 
 
 ## Survey of Existing Solutions
@@ -238,6 +238,8 @@ Other Personnel
 [7] “SparkFun DataLogger IoT - 9DoF,” Sparkfun.com, 2025. https://www.sparkfun.com/sparkfun-datalogger-iot-9dof.html (Accessed Oct. 08, 2026). 
 
 [8] Yost Labs, "3-Space™ Data Logger Nav with BLE & GPS,” Yost Labs, https://yostlabs.com/product/data-logger-nav-ble-gps/?srsltid=AU7gw4WEJ3qvT_4odsTwyClEaaVQxsDjtb8ClRZoBbiuZgtiw0GERoP8 (accessed Oct. 08, 2026) 
+
+[9] IEEE, “Handheld Devices,” IEEE Technology Navigator, 2026. https://technav.ieee.org/topic/handheld-devices/ (accessed Oct. 22, 2026).
 
 ## Statement of Contributions
 These are the contributions the team made to this document:<br><br>
