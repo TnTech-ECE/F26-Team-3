@@ -15,9 +15,23 @@
 
 
 ### Background
-&emsp; &emsp; Recording data for environments is critical for consistent operations. Rough terrain and harsh environments make recording data from UVs difficult [5]. Recording environmental data can help the user learn more about potential hazards and environmental changes to impact the success of the UV in its task. Data like this can inform critical decision-making for the desired task to get done. These can also be important to track for simulation purposes. Tracking these data points (IMU data, temperature, pressure, magnetic field strength) can help to make simulations of the UV environments more accurate, leading to better maneuverability control and an improved UV model to be used in the future [1]. 
+&emsp; &emsp; Recording data for environments is critical for consistent operations. Rough terrain and harsh environments make recording data from UVs difficult [6]. Recording environmental data can help the user learn more about potential hazards and environmental changes to impact the success of the UV in its task. Data like this can inform critical decision-making for the desired task to get done. These can also be important to track for simulation purposes. Tracking these data points (IMU data, temperature, pressure, magnetic field strength) can help to make simulations of the UV environments more accurate, leading to better maneuverability control and an improved UV model to be used in the future [1]. 
 
-&emsp; &emsp; Designing a product that meets all the criteria provided for this project requires a knowledge of sensors, embedded systems, MCUs, and PCB design. Additionally, this product will have to meet several specifications and constraints set by Valinor Dispatch, governing bodies, or the group themselves. While there are other comparable solutions, many fall short of the desired specifications of this project. These alternative solutions are taxing on the budget, don’t measure all the required data, or don’t save the data to be observed in the future. In addition, they are often too large to be portable and transferable to other types of UV's without modification. With this background, Team 3's Data Logger will aim to achieve these goals, but there are some more specifications to look at. 
+&emsp; &emsp; Designing a product that meets all the criteria provided for this project requires a knowledge of sensors, embedded systems, MCUs, and PCB design. Some specific topics related to these areas are sensor fusion, data denoising, and understanding of serial communication, which include Inter-Integrated Circuit (I2C) and Serial Peripheral Interface (SPI). Here are some specifics on these topics.
+
+1. Sensor Fusion
+
+&emsp; &emsp; With this data logger utilizing multiple types of sensors all at once, it is not as complicated to implement a data logger if the information from each sensor is processed separately. That said, Tam 3's DL will be using DSP in the way of Sensor Fusion by utilizing the information of all sensors together to imply the type of environment that the vehicle the DL is mounted to is in. This makes the project more complicated to be able to achieve this goal. [7]. This is going to be very important to make Team 3's DL unique and stand out from other data loggers on the market. 
+
+2. Data Denoising
+
+&emsp; &emsp; Data denoising is extremely important to be able to use data coming from any of the sensors on a data logger since there is noise in every signal whether it is desired or not. This means that Team 3 will need a method to handle the noise. Data denoising will make this DL more involved in the program to handle the noise without eliminating the signal entirely [12]. This will be an important consideration during the development of the DL. 
+
+3. Serial Communication
+
+&emsp; &emsp; Serial communication is one of the most important parts of a data logger since this project requires the use of multiple sensors all at once. This means that it gets more complicated for the team since it is required to program custom drivers to handle I2C from some of the sensors and SPI from others. Since SPI requires more lines connected to the MCU than the I2C, this means the connections made from the sensors to the MCU also cannot be done the same way. Lastly, I2C is inherently slower than SPI in communication since it has less lines to utilize for communication, but SPI is more difficult to scale with more lines required [10]. While I2C and SPI are not the only serial communication types, they are among the most used in the industry. These principles are important for Team 3 to know how to develop this DL. 
+
+&emsp; &emsp; In addition to addressing all these topics, this product will have to meet several specifications and constraints set by Valinor Dispatch, governing bodies, or Team 3. While there are other comparable solutions, many fall short of the desired specifications of this project and achieve all these topics. These alternative solutions are taxing on the budget, don’t measure all the required data, don’t store the data to be observed in the future, or do not achieve all the important principles listed above. In addition, they are often too large to be portable and transferable to other types of UVs without modification. With this background, Team 3's Data Logger will aim to achieve these goals, but what are all the specifications for this project. 
 
 
 ### Specifications and Constraints
@@ -30,6 +44,7 @@
 - The DL shall be entirely self-contained
 - The DL shall be wallet sized (Approx. 1in x 3in x 4in.)
 - The DL may be easily attached to the outside of a UAS, UGV, or USV
+
 2\.	Electronics
 - The DL shall have an onboard battery with enough charge to run multiple missions without being recharged
 - The DL shall record the following types of data
@@ -40,9 +55,11 @@
   - Absolute time
 - The DL shall have an embedded LED active when data is being logged
 - The DL may use recommended MCU (STM32G474RET6) and JST connections for software updates and changes
+
 3\.	Data
 - The DL shall write timestamped data onto an SD (or microSD) card in uLog format
 - Data shall be measured at a high enough resolution to be unimpeachable
+- The DL shall utilize Sensor Fusion to understand the environment around the vehicle the DL is mounted to
 - The DL may follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers for this prototype
 
 
@@ -50,11 +67,12 @@
 1\.	General Operation Constraints
 - The DL project budget shall not exceed $3,000
 - The DL shall have a large operating temperature range (-20ºC ~ 60ºC)
+
 2\.	Standards and Safety Constraints
-- The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [3]
-- The DL shall be subject to IP67 rating for Dust and Water resistance [4] 
-- The DL shall conform to IEEE standards for thermal disipation and handheld devices [9]
-- The DL shall ensure the PCB and battery are properly grounded, avoiding electrical shorts or shock
+- The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [2]
+- The DL shall be subject to IP67 rating for Dust and Water resistance [5] 
+- The DL shall conform to IEEE standards for thermal disipation and handheld devices [3]
+- The DL shall ensure the module and battery are properly grounded, avoiding electrical shorts or shock as laid out in Article 250 of NFPA 70 [9]
 - The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation
 
 
@@ -64,7 +82,7 @@
 
 &emsp; &emsp; The first type of UV, UAV's, typically requires its data logger to have the capability to utilize all 5 sensors that are going to be used in this project. There are many solutions currently available, however none of the existing solutions that were found used all 5. Here are some of the solutions Team 3 has found while researching for existing solutions. 
 
-1.	YOST LABS 3-Space Data Logger Nav with BLE & GPS [8]
+1.	YOST LABS 3-Space Data Logger Nav with BLE & GPS [13]
     - Pros
         - Has 4 out of the 5 sensors that shall be used in Team 3’s DL.
         - Has a custom tracking engine that is able to pick up everywhere that GPS is not available to track.
@@ -73,7 +91,7 @@
         - Does not come with the thermometer
         - Comes at a High Price Tag of $750 per unit
 
-2.	Mapir DAQ-A [6]
+2.	Mapir DAQ-A [8]
     - Pros
       - Comes at a cheaper price of $400 per unit 
       - Has support for the companies Camera exposure logging
@@ -86,7 +104,7 @@
 
 &emsp; &emsp; The next type of vehicle, UGV's, typically utilizes all the same sensors as a typical data logger for UAVs. The main difference between them is the containment or mounting of the data logger used for UGV's since it should be more dust protectant and vibration proof. Here are some of the solutions currently available for UGV's. 
 
-1.	SparkFun DataLogger IoT- 9DoF [7]
+1.	SparkFun DataLogger IoT- 9DoF [11]
     - Pros
       - Comes at the cheapest price as any on this list at $79.95
       - Is built to be a full Plug-and-Play IoT ecosystem meaning that sensors on their supported list can be plugged directly into the board and work immediately without coding them in
@@ -94,7 +112,7 @@
       - Where it is a full Plug-and-Play IoT ecosystem, the $79.95 price tag only comes with the base sensors, and this includes the IMU and Magnetometer. Everything else has to be purchased after obtaining this particular data logger.
       - Does not come inside of a rigid box and is just the board by itself
 
-2.	Gulf Coast Data Concepts IMU-GPS [3]
+2.	Gulf Coast Data Concepts IMU-GPS [4]
     - Pros
       - Comes with 4 of the 5 sensors that the Team 3 DL will be using
       - Does come inside of the dust proof box
@@ -227,19 +245,27 @@ Other Personnel
 
 [2] “Federal Hazardous Substances Act (FHSA) Requirements,” CPSC.gov, Apr. 04, 2016. https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/FHSA-Requirements (accessed Oct. 09, 2026). 
 
-[3] “IMU-GPS - Gulf Coast Data Concepts,” Gulf Coast Data Concepts - Simple yet versatile data acquisition, Sept. 06, 2024. https://gulfcoastdataconcepts.com/index.php/product/imu-gps/ (Accessed Oct. 08, 2026). 
+[3] IEEE, “Handheld Devices,” IEEE Technology Navigator, 2026. https://technav.ieee.org/topic/handheld-devices/ (accessed Oct. 22, 2026).
 
-[4] International Electrotechnical Commission, “IP Ratings | IEC,” www.iec.ch, 2024. https://www.iec.ch/ip-ratings (accessed Oct. 21, 2026). 
+[4] “IMU-GPS - Gulf Coast Data Concepts,” Gulf Coast Data Concepts - Simple yet versatile data acquisition, Sept. 06, 2024. https://gulfcoastdataconcepts.com/index.php/product/imu-gps/ (Accessed Oct. 08, 2026). 
 
-[5] J. Sanchez, “Ruggedized Storage for UAV/Drone Data Logging: Why Consumer-Grade Storage Falls Short,” Delkin Industrial, Jan. 28, 2026. https://www.delkin.com/blog/rugged-uav-data-logging-storage/ (accessed Oct. 09, 2026).  
+[5] International Electrotechnical Commission, “IP Ratings | IEC,” www.iec.ch, 2024. https://www.iec.ch/ip-ratings (accessed Oct. 21, 2026). 
 
-[6] MAPIR, “DAQ-A,” MAPIR, 2026. https://www.mapir.camera/products/daq-a (accessed Oct. 08, 2026). 
+[6] J. Sanchez, “Ruggedized Storage for UAV/Drone Data Logging: Why Consumer-Grade Storage Falls Short,” Delkin Industrial, Jan. 28, 2026. https://www.delkin.com/blog/rugged-uav-data-logging-storage/ (accessed Oct. 09, 2026).  
 
-[7] “SparkFun DataLogger IoT - 9DoF,” Sparkfun.com, 2025. https://www.sparkfun.com/sparkfun-datalogger-iot-9dof.html (Accessed Oct. 08, 2026). 
+[7] J. Z. Sasiadek, “Sensor Fusion,” IFAC Proceedings Volumes, vol. 33, no. 27, pp. 1–3, Sept. 2000, doi: 10.1016/s1474-6670(17)37896-5.
 
-[8] Yost Labs, "3-Space™ Data Logger Nav with BLE & GPS,” Yost Labs, https://yostlabs.com/product/data-logger-nav-ble-gps/?srsltid=AU7gw4WEJ3qvT_4odsTwyClEaaVQxsDjtb8ClRZoBbiuZgtiw0GERoP8 (accessed Oct. 08, 2026) 
+[8] MAPIR, “DAQ-A,” MAPIR, 2026. https://www.mapir.camera/products/daq-a (accessed Oct. 08, 2026).
 
-[9] IEEE, “Handheld Devices,” IEEE Technology Navigator, 2026. https://technav.ieee.org/topic/handheld-devices/ (accessed Oct. 22, 2026).
+[9] National Fire Protection Association and National Fire Protection Association. National Electrical Code Committee, "Article 250," NEC 2017: NFPA 70 National Electrical Code. Quincy, Ma: National Fire Protection Association, 2016.
+
+[10] None V.Muneeswaran, K. N. Kumar, None P.Manikandan, M. N. Kumar, C.Vishnu Chaithanya, and M. Ganga Priyadarshini, “Performance Analysis of Communication Protocols (I2C, SPI) for Embedded Applications With IMU Sensor Using Verilog,” pp. 685–689, Apr. 2025, doi: 10.1109/ictmim65579.2025.10988065.
+
+[11] “SparkFun DataLogger IoT - 9DoF,” Sparkfun.com, 2025. https://www.sparkfun.com/sparkfun-datalogger-iot-9dof.html (Accessed Oct. 08, 2026). 
+
+[12] S. Yu, J. Ma, and W. Wang, “Deep Learning for Denoising,” Geophysics, vol. 84, no. 6, pp. V333-V350, July 2019, doi: 10.1190/geo2018-0668.1.
+
+[13] Yost Labs, "3-Space™ Data Logger Nav with BLE & GPS,” Yost Labs, https://yostlabs.com/product/data-logger-nav-ble-gps/?srsltid=AU7gw4WEJ3qvT_4odsTwyClEaaVQxsDjtb8ClRZoBbiuZgtiw0GERoP8 (accessed Oct. 08, 2026) 
 
 ## Statement of Contributions
 These are the contributions the team made to this document:<br><br>
