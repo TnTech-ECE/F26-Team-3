@@ -58,12 +58,15 @@
 ## Comparative Analysis of Potential Solutions
 &emsp; &emsp; When looking at all the different ways to go about this project, there are ways that can be created from the bare bones, and there are some that can take an already existing solution and build it. This section shall hypothesize the possible solutions and present the benefits versus the disadvantages.
 
+
 1\. The Bare Bones Model
+
 &emsp; &emsp; This model includes picking out an MCU, IMU, GPS, Magnetometer, Pressure, and temperature gauge. The group would have to create the PCB to be mountable and able to use all these sensors using traces on the PCB. The group would also have to mount and use an onboard battery to power the system as well as an onboard charging system for the battery. In addition, an SD card reader is required to store the data being measured on the board. After mounting everything, the group would then have to use a MCU flasher to flash the program onto the CPU to let the CPU be able to talk to each individual sensor. On top of this, addition digital signal processing would be added to interpret the environment it is in using sensor fusion.
  - 	Benefits
     - The benefit of this system is that it would play heavily upon the electrical circuitry of the PCB which multiple group members have stated to be included in their strong suits. It also has the benefit of complete customization in the fact that the group would get to pick every single sensor that would be wanted for the specific purpose.
  - Disadvantages
     - The Disadvantage of this system is that if the company wanted to mass produce this product it would be increasingly difficult to have to source every single product to build the DL. Also, it would increase the amount of labor it would require the engineer to build the project.
+
 
 2\. The Controller Add-On Model
 
@@ -73,10 +76,10 @@
 *<div align="center">Figure 1: The ARK FPV Flight Controller</div>*
 
 1\. Benefits
-    - The benefit of The Controller Add-On Model is that it is a faster and easier alternative to the bare bones model. Much less is needed to do to get this model completely functional. All that would be required is to develop a custom "Hat" PCB to hold the GPS and create a battery pack system and wire it to the Flight Controller. After this, Team 3 would be required to do some addition coding to get the new GPS sensor to work with the on-board MCU. This would make it much cheaper and faster for Valinor Dispatch if they would like to create many copies of this design. 
+- The benefit of The Controller Add-On Model is that it is a faster and easier alternative to the bare bones model. Much less is needed to do to get this model completely functional. All that would be required is to develop a custom "Hat" PCB to hold the GPS and create a battery pack system and wire it to the Flight Controller. After this, Team 3 would be required to do some addition coding to get the new GPS sensor to work with the on-board MCU. This would make it much cheaper and faster for Valinor Dispatch if they would like to create many copies of this design. 
 
 2\. Disadvantages
-    - The disadvantage of this system is that it removes many aspects that make this project so unique. This can also limit how custom the DL can be. This route is great for the purpose of quantity and not as good for quality. This is not to discredit the chips found on the ARK Flight Controller as bad chips, but it would significantly reduce the customization of the DL. This also would mean that the project is limited by budget or capabilities of the sensors already incorporated into the flight controller. With this route, this project would be more focused on coding than engineering.
+- The disadvantage of this system is that it removes many aspects that make this project so unique. This can also limit how custom the DL can be. This route is great for the purpose of quantity and not as good for quality. This is not to discredit the chips found on the ARK Flight Controller as bad chips, but it would significantly reduce the customization of the DL. This also would mean that the project is limited by budget or capabilities of the sensors already incorporated into the flight controller. With this route, this project would be more focused on coding than engineering.
 
 &emsp; &emsp; Looking at all the Benefits and Disadvantages for both Team 3 has decided it best to use both models and create The Bare Bones Model for the class project to be able to have a design project, and The Controller Add-On Model to supply Valinor Dispatch with the project scope desired by Valinor Dispatch. This benefits Team 3 because using the ARK flight controller utilizes previous code and wiring. This allows Team 3 to have a finished project for Valinor Dispatch if The Barebones Model gets stuck in the development.
 
@@ -101,7 +104,7 @@ Here is how the model in Figure 2 will be implemented for Valinor's data logger:
 
 &emsp; &emsp; The requirements for the secondary module are going to be the same but include the sensor fusion goal utilizing digital signal processing through an embedded systems design. In addition, this module will be based on the Bare Bones Model presented previously in the section comparing the possible different models. Figure 2 shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is designing from the ground up.
 
-![Figure 3](https://hackmd.io/_uploads/SysF4iY2Gl.png)
+*<div align="center">![Figure 3](https://hackmd.io/_uploads/SysF4iY2Gl.png)</div>*
 *<div align="center">Figure 3 – Bare Bones Model Block Diagram</div>*
 
 Here is how the model in Figure 3 will be implemented to achieve Team 3's additional goals:
@@ -258,14 +261,18 @@ PCB Design
 - IMU: $4
 - GPS: $12
 - Digital Temperature Sensor: $6
+
 Subsystem Total: $78
+
 
 
 Power System
 
 &emsp; &emsp; This system utilizes a Jauch Quartz LP705176JS 3.7V 3.15mAh battery. This battery was chosen as it satisfies the voltage needed for the STM32 microcontroller as well as the other power constraints needed for the PCB and it’s parts. The part itself will be utilized to supply power to the PCB, microcontroller and all other parts of the DL.
 - Battery: $22
+
 Subsystem Total: $22
+
 
 
 Microcontroller 
@@ -274,7 +281,9 @@ Microcontroller
 - STM32G474RET6: $10
 - Programmer: $25
 - Programming Cable: $50
+
 Subsystem Total: $85
+
 
 
 Storage System
@@ -282,7 +291,9 @@ Storage System
 &emsp; &emsp; This system contains the elements required to store data for the DL. It consists of the MicroSD card reader that will be located on the PCB as well as the MicroSD card itself. The MicroSD card reader chosen for this project is the Same Sky MSD-3-A. This part was chosen due to it’s size, weight, and cost as the most effective option. It features the ability to auto-eject out, allowing for easy removal of the MicroSD card.
 - MicroSD Card Reader: $1
 - 256GB MicroSD Card: $50
+
 Subsystem Total: $51
+
 
 
 ARK Flight Controller Variant 
@@ -292,7 +303,9 @@ ARK Flight Controller Variant
 - GPS: $12
 - PCB: $50
 - Battery: $26
+
 Subsystem Total: $288
+
 
 
 Total Budget
