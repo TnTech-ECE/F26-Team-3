@@ -203,63 +203,47 @@ Here is how the model in *Figure 3* will be implemented to achieve Team 3's addi
 
 &emsp; &emsp; With both these models in mind, most of the flow of the system will be similar between the different models. The operational flowchart to represent this flow can be seen in *Figure 4*. 
 
-![Figure 4](https://hackmd.io/_uploads/rkOA4jYnzl.png)
+*<div align="center">![Figure 4](https://hackmd.io/_uploads/rkOA4jYnzl.png)</div>*
 *<div align="center">Figure 4 – Operational Flowchart for Team 3's Data Logger</div>*
-*Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.*
 
-&emsp; &emsp; While developing these systems, there have been constraints identified in the Specifications and Constraints section that will need to be followed in the development of these PCB systems. Team 3 plans to adhere to these constraints in the following ways:
+*<div align="center">*Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.*</div>*
+
+<br>&emsp; &emsp; While developing these systems, there have been constraints identified in the Specifications and Constraints section that will need to be followed in the development of these PCB systems. Team 3 plans to adhere to these constraints in the following ways:
 
 ### Physical Attributes
-
 - The DL shall be less than 500g in mass; The module will utilize multiple components as well as a battery all which are collectively under the weight limit.  
-
 - Entirely self-contained; The DL shall be isolated and not interfere with vehicle communications or existing onboard components. 
-
 - Shall be approximately 4in x 3in x 1in; Due to the size of the components, this constraint will be achieved. 
-
-- Easily attached to the outside of a UAS or UGV; The DL will remain securely attached when mounted and will be designed to resist vibrations and shock. 
+- Easily attached to the outside of a UAS or UGV; The DL will remain securely attached when mounted and will be designed to resist vibrations and shock.
 
 ### Electronics
-
 - The DL shall have an onboard battery with enough charge to run multiple missions without being recharged; An appropriate battery will be chosen that follows IEEE IEC 62133 safety requirements for portable rechargeable batteries as well as utilizing manufacturer specified charge cycles/ battery life expectancy. The battery will also be below the weight limit specified in the Physical Attributes constraints.  
-
 - The DL shall record the following types of data...  
   - Acceleration and velocity 
   - Magnetic field strength 
   - Temperature 
   - Pressure 
-  - Absolute time 
-
+  - Absolute time
+ 
 &emsp; &emsp; The design will utilize the instrumentation and components necessary to achieve these goals. 
 
 - The DL shall have an embedded LED active when data is being logged; SMD LEDs will be incorporated into the design and will be tested extensively to prevent malfunctions abide by the specified constraint.  
-
-- The DL may use recommended MCU (STM32G474RET6) and JST connections for software updates and changes; Extensive research and embedded systems designs will be tested to confirm the specified MCU will be compatible with the project. Standard JST connectors will be utilized. 
+- The DL may use recommended MCU (STM32G474RET6) and JST connections for software updates and changes; Extensive research and embedded systems designs will be tested to confirm the specified MCU will be compatible with the project. Standard JST connectors will be utilized.
 
 ### Data
-
 - The DL shall write timestamped data onto an SD (or microSD) card in ULog format; The team will research ULog formatting to confirm the data is being formatted and written correctly to the SD card as well as ensuring GPS timestamps are accurate. 
-
 - Data shall be measured at a high enough resolution to be unimpeachable; Extensive tests will be performed to ensure the data is correct. 
-
-- The DL may follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers for this prototype; The DL will not interfere with or transmit unwanted signals and comply with FCC regulations.  
+- The DL may follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers for this prototype; The DL will not interfere with or transmit unwanted signals and comply with FCC regulations.
 
 ### General Operation Constraints
-
 - The DL project budget shall not exceed $3,000; Components will be selected specifically to comply with the budget, also accounting for assembly and bench testing. 
-
-- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC); Extensive bench testing will be performed, so the module operates within the specified temperature and pressure ranges. Additional temperature regulation techniques	may be implemented to obtain this objective.  
+- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC); Extensive bench testing will be performed, so the module operates within the specified temperature and pressure ranges. Additional temperature regulation techniques	may be implemented to obtain this objective.  \
 
 ### Standards and Safety Constraints
-
 - The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act; [3]; Team 3 will ensure the components that are being utilized as well as the testing procedures will comply with the Federal Hazardous Substances Act. 
-
 - The DL shall be subject to IP67 rating for Dust and Water resistance; [6]; Team 3 will perform extensive testing to ensure the module is IP67 rated and will make adjustments to ensure the module will be IP67 rated.  
-
 - The DL shall conform to IEEE standards for thermal dissipation and handheld devices; [4]; Team 3 will ensure the module conforms to IEEE standards and implement passive thermal management designs into the module. 
-
 - The DL shall ensure the PCB and battery are properly grounded, avoiding electrical shorts or shock; [10]; Team 3 will follow IEEE, NEC, and NFPA to ensure the module adheres to these standards.  
-
 - The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation; Due to the low power consumption of both module versions, low voltage batteries will be utilized as well as following the design constraint listed in the Electronics constraint section.
 
 ## Atomic Subsystem Specifications
