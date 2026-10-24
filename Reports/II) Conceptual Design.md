@@ -194,7 +194,7 @@ The primary components located on the PCB are as follows:
 &emsp; &emsp; A handful of small components will be integrated into the power system to manage power regulation as well as battery charging. A battery charger IC will be the primary component of the battery charging circuit and is responsible for managing power that is received from the USB-C connector and regulating that power to the battery. If the battery is charging, a red LED will be illuminated. If the battery is fully charged, the charging IC will stop charging the battery and the red LED will turn off. A 3.3V regulator will be the primary component for voltage regulation throughout the PCB as most of the onboard components have an operating voltage range of 3.3V. Smoothing capacitors will be placed along the power traces to filter high frequencies. *Figure 5* shows the ideal battery charging flowchart.
 
 *<div align="center">![Figure 5](https://hackmd.io/_uploads/BJqqditnzx.png)</div>*
-*<div align="center">Figure 4 – Charging System</div>*
+*<div align="center">Figure 5 – Charging System</div>*
 
 
 ### Microcontroller
