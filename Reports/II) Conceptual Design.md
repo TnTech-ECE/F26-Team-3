@@ -111,7 +111,7 @@ Subsystems:
 &emsp; &emsp; With these models in mind, most of the flow of the system will be similar between the different models. The operational flowchart to represent this flow can be seen in *Figure 4*. 
 
 ![Figure 4](https://hackmd.io/_uploads/rkOA4jYnzl.png)
-*Figure 4 – Operational Flowchart for Team 3's Data Logger*
+*<div align="center">Figure 4 – Operational Flowchart for Team 3's Data Logger</div>*
 *Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.*
 
 &emsp; &emsp; While developing these systems, there have been constraints identified in the Specifications and Constraints section that will need to be followed in the development of these PCB systems. Team 3 plans to adhere to these constraints in the following ways:
