@@ -145,7 +145,8 @@ b. Disadvantages:
 
 &emsp; &emsp; This model would include the group using an already made controller module and manipulating it to have the capabilities of being a data logger. Also, addition sensors would usually need to be added to make it achieve Valinor's specifications. Team 3 would still develop a custom PCB to add these additional sensors that module does not have. The specific module that has been suggested to Team 3 is the ARK FPV Flight Controller. This flight controller module includes an MCU, IMU, Temperature, Pressure, Magnetometer, and microSD card. The suggested flight controller can be seen in *Figure 1*. [1]
 
-![*Figure 1: The ARK FPV Flight Controller*](https://hackmd.io/_uploads/HymNoo73Gl.png)
+*<div align="center">![Figure 1](https://hackmd.io/_uploads/H1xZcQjK2zx.png)</div>*
+*<div align="center">Figure 1: The ARK FPV Flight Controller</div>*
 
 a. Benefits:
 
@@ -165,7 +166,8 @@ b. Disadvantages:
 
 &emsp; &emsp; The requirements for the data logger going to Valinor Dispatch are to implement components that collect timestamps transmitted through GPS, measure magnetic field strength, ambient temperature and pressure, and vehicle acceleration. The data collected through these components is to be compiled and formatted to an SD card for Valinor Dispatch in ULog format. The module is going to be designed to run off its own battery and support USB-C charging capabilities. While a module can be developed from the ground up, Team 3 aims to follow the Controller Add-On Model for the final project being handed over to Valinor Dispatch utilizing the ARK Flight Controller. Figure 1 shows the model via a Hardware Block diagram that this module will be based off. 
 
-![*Figure 2: The Controller Add-On Model Block Diagram*](https://hackmd.io/_uploads/HymNoo73Gl.png)
+*<div align="center">![Figure 2](https://hackmd.io/_uploads/BkjNEjt3Me.png)</div>*
+*<div align="center">Figure 2 – The Controller Add-On Model Block Diagram</div>*
 
 Here is how the model in *Figure 2* will be implemented for Valinor's data logger: 
 
@@ -181,7 +183,8 @@ Here is how the model in *Figure 2* will be implemented for Valinor's data logge
 
 &emsp; &emsp; The requirements for the secondary module are going to be the same but include the sensor fusion goal utilizing digital signal processing through an embedded systems design. In addition, this module will be based on the Bare Bones Model presented previously in the section comparing the possible different models. *Figure 2* shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is designing from the ground up. 
 
-![*Figure 3: The Bare Bones Model Block Diagram*](https://hackmd.io/_uploads/HymNoo73Gl.png)
+*<div align="center">![Figure 3](https://hackmd.io/_uploads/SysF4iY2Gl.png)</div>*
+*<div align="center">Figure 3 – Bare Bones Model Block Diagram</div>*
 
 Here is how the model in *Figure 3* will be implemented to achieve Team 3's additional goals:
 
@@ -200,7 +203,9 @@ Here is how the model in *Figure 3* will be implemented to achieve Team 3's addi
 
 &emsp; &emsp; With both these models in mind, most of the flow of the system will be similar between the different models. The operational flowchart to represent this flow can be seen in *Figure 4*. 
 
-![*Figure 4: Operational Flowchart for Team 3's Data Loggers*](https://hackmd.io/_uploads/HymNoo73Gl.png)
+![Figure 4](https://hackmd.io/_uploads/rkOA4jYnzl.png)
+*<div align="center">Figure 4 – Operational Flowchart for Team 3's Data Logger</div>*
+*Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.*
 
 &emsp; &emsp; While developing these systems, there have been constraints identified in the Specifications and Constraints section that will need to be followed in the development of these PCB systems. Team 3 plans to adhere to these constraints in the following ways:
 
@@ -259,7 +264,7 @@ Here is how the model in *Figure 3* will be implemented to achieve Team 3's addi
 
 ## Atomic Subsystem Specifications
 
-&emsp; &emsp; There will be 5 major subsystems that will be considered for these two modules. Such subsystems are as follows: 
+There will be 5 major subsystems that will be considered for these two modules. Such subsystems are as follows: 
 
   1. PCB System
   2. Power System
@@ -267,7 +272,7 @@ Here is how the model in *Figure 3* will be implemented to achieve Team 3's addi
   4. Data Processing and Storage System
   5. ARK Flight Controller module
 
-&emsp; &emsp; While the ARK controller will share some features, the ARK Flight Controller based module is going to have enough differences that Team 3 is separating it into its own subsystem. Here are some specifics on each of these subsystems. 
+While the ARK controller will share some features, the ARK Flight Controller based module is going to have enough differences that Team 3 is separating it into its own subsystem. Here are some specifics on each of these subsystems. 
 
 ### Bare Bones Module
 
@@ -299,7 +304,8 @@ Here is how the model in *Figure 3* will be implemented to achieve Team 3's addi
 
 &emsp; &emsp; A handful of small components will be integrated into the power system to manage power regulation as well as battery charging. A battery charger IC will be the primary component of the battery charging circuit and is responsible for managing power that is received from the USB-C connector and regulating that power to the battery. If the battery is charging, a red LED will be illuminated. If the battery is fully charged, the charging IC will stop charging the battery and the red LED will turn off. A 3.3V regulator will be the primary component for voltage regulation throughout the PCB as most of the onboard components have an operating voltage range of 3.3V. Smoothing capacitors will be placed along the power traces to filter high frequencies. *Figure 5* shows the ideal battery charging flowchart.
 
-![*Figure 5: Charging System for both Data Loggers*](https://hackmd.io/_uploads/HymNoo73Gl.png)
+*<div align="center">![Figure 5](https://hackmd.io/_uploads/BJqqditnzx.png)</div>*
+*<div align="center">Figure 5 – Charging System</div>*
 
 #### Microcontroller
 
@@ -456,7 +462,7 @@ The personnel of Team 3 and their skill sets are as follows:
 - Andrew Singletary:
   - Skills: C/C++, Circuit Analysis, Microcontroller Processing, Signal Processing
  
-&emsp; &emsp; Based on these skills, the subsystems and their designated members have been divided as such:
+Based on these skills, the subsystems and their designated members have been divided as such:
 
 - Nic Campbell will be taking care of the Storage System and Data Analysis as he has a specialty in control systems engineering. Through this subsystem he will be working mainly with the MicroSD as well as how the firmware filters and interprets the data it receives from the sensors.
 
@@ -551,8 +557,8 @@ The personnel of Team 3 and their skill sets are as follows:
 
 ## Statement of Contributions
 These are the contributions the team made to this document:<br><br>
-Nicolas Campbell: Survey of Existing Solutions, Operational Flowchart, Comparative Analysis of Potential Solutions, Storage Systems and Data Analysis<br>
-Lucy Dunn: Resources, Budget, Timeline, Division of Labor, Microcontroller Subsystem<br>
-Sean Ottaway: Broader Implications, Specific Implications, High Level Solution, PCB Subsystem, Power Subsystem<br>
-Gabriel Simpkins: Background, Specifications, & Constraints, Fully Formulating the Problem, Hardware Diagram<br>
+Nicolas Campbell: Survey of Existing Solutions, Operational Flowchart, Comparative Analysis of Potential Solutions, <br>Storage Systems and Data Analysis<br><br>
+Lucy Dunn: Resources, Budget, Timeline, Division of Labor, Microcontroller Subsystem<br><br>
+Sean Ottaway: Broader Implications, Specific Implications, High Level Solution, PCB Subsystem, Power Subsystem<br><br>
+Gabriel Simpkins: Background, Specifications, & Constraints, Fully Formulating the Problem, Hardware Diagram<br><br>
 Andrew Singletary: Introduction, Measures of Success, & Broader Implications, High Level Solution, the ARK Flight Controller-Based Subsystem
