@@ -38,7 +38,7 @@
 &emsp; &emsp; Team 3's Data Logger (DL) has many specifications and constraints given by Valinor Dispatch as well as electrical and communication governing bodies required for the project. These specifications are to help Valinor evaluate the environments their unmanned vehicles are working in and help improve their vehicles based on the performance of them inside these environments. Here are the specifics for this DL project: 
 
 
-#### Specifications
+##### Specifications
 1\.	Physical Attributes
 - The DL shall be less than 500g in mass
 - The DL shall be entirely self-contained
@@ -254,7 +254,7 @@ There will be 5 major subsystems that will be considered for these two modules. 
   2. Power System
   3. Microcontroller System
   4. Data Processing and Storage System
-  5. ARK Flight Controller module
+  5. ???
 
 While the ARK controller will share some features, the ARK Flight Controller based module is going to have enough differences that Team 3 is separating it into its own subsystem. Here are some specifics on each of these subsystems. 
 
@@ -317,18 +317,6 @@ While the ARK controller will share some features, the ARK Flight Controller bas
 &emsp; &emsp; The MicroSD will take the data given to it in ULog format, which on the microSD card will be a single, continuous train of binary data directly from the microcontroller. This data will be in the exact same format that the microcontroller will see. All this data will be raw binary data and will need to be put into some kind of converter to be understood by humans. The benefit of the ULog format though is where it is binary, it does not take up much space. This helps give a heap of data in a small package. To make it able to be read by a human, it will have to be converted to CSV (Comma Separated Variables), by using python. Then this data can then be put into understandable graphs using MATLAB.
 
 &emsp; &emsp; After getting graphs, this subsystem will also take the raw and unfiltered data and smooth it out to make it easily read by a consumer. This will be done with DSP (Digital System Processing). The DSP will include filtering out any high frequency noise and isolating the true system states.  By using PIDs and other Software filters, there shall be a Dynamic Transfer function that will then be flashed onto the MCU at the Analyzer Task.  This process may be repeated as many times as needed to get clean data from the DL. 
-
-#### ARK FPV Flight Controller-Based Module Subsystem
-
-&emsp; &emsp; With this subsystem, this will be a system that is separate from the other subsystems when relating it to the Bare Bones Model. That said, all these elements will also be a less complicated version of each of their subsystems to allow the flight controller to achieve the same tasks without the data processing desired for the Bare Bones module. While it will contain many similar components, there are important changes that are required to get the ARK Flight Controller system to data log like the Bare Bones Model but stay within the scope that Valinor has established for their Data Logger.  
-
-&emsp; &emsp; One of the major changes is that Team 3 will be developing a separate PCB board to work with the ARK controller to achieve the goal of being a data logger. This means that there will be a need to utilize traces to connect to JST-GH ports to connect the ARK controller to the PCB to provide power and transmit data from the GPS to the microcontroller. Specifically, there will be a JST-GH 3 Pin connection for power and a JST-GH 6 Pin connection for the GPS. The PCB will also need to house the battery providing power for the system. The GPS will need to have a voltage regulator like the Bare Bones Model to step down the 5 V that is going to come from the ARK controller to 3.3 V. Lastly, to mount the PCB to the ARK controller, Team 3 will be utilizing standoffs for this purpose. 
-
-&emsp; &emsp; Another major change is related to the power system. It will still utilize the same flow as indicated in Figure 4, but the battery that will be utilized for this system is going to be on the PCB separate from the charging ports that are on the ARK controller. It is also important to note that the battery for the ARK controller will need to be upgraded to 5 V instead of 3.3 V for the Bare Bones Module to accommodate the needs of the flight controller. With these differences, this module will still use the same battery charging and power regulation components as the Bare Bones' power system. 
-
-&emsp; &emsp; The last major change is that the ARK controller utilizes the STM32H743IIK6 microcontroller in comparison to the STM32G474RET6. This Microcontroller has significantly faster speeds, more memory, and more pins to utilize; however, these features are not important since the goal is the same if not simpler for this module in comparison to the Bare Bones Module. Also, since there are more pins on the ARK, but they are already assigned to specific ports on the controller, the custom drivers programed for the data logger will need to change to reflect the differences between the microcontrollers. With this, it is simpler since this module is not going to be doing the sensor fusion like the Bare Bones module. 
-
-&emsp; &emsp; With all these changes, Team 3 will be able to separately develop a module for Valinor that utilizes the ARK Flight Controller that they commonly use for the data logger they are looking for Team 3 to develop, while Team 3 can further develop a data logger to achieve the additional goals set by the team. 
 
 ## Measures of Success
 &emsp; &emsp; To ensure the accuracy and consistency of the DL, comparisons will be made with established units of various types to ensure the measurements are accurate. In addition, the efficiency of the DL will be verified so Team 3's DL will become the best solution. These will be checked using the following measurements of success: 
