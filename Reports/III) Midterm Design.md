@@ -156,37 +156,20 @@ b. Disadvantages:
 
   - The disadvantage of this system is that it removes many aspects that make this project so unique. This can also limit how custom the DL can be. This route is great for the purpose of quantity and not as good for quality. This is not to discredit the chips found on the ARK Flight Controller as bad chips, but it would significantly reduce the customization of the DL. This also would mean that the project is limited by budget or capabilities of the sensors already incorporated into the flight controller. With this route, this project would be more focused on coding than engineering.
 
-&emsp; &emsp; Looking at all the Benefits and Disadvantages for both Team 3 has decided it best to use both models and create The Bare Bones Model for the class project to be able to have a design project, and The Controller Add-On Model to supply Valinor Dispatch with the project scope desired by Valinor Dispatch. This benefits Team 3 because using the ARK flight controller utilizes previous code and wiring. This allows Team 3 to have a finished project for Valinor Dispatch if The Barebones Model gets stuck in the development. 
+&emsp; &emsp; Looking at all the Benefits and Disadvantages for both, Team 3 has decided it best to use the Bare Bones model to achieve Valinor's goals. This will allow Team 3 to customize all the elements to work and expand like Valinor's systems do. 
 
 ## High-Level Solution
 
 &emsp; &emsp; The goal of this project for Valinor Dispatch is to develop a self-contained module that records data from integrated instrumentation and seamlessly implements the module onto their existing unmanned vehicles. Another goal Team 3 has for this data logger is utilizing sensor fusion to interpret the data being obtained to have a better understanding of the environment before storing the data. This goal will be achieved separately from the final project that will be handed over to Valinor Dispatch to achieve their goals.
 
-&emsp; &emsp; The way Team 3 will maximize achieving Valinor's goal will be utilizing components, modules, and software that the company is already familiar with. This solution will incorporate equipment and software Valinor is already familiar with. This will reduce the amount of time and resources they will need to dedicate to making future adjustments to the module. To achieve Team 3's additional goals, the system will utilize widely available components paired with a commonly utilized MCU to help in the development process. 
+&emsp; &emsp; The way Team 3 will maximize achieving Valinor's goal will be utilizing components, modules, and software that the company is already familiar with. This solution will incorporate equipment and software Valinor is already familiar with. This will reduce the amount of time and resources they will need to dedicate to making future adjustments to the module. In addition, the system will utilize widely available components paired with a commonly utilized MCU to help in the development process. 
 
-&emsp; &emsp; The requirements for the data logger going to Valinor Dispatch are to implement components that collect timestamps transmitted through GPS, measure magnetic field strength, ambient temperature and pressure, and vehicle acceleration. The data collected through these components is to be compiled and formatted to an SD card for Valinor Dispatch in ULog format. The module is going to be designed to run off its own battery and support USB-C charging capabilities. While a module can be developed from the ground up, Team 3 aims to follow the Controller Add-On Model for the final project being handed over to Valinor Dispatch utilizing the ARK Flight Controller. Figure 1 shows the model via a Hardware Block diagram that this module will be based off. 
+&emsp; &emsp; The requirements for the data logger going to Valinor Dispatch are to implement components that collect timestamps transmitted through GPS, measure magnetic field strength, ambient temperature and pressure, and vehicle acceleration. The data collected through these components is to be compiled and formatted to an SD card for Valinor Dispatch in ULog format. The module is going to be designed to run off its own battery and support USB-C charging capabilities. Additionally, for the sensor fusion goal, Team 3 will utilize digital signal processing through an embedded systems design. This module will be based on the Bare Bones Model presented previously in the section comparing the possible different models. *Figure 2* shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is designing from the ground up. 
 
-*<div align="center">![Figure 2](https://hackmd.io/_uploads/BkjNEjt3Me.png)</div>*
-*<div align="center">Figure 2 – The Controller Add-On Model Block Diagram</div>*
+*<div align="center">![Figure 2](https://hackmd.io/_uploads/SysF4iY2Gl.png)</div>*
+*<div align="center">Figure 2 – Bare Bones Model Block Diagram</div>*
 
-Here is how the model in *Figure 2* will be implemented for Valinor's data logger: 
-
-### Subsystems:
-1. PCB
-  - The PCB subsystem houses the GPS as well as the RGB LED. This will draw power from the Power System and communicate with the Microcontroller via serial communication. The PCB subsystem shall be small enough to fit with the ARK FPV Flight Controller. The PCB shall also isolate the GPS enough to where other sensors will not interfere with its operation.
-
-2. ARK FPV Flight Controller
-  - The ARK FPV Flight Controller will draw power from the Power System. The subsystem houses the microSD and all sensors onboard except the GPS. The ARK FPV will write data onto the microSD in ULog format and communicate with the PCB subsystem via serial communication. The ARK FPV shall be isolated from the sensors to avoid increased noise.
-
-3. Power System
-  - The Power System will regulate input power from a USB-C port and the battery while supplying the other systems with power. The Power System shall comply with grounding, shock, and hazardous material standards [10].
-
-&emsp; &emsp; The requirements for the secondary module are going to be the same but include the sensor fusion goal utilizing digital signal processing through an embedded systems design. In addition, this module will be based on the Bare Bones Model presented previously in the section comparing the possible different models. *Figure 2* shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is designing from the ground up. 
-
-*<div align="center">![Figure 3](https://hackmd.io/_uploads/SysF4iY2Gl.png)</div>*
-*<div align="center">Figure 3 – Bare Bones Model Block Diagram</div>*
-
-Here is how the model in *Figure 3* will be implemented to achieve Team 3's additional goals:
+Here is how the model in *Figure 2* will be implemented to achieve Team 3's goals:
 
 ### Subsystems:
 1. PCB
@@ -203,8 +186,8 @@ Here is how the model in *Figure 3* will be implemented to achieve Team 3's addi
 
 &emsp; &emsp; With both these models in mind, most of the flow of the system will be similar between the different models. The operational flowchart to represent this flow can be seen in *Figure 4*. 
 
-*<div align="center">![Figure 4](https://hackmd.io/_uploads/rkOA4jYnzl.png)</div>*
-*<div align="center">Figure 4 – Operational Flowchart for Team 3's Data Logger</div>*
+*<div align="center">![Figure 3](https://hackmd.io/_uploads/rkOA4jYnzl.png)</div>*
+*<div align="center">Figure 3 – Operational Flowchart for Team 3's Data Logger</div>*
 
 *<div align="center">*Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.*</div>*
 
@@ -237,7 +220,7 @@ Here is how the model in *Figure 3* will be implemented to achieve Team 3's addi
 
 ### General Operation Constraints
 - The DL project budget shall not exceed $3,000; Components will be selected specifically to comply with the budget, also accounting for assembly and bench testing. 
-- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC); Extensive bench testing will be performed, so the module operates within the specified temperature and pressure ranges. Additional temperature regulation techniques	may be implemented to obtain this objective.  \
+- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC); Extensive bench testing will be performed, so the module operates within the specified temperature and pressure ranges. Additional temperature regulation techniques	may be implemented to obtain this objective.
 
 ### Standards and Safety Constraints
 - The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act; [3]; Team 3 will ensure the components that are being utilized as well as the testing procedures will comply with the Federal Hazardous Substances Act. 
@@ -253,10 +236,8 @@ There will be 5 major subsystems that will be considered for these two modules. 
   1. PCB System
   2. Power System
   3. Microcontroller System
-  4. Data Processing and Storage System
-  5. ???
-
-While the ARK controller will share some features, the ARK Flight Controller based module is going to have enough differences that Team 3 is separating it into its own subsystem. Here are some specifics on each of these subsystems. 
+  4. Storage System
+  5. Digital Signal Processing System
 
 ### Bare Bones Module
 
@@ -286,10 +267,10 @@ While the ARK controller will share some features, the ARK Flight Controller bas
 
 &emsp; &emsp; The power system will handle power management throughout the PCB as well as the battery charging system. The primary interfaces will be the USB-C connector and the battery's JST connector. The USB-C will act as an input that receives power via external USB-C cable. The JST connector will act as both an input and an output as the battery will charge and discharge through this connector.  
 
-&emsp; &emsp; A handful of small components will be integrated into the power system to manage power regulation as well as battery charging. A battery charger IC will be the primary component of the battery charging circuit and is responsible for managing power that is received from the USB-C connector and regulating that power to the battery. If the battery is charging, a red LED will be illuminated. If the battery is fully charged, the charging IC will stop charging the battery and the red LED will turn off. A 3.3V regulator will be the primary component for voltage regulation throughout the PCB as most of the onboard components have an operating voltage range of 3.3V. Smoothing capacitors will be placed along the power traces to filter high frequencies. *Figure 5* shows the ideal battery charging flowchart.
+&emsp; &emsp; A handful of small components will be integrated into the power system to manage power regulation as well as battery charging. A battery charger IC will be the primary component of the battery charging circuit and is responsible for managing power that is received from the USB-C connector and regulating that power to the battery. If the battery is charging, a red LED will be illuminated. If the battery is fully charged, the charging IC will stop charging the battery and the red LED will turn off. A 3.3V regulator will be the primary component for voltage regulation throughout the PCB as most of the onboard components have an operating voltage range of 3.3V. Smoothing capacitors will be placed along the power traces to filter high frequencies. *Figure 4* shows the ideal battery charging flowchart.
 
-*<div align="center">![Figure 5](https://hackmd.io/_uploads/BJqqditnzx.png)</div>*
-*<div align="center">Figure 5 – Charging System</div>*
+*<div align="center">![Figure 4](https://hackmd.io/_uploads/BJqqditnzx.png)</div>*
+*<div align="center">Figure 4 – Charging System</div>*
 
 #### Microcontroller
 
@@ -405,20 +386,9 @@ Subsystem Total: $85
 
 Subsystem Total: $51
 
-#### ARK FPV Flight Controller-Based Module
-
-&emsp; &emsp; This system will have its own separate GPS which will be contained on a PCB that will be connected and working in tandem with the ARK Flight controller. This system will also have its own battery separate from the rest of the project. The flight controller chosen for this project is the ARK FPV Flight Controller, this board was chosen as the recommendation of Valinor Dispatch as well as compared against similar models. This board was chosen over it’s competitors for its simplicity, reliability, and price point. The battery chosen for this project is the 1200mAh 7.4V 2S LiPo battery. This battery is commonly used to power drones and satisfies the ARKs needed 5.5V power consumption benchmark. The GPS chosen for this system is the same as was chosen for the Bare Bones Module, see above for the justification. This system will use the same debugger STLINK and cable as seen in the Microcontroller Subsystem above. 
-
-- ARK FPV Flight Controller: $200
-- GPS: $12
-- PCB: $50
-- Battery: $26
-
-Subsystem Total: $288
-
 #### Total Budget
 
-&emsp; &emsp; The total overall proposed budget for Team 3’s Data Logger is $524. As seen above these components have been chosen intentionally to work well together and result in a well rounded Data Logger that successfully reads and writes out data onto a MicroSD card using two separate board styles. 
+&emsp; &emsp; The total overall proposed budget for Team 3’s Data Logger is $236. As seen above these components have been chosen intentionally to work well together and result in a well rounded Data Logger that successfully reads and writes out data onto a MicroSD card using two separate board styles. 
 
 ### Division of Labor 
 
