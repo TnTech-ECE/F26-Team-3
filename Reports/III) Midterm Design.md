@@ -160,11 +160,11 @@ b. Disadvantages:
 
 ## High-Level Solution
 
-&emsp; &emsp; The goal of this project for Valinor Dispatch is to develop a self-contained module that records data from integrated instrumentation and seamlessly implements the module onto their existing unmanned vehicles. Another goal Team 3 has for this data logger is utilizing sensor fusion to interpret the data being obtained to have a better understanding of the environment before storing the data. This goal will be achieved separately from the final project that will be handed over to Valinor Dispatch to achieve their goals.
+&emsp; &emsp; The goal of this project for Valinor Dispatch is to develop a self-contained module that records data from integrated instrumentation and seamlessly implements the module onto their unmanned vehicles and utilize sensor fusion to interpret the data being collected to interpret the environment before storing the data.
 
-&emsp; &emsp; The way Team 3 will maximize achieving Valinor's goal will be utilizing components, modules, and software that the company is already familiar with. This solution will incorporate equipment and software Valinor is already familiar with. This will reduce the amount of time and resources they will need to dedicate to making future adjustments to the module. In addition, the system will utilize widely available components paired with a commonly utilized MCU to help in the development process. 
+&emsp; &emsp; The way Team 3 will maximize achieving these goals will be utilizing components, modules, and software that the company is already familiar with. This will reduce the amount of time and resources they will need to dedicate to making future adjustments to the module. In addition, the system will utilize widely available components paired with a commonly utilized MCU to help in the development process. 
 
-&emsp; &emsp; The requirements for the data logger going to Valinor Dispatch are to implement components that collect timestamps transmitted through GPS, measure magnetic field strength, ambient temperature and pressure, and vehicle acceleration. The data collected through these components is to be compiled and formatted to an SD card for Valinor Dispatch in ULog format. The module is going to be designed to run off its own battery and support USB-C charging capabilities. Additionally, for the sensor fusion goal, Team 3 will utilize digital signal processing through an embedded systems design. This module will be based on the Bare Bones Model presented previously in the section comparing the possible different models. *Figure 2* shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is designing from the ground up. 
+&emsp; &emsp; This module will be based on the Bare Bones Model presented previously in the section comparing the possible different models and be subject to the requirements listed previously in this document. *Figure 2* shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is using to design the data logger from the ground up. 
 
 *<div align="center">![Figure 2](https://hackmd.io/_uploads/SysF4iY2Gl.png)</div>*
 *<div align="center">Figure 2 – Bare Bones Model Block Diagram</div>*
@@ -184,14 +184,12 @@ Here is how the model in *Figure 2* will be implemented to achieve Team 3's goal
 4. Power System
   - The Power System will regulate input power from a USB-C port and the battery while supplying the other systems with power. The Power System shall comply with grounding, shock, and hazardous material standards. 
 
-&emsp; &emsp; With both these models in mind, most of the flow of the system will be similar between the different models. The operational flowchart to represent this flow can be seen in *Figure 4*. 
+&emsp; &emsp; With this model in mind, it will operate with the signal flow displayed in the operational flowchart shown in *Figure 3*. 
 
 *<div align="center">![Figure 3](https://hackmd.io/_uploads/rkOA4jYnzl.png)</div>*
 *<div align="center">Figure 3 – Operational Flowchart for Team 3's Data Logger</div>*
 
-*<div align="center">*Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.*</div>*
-
-<br>&emsp; &emsp; While developing these systems, there have been constraints identified in the Specifications and Constraints section that will need to be followed in the development of these PCB systems. Team 3 plans to adhere to these constraints in the following ways:
+<br>&emsp; &emsp; While developing these systems, there have been constraints identified in the *Specifications and Constraints* section that will need to be followed in the development of these PCB systems. Team 3 plans to adhere to these constraints in the following ways:
 
 ### Physical Attributes
 - The DL shall be less than 500g in mass; The module will utilize multiple components as well as a battery all which are collectively under the weight limit.  
@@ -208,7 +206,7 @@ Here is how the model in *Figure 2* will be implemented to achieve Team 3's goal
   - Pressure 
   - Absolute time
  
-&emsp; &emsp; The design will utilize the instrumentation and components necessary to achieve these goals. 
+The design will utilize the instrumentation and components necessary to achieve these goals. 
 
 - The DL shall have an embedded LED active when data is being logged; SMD LEDs will be incorporated into the design and will be tested extensively to prevent malfunctions abide by the specified constraint.  
 - The DL may use recommended MCU (STM32G474RET6) and JST connections for software updates and changes; Extensive research and embedded systems designs will be tested to confirm the specified MCU will be compatible with the project. Standard JST connectors will be utilized.
@@ -236,14 +234,14 @@ There will be 5 major subsystems that will be considered for these two modules. 
   1. PCB System
   2. Power System
   3. Microcontroller System
-  4. Storage System
-  5. Digital Signal Processing System
+  4. Data Processing & Storage System
+  5. Enclosure
 
-### Bare Bones Module
+Here are some specifics on each of these subsystems.
 
-#### PCB Subsystem
+### PCB Subsystem
 
-&emsp; &emsp; The PCB will act as the foundation for the module and will be populated with the necessary instrumentation components as well as a power management system that accommodates battery charging. The PCB will be utilizing all types of signals as it holds all of the components.
+&emsp; &emsp; The PCB will act as the foundation for the module and will be populated with the necessary instrumentation components as well as a power management system that accommodates battery charging. The PCB will be utilizing all types of signals as it holds all of the components. It will also be able to mount to unmanned vehicles utilizing the enclosure it will be contained in. 
 
 &emsp; &emsp; The primary components located on the PCB are as follows: 
 
@@ -263,7 +261,7 @@ There will be 5 major subsystems that will be considered for these two modules. 
 
 - USB-C connector: Acts as the primary connector for the charging cable. Shall supply power through *standard USB-C protocol* to both the battery and components when cable is connected. The USB-C charging system shall comply with the safety constraints listed in the *High-Level Solution* section.
 
-#### Power System
+### Power System
 
 &emsp; &emsp; The power system will handle power management throughout the PCB as well as the battery charging system. The primary interfaces will be the USB-C connector and the battery's JST connector. The USB-C will act as an input that receives power via external USB-C cable. The JST connector will act as both an input and an output as the battery will charge and discharge through this connector.  
 
@@ -272,7 +270,7 @@ There will be 5 major subsystems that will be considered for these two modules. 
 *<div align="center">![Figure 4](https://hackmd.io/_uploads/BJqqditnzx.png)</div>*
 *<div align="center">Figure 4 – Charging System</div>*
 
-#### Microcontroller
+### Microcontroller
 
 &emsp; &emsp; The microcontroller chosen for this project is the STM32G474RET6. This microcontroller will allow for the reading of all attached sensors as well as writing the data from these sensors out to the microSD through ULog format. The firmware needed for this subsystem will be written in C and designed using the STM32CubeMX software. 
 
@@ -293,11 +291,17 @@ There will be 5 major subsystems that will be considered for these two modules. 
 5. **Supervisor Task**
 - This task determines when and if the logger should be actively writing out or not based on a few different factors. It checks if the microSD card has been inserted and has power, if so it tells the logger to write out, if not it flushes the buffer to keep it from getting full of old data.
 
-#### Storage System and Data Analysis
+### Storage System and Data Analysis
 
 &emsp; &emsp; The MicroSD will take the data given to it in ULog format, which on the microSD card will be a single, continuous train of binary data directly from the microcontroller. This data will be in the exact same format that the microcontroller will see. All this data will be raw binary data and will need to be put into some kind of converter to be understood by humans. The benefit of the ULog format though is where it is binary, it does not take up much space. This helps give a heap of data in a small package. To make it able to be read by a human, it will have to be converted to CSV (Comma Separated Variables), by using python. Then this data can then be put into understandable graphs using MATLAB.
 
 &emsp; &emsp; After getting graphs, this subsystem will also take the raw and unfiltered data and smooth it out to make it easily read by a consumer. This will be done with DSP (Digital System Processing). The DSP will include filtering out any high frequency noise and isolating the true system states.  By using PIDs and other Software filters, there shall be a Dynamic Transfer function that will then be flashed onto the MCU at the Analyzer Task.  This process may be repeated as many times as needed to get clean data from the DL. 
+
+### Enclosure
+
+&emsp; &emsp; With this subsystem, the goal is to achieve the IP67 rating that is in the specifications for the project while allowing the Data Logger to function and not overheat [6]. This will be achieved by utilizing a casing that allows for an antenna to fit tightly through the enclosure for the GPS and potentially using cooling fans or systems to prevent damage inflicted on the Data Logger by itself. In addition, it will be the primary source of mounting the Data Logger to these unmanned vehicles utilizing this project.
+
+&emsp; &emsp; To accomplish this, the enclosure will be utilizing M4 screws and mounting equipment to allow for the Data Logger to be easily added or removed from these vehicles. Also, some more screw will be used to allow for easy access to the microSD card without the requirement of dismounting the logger from the vehicles. 
 
 ## Measures of Success
 &emsp; &emsp; To ensure the accuracy and consistency of the DL, comparisons will be made with established units of various types to ensure the measurements are accurate. In addition, the efficiency of the DL will be verified so Team 3's DL will become the best solution. These will be checked using the following measurements of success: 
@@ -348,7 +352,7 @@ There will be 5 major subsystems that will be considered for these two modules. 
 ### Budget
 
 #### PCB Design
-&emsp; &emsp; This system contains the necessary PCB, along with its basic circuitry that will contain the capacitors, resistors, and other components necessary for its functionality. It also contains a pressure gauge, magnetometer, IMU, GPS, and digital temperature sensor. These parts were carefully chosen due to the specific needs and requirements of our DL and have been compared against our weight and area constraints. 
+&emsp; &emsp; This system contains the necessary PCB, along with its basic circuitry that will contain the capacitors, resistors, and other components necessary for its functionality. It also contains a pressure gauge, magnetometer, IMU, GPS, and digital temperature sensor. These parts were carefully chosen due to the specific needs and requirements of our DL and have been compared against our weight and area constraints. The costs for this subsystem can be seen below. 
 
 - PCB: $50
 - Pressure Gauge: $3
@@ -361,7 +365,7 @@ Subsystem Total: $78
 
 #### Power System
 
-&emsp; &emsp; This system utilizes a Jauch Quartz LP705176JS 3.7V 3.15mAh battery. This battery was chosen as it satisfies the voltage needed for the STM32 microcontroller as well as the other power constraints needed for the PCB and it’s parts. The part itself will be utilized to supply power to the PCB, microcontroller and all other parts of the DL. 
+&emsp; &emsp; This system utilizes a Jauch Quartz LP705176JS 3.7V 3.15mAh battery. This battery was chosen as it satisfies the voltage needed for the STM32 microcontroller as well as the other power constraints needed for the PCB and it’s parts. The part itself will be utilized to supply power to the PCB, microcontroller and all other parts of the DL. The costs for this subsystem can be seen below. 
 
 - Battery: $22
 
@@ -369,7 +373,7 @@ Subsystem Total: $22
 
 #### Microcontroller
 
-&emsp; &emsp; This system utilizes a STM32G474RET6 microcontroller. This chip will be used to read data off of the various sensors that have been implemented on the PCB and will write out data to the MicroSD card at regular intervals. This specific chip was recommended by Valinor Dispatch to Team 3 and was chosen after careful consideration. Using the STM32 will also require the use of a programming cable and the one chosen for this project is the STLINK-V3MINIE. This chip was chosen at the recommendation of Valinor Dispatch and is commonly paired with the STM32 microcontroller. The connector cable required for the STLINK-V3MINIE is the TC2030-CTX-NL-STDC14 cable which will connect the PCB to the STLink for debugging purposes. 
+&emsp; &emsp; This system utilizes a STM32G474RET6 microcontroller. This chip will be used to read data off of the various sensors that have been implemented on the PCB and will write out data to the MicroSD card at regular intervals. This specific chip was recommended by Valinor Dispatch to Team 3 and was chosen after careful consideration. Using the STM32 will also require the use of a programming cable and the one chosen for this project is the STLINK-V3MINIE. This chip was chosen at the recommendation of Valinor Dispatch and is commonly paired with the STM32 microcontroller. The connector cable required for the STLINK-V3MINIE is the TC2030-CTX-NL-STDC14 cable which will connect the PCB to the STLink for debugging purposes. The costs for this subsystem can be seen below. 
 
 - STM32G474RET6: $10
 - Programmer: $25
@@ -377,14 +381,20 @@ Subsystem Total: $22
 
 Subsystem Total: $85
 
-#### Storage System
+#### Data Processing & Storage System
 
-&emsp; &emsp; This system contains the elements required to store data for the DL. It consists of the MicroSD card reader that will be located on the PCB as well as the MicroSD card itself. The MicroSD card reader chosen for this project is the Same Sky MSD-3-A. This part was chosen due to it’s size, weight, and cost as the most effective option. It features the ability to auto-eject out, allowing for easy removal of the MicroSD card. 
+&emsp; &emsp; This system contains the elements required to store data for the DL. It consists of the MicroSD card reader that will be located on the PCB as well as the MicroSD card itself. The MicroSD card reader chosen for this project is the Same Sky MSD-3-A. This part was chosen due to it’s size, weight, and cost as the most effective option. It features the ability to auto-eject out, allowing for easy removal of the MicroSD card. The costs for this subsystem can be seen below.
 
 - MicroSD Card Reader: $1
 - 256GB MicroSD Card: $50
 
 Subsystem Total: $51
+
+#### Enclosure
+
+This system contains the casing outside the PCB to allow for easy removal utilizing M4 screws and an environmently robust casing to keep the Data Logger functioning. The costs for this system can be seen below. 
+
+**TBD**
 
 #### Total Budget
 
@@ -414,7 +424,7 @@ Based on these skills, the subsystems and their designated members have been div
 
 - Gabe Simpkins will be in charge of the Power System. He is skilled in circuitry and can look at the PCB design and components chosen and determine the power, voltage, and current necessary for the overall design of the Data Logger. He will be checking that the batteries chosen to perform up to standard and expectation as well as ensuring that each component is getting the power it needs to perform properly.
 
-- Andrew Singletary will be working on the ARK Flight Controller as he has a very wide span of knowledge that allows him to see and understand this controller from many different angles including coding as well as signal processing. His main responsibility will be writing the code needed for the ARK to function as needed as well as any other issues that might arise with the flight controller. 
+- Andrew Singletary will be working on the enclosure for the Data Logger to make sure that it does not impede on the functionality of the project while keeping the proper rating. This suits him well with his understanding of microcontrollers and sensor functionality with limitations. He will also be helping Nic with the details of the data processing system once the enclosure subsystem has been complete.
 
 #### Other Personnel
 - Planned Supervisor: Dr. Tarek Elfouly
