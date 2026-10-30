@@ -509,7 +509,7 @@ Based on these skills, the subsystems and their designated members have been div
 
 ## Statement of Contributions
 These are the contributions the team made to this document:<br><br>
-Nicolas Campbell: Survey of Existing Solutions, Operational Flowchart, Comparative Analysis of Potential Solutions, <br>Storage Systems and Data Analysis<br><br>
+Nicolas Campbell: Survey of Existing Solutions, Operational Flowchart, Comparative Analysis of Potential Solutions, Storage Systems and Data Analysis<br><br>
 Lucy Dunn: Resources, Budget, Timeline, Division of Labor, Microcontroller Subsystem<br><br>
 Sean Ottaway: Broader Implications, Specific Implications, High Level Solution, PCB Subsystem, Power Subsystem<br><br>
 Gabriel Simpkins: Background, Specifications, & Constraints, Fully Formulating the Problem, Hardware Diagram<br><br>
