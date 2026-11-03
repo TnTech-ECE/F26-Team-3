@@ -60,7 +60,7 @@
 - The DL shall write timestamped data onto an SD (or microSD) card in uLog format
 - Data shall be measured at a high enough resolution to be unimpeachable
 - The DL shall utilize Sensor Fusion to understand the environment around the vehicle the DL is mounted to
-- The DL may follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers for this prototype
+- The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers for this project
 
 
 #### Constraints
@@ -214,7 +214,7 @@ The design will utilize the instrumentation and components necessary to achieve 
 ### Data
 - The DL shall write timestamped data onto an SD (or microSD) card in ULog format; The team will research ULog formatting to confirm the data is being formatted and written correctly to the SD card as well as ensuring GPS timestamps are accurate. 
 - Data shall be measured at a high enough resolution to be unimpeachable; Extensive tests will be performed to ensure the data is correct. 
-- The DL may follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers for this prototype; The DL will not interfere with or transmit unwanted signals and comply with FCC regulations.
+- The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers for this project; Since the DL will be utilizing an antenna for the GPS, it is very important for this antenna system to not interfere with any receivers or transmitters around the DL.
 
 ### General Operation Constraints
 - The DL project budget shall not exceed $3,000; Components will be selected specifically to comply with the budget, also accounting for assembly and bench testing. 
@@ -365,7 +365,7 @@ Subsystem Total: $78
 
 #### Power System
 
-&emsp; &emsp; This system utilizes a Jauch Quartz LP705176JS 3.7V 3.15mAh battery. This battery was chosen as it satisfies the voltage needed for the STM32 microcontroller as well as the other power constraints needed for the PCB and it’s parts. The part itself will be utilized to supply power to the PCB, microcontroller and all other parts of the DL. The costs for this subsystem can be seen below. 
+&emsp; &emsp; This system utilizes a Jauch Quartz LP705176JS 3.7V 3.15Ah battery. This battery was chosen as it satisfies the voltage needed for the STM32 microcontroller as well as the other power constraints needed for the PCB and it’s parts. The part itself will be utilized to supply power to the PCB, microcontroller and all other parts of the DL. The costs for this subsystem can be seen below. 
 
 - Battery: $22
 
