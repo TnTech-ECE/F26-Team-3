@@ -15,13 +15,15 @@
 
 
 ### Background
-&emsp; &emsp; Recording data for environments is critical for consistent operations. Rough terrain and harsh environments make recording data from UVs difficult [7]. Recording environmental data can help the user learn more about potential hazards and environmental changes to impact the success of the UV in its task. Data like this can inform critical decision-making for the desired task to get done. These can also be important to track for simulation purposes. Tracking these data points (IMU data, temperature, pressure, magnetic field strength) can help to make simulations of the UV environments more accurate, leading to better maneuverability control and an improved UV model to be used in the future [2]. 
+&emsp; &emsp; Recording data for environments is critical for consistent operations. Recorded environmental data can help businesses learn more about potential hazards and environmental changes to impact the success of any UV sent to do simple or difficult tasks in those environments. Data like this can inform critical decision-making for the desired task to get done. These can also be important to keep data points for simulation purposes to improve UV designs. These data points (IMU data, temperature, pressure, magnetic field strength) would specifically make simulations of any UV environments more accurate, which influence decisions of how to improve maneuverability control, task management in harsh environments, and other design choices like for UAVs [2].
+
+&emsp; &emsp; So what happens if there is errors in the data stored related to these environments? If, for example, data related to rough terrain and harsh environments is not the same as the data being written on SD cards, then this information stored on the SD card could lead to ill-informed decisions related to military uses or any other business utilizing UVs [7]. This means the quality of the Data Logging system on any unmanned vehicles is important to prevent these issues. This is why decisions to use Consumer-Grade equipment for Data Logging because of monetary concerns sometimes lead to major errors that are not easy to fix without running another separate trip to confirm the data being recorded and check the functionality of the Data Logging system, which is highly inefficient [7].
 
 &emsp; &emsp; Designing a product that meets all the criteria provided for this project requires a knowledge of sensors, embedded systems, MCUs, and PCB design. Some specific topics related to these areas are sensor fusion, data denoising, and understanding of serial communication, which include Inter-Integrated Circuit (I2C) and Serial Peripheral Interface (SPI). Here are some specifics on these topics. 
 
 1. Sensor Fusion
 
-&emsp; &emsp; With this data logger utilizing multiple types of sensors all at once, it is not as complicated to implement a data logger if the information from each sensor is processed separately. That said, Tam 3's DL will be using DSP in the way of Sensor Fusion by utilizing the information of all sensors together to imply the type of environment that the vehicle the DL is mounted to is in. This makes the project more complicated to be able to achieve this goal. [8]. This is going to be very important to make Team 3's DL unique and stand out from other data loggers on the market.  
+&emsp; &emsp; With this data logger utilizing multiple types of sensors all at once, it is not as complicated to implement a data logger if the information from each sensor is processed separately. That said, Tam 3's DL will be using DSP in the way of Sensor Fusion by utilizing the information of all sensors together to imply the type of environment that the vehicle the DL is mounted to is in. This makes the project more complicated to be able to achieve this goal [8]. This is going to be very important to make Team 3's DL unique and stand out from other data loggers on the market.  
 
 2. Data Denoising
 
@@ -91,7 +93,7 @@ With all these specifications for the DL, there are many alternative solutions t
         - Does not come with the thermometer
         - Comes at a High Price Tag of $750 per unit
 
-2.	Mapir DAQ-A [8]
+2.	Mapir DAQ-A [9]
     - Pros
       - Comes at a cheaper price of $400 per unit 
       - Has support for the companies Camera exposure logging
