@@ -501,7 +501,7 @@ Based on these skills, the subsystems and their designated members have been div
 
 [10] National Fire Protection Association and National Fire Protection Association. National Electrical Code Committee, "Article 250," NEC 2017: NFPA 70 National Electrical Code. Quincy, Ma: National Fire Protection Association, 2016. 
 
-?[11] None V.Muneeswaran, K. N. Kumar, None P.Manikandan, M. N. Kumar, C.Vishnu Chaithanya, and M. Ganga Priyadarshini, “Performance Analysis of Communication Protocols (I2C, SPI) for Embedded Applications With IMU Sensor Using Verilog,” pp. 685–689, Apr. 2025, doi: 10.1109/ictmim65579.2025.10988065. 
+
 
 [12] “SparkFun DataLogger IoT - 9DoF,” Sparkfun.com, 2025. https://www.sparkfun.com/sparkfun-datalogger-iot-9dof.html (Accessed Oct. 08, 2026).  
 
