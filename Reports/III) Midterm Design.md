@@ -15,30 +15,50 @@
 
 
 ### Background
-&emsp; &emsp; Recording data for environments is critical for consistent operations. Rough terrain and harsh environments make recording data from UVs difficult [7]. Recording environmental data can help the user learn more about potential hazards and environmental changes to impact the success of the UV in its task. Data like this can inform critical decision-making for the desired task to get done. These can also be important to track for simulation purposes. Tracking these data points (IMU data, temperature, pressure, magnetic field strength) can help to make simulations of the UV environments more accurate, leading to better maneuverability control and an improved UV model to be used in the future [2]. 
+&emsp; &emsp; Recording data for environments is critical for consistent operations. Recorded environmental data can help businesses learn more about potential hazards and environmental changes to impact the success of any UV sent to do simple or difficult tasks in those environments. Data like this can inform critical decision-making for the desired task to get done. These can also be important to keep data points for simulation purposes to improve UV designs. These data points (IMU data, temperature, pressure, magnetic field strength) would specifically make simulations of any UV environments more accurate, which influence decisions of how to improve maneuverability control, task management in harsh environments, and other design choices like for UAVs [1].
+
+&emsp; &emsp; So what happens if there is errors in the data stored related to these environments? If, for example, data related to rough terrain and harsh environments is not the same as the data being written on SD cards, then this information stored on the SD card could lead to ill-informed decisions related to military uses or any other business utilizing UVs [2]. This means the quality of the Data Logging system on any unmanned vehicles is important to prevent these issues. This is why decisions to use Consumer-Grade equipment for Data Logging because of monetary concerns sometimes lead to major errors that are not easy to fix without running another separate trip to confirm the data being recorded and check the functionality of the Data Logging system, which is highly inefficient [2].
 
 &emsp; &emsp; Designing a product that meets all the criteria provided for this project requires a knowledge of sensors, embedded systems, MCUs, and PCB design. Some specific topics related to these areas are sensor fusion, data denoising, and understanding of serial communication, which include Inter-Integrated Circuit (I2C) and Serial Peripheral Interface (SPI). Here are some specifics on these topics. 
 
 1. Sensor Fusion
 
-&emsp; &emsp; With this data logger utilizing multiple types of sensors all at once, it is not as complicated to implement a data logger if the information from each sensor is processed separately. That said, Tam 3's DL will be using DSP in the way of Sensor Fusion by utilizing the information of all sensors together to imply the type of environment that the vehicle the DL is mounted to is in. This makes the project more complicated to be able to achieve this goal. [8]. This is going to be very important to make Team 3's DL unique and stand out from other data loggers on the market.  
+&emsp; &emsp; With this data logger utilizing multiple types of sensors all at once, it is possible to implement a data logger with the information from each sensor is processed separately. That said, Sensor Fusion is another approach that can be utilized. The idea of Sensor Fusion is to process all the data from separate sensors to make one coherent picture. For example, autonomous vehicles utilize this technique to combine the information from a camera and a lidar to give the vehicle a more complete understanding of the environment around it [3]. The benefit of having a more complete picture rather than having individual data is that the vehicle can make better informed decisions like avoiding obstacles and interpreting green vs red on a traffic light.
+
+&emsp; &emsp; Because of this big benefit, Team 3's DL will be utilizing Sensor Fusion as a form of Digital Signal Processing by combining the information of all sensors together to form a picture of the type of environment that the vehicle the DL is mounted to is in. This will make Team 3's DL distinguish itself from other data loggers on the market. 
 
 2. Data Denoising
 
-&emsp; &emsp; Data denoising is extremely important to be able to use data coming from any of the sensors on a data logger since there is noise in every signal whether it is desired or not. This means that Team 3 will need a method to handle the noise. Data denoising will make this DL more involved in the program to handle the noise without eliminating the signal entirely [13]. This will be an important consideration during the development of the DL. 
+&emsp; &emsp; Data denoising is extremely important to be able to use data coming from any of the sensors on a data logger since there is always some noise present in every signal whether it is desired or not. This means that Team 3 will need a method to handle the noise.  
+
+&emsp; &emsp; One method of Data Denoising is using Deep Learning to distinguish between noise and desired data by comparing the received data to predetermined sets of noise to separate noise from the actual data [4]. This method is often used to help further develop Artificial Intelligence among other applications. 
+
+&emsp; &emsp; Another method is utilizing filters like a Low Pass Filter or Band Pass Filter to eliminate noise that is outside a specified region for signal. This technique would utilize hardware like RLC circuits to remove the undesired signal manually rather than using processing to remove the signal. While this is simpler to set up on a data logger, the con to utilizing this method is the range is set and cannot change without changing either the resistor, capacitor, or inductor used for the filter. This will be an important consideration during the development of the DL. 
+
+&emsp; &emsp; One last method that can be utilized is setting up a model that represents what noise may look like based on previous knowledge of the sensor rather than using a specified data set to remove the noise element of the data. For example, Hyperspectral Image (HSI) denoising can use characteristics of the image to inform the model what the noise will look like [5]. 
 
 3. Serial Communication
 
-&emsp; &emsp; Serial communication is one of the most important parts of a data logger since this project requires the use of multiple sensors all at once. This means that it gets more complicated for the team since it is required to program custom drivers to handle I2C from some of the sensors and SPI from others. Since SPI requires more lines connected to the MCU than the I2C, this means the connections made from the sensors to the MCU also cannot be done the same way. Lastly, I2C is inherently slower than SPI in communication since it has less lines to utilize for communication, but SPI is more difficult to scale with more lines required [11]. While I2C and SPI are not the only serial communication types, they are among the most used in the industry. These principles are important for Team 3 to know how to develop this DL. 
+&emsp; &emsp; Serial communication is one of the most important parts of a data logger since it is required for a microcontroller to communicate with an individual sensor or especially with multiple sensors at the same time. There are many different protocols that can be used for serial communication, but here are some of the most commonly utilized. 
 
-&emsp; &emsp; In addition to addressing all these topics, this product will have to meet several specifications and constraints set by Valinor Dispatch, governing bodies, or Team 3. While there are other comparable solutions, many fall short of the desired specifications of this project and achieve all these topics. These alternative solutions are taxing on the budget, don’t measure all the required data, don’t store the data to be observed in the future, or do not achieve all the important principles listed above. In addition, they are often too large to be portable and transferable to other types of UVs without modification. With this background, Team 3's Data Logger will aim to achieve these goals, but what are all the specifications for this project. 
+&emsp; &emsp; The first commonly used protocol is the Universal Asynchronous Receiver/Transmitter (UART) driven communication. This protocol uses two pins using one of them to transmit data (Tx) and the other pin the receive data (Rx). This protocol is often used for its simplicity to allow devices to communicate and notoriety. This protocol does struggle to do more complicated communication since it does not utilize a clock to sync data. [6] This would significantly limit the ability of a data logger to sync data from multiple sensors at once. This is why it is not very often used specifically for sensors. 
+
+&emsp; &emsp; The next commonly used protocol is the Inter-Integrated Circuit (I2C) protocol. This protocol also utilizes two pins for communication, but instead of using them for transmitting and receiving over separate pins, I2C uses one pin as the clock to sync communication (SCL) and the other for transmitting data bidirectionally between devices (SDA). It also uses specific addresses to identify devices rather than just doing it automatically like UART does. This allows for Plug & Play capabilities while still being simple. That said, the speed of this protocol is limited since it is putting many functions on only two pins, which means less data can be transmitted at a time [7]. 
+
+&emsp; &emsp; Another commonly used protocol is Universal Serial Bus (USB). This is the most widely used across all industries for its versatility. It can be used for power and for data transfer at the same time. It is extremely common for any handheld device in general. While it is like the UART protocol, it gets faster speeds for communication, but it requires a powerful driver to act as a master for the bus in comparison to I2C, which limits the Plug & Play functionality with smaller devices like sensors [8]. 
+
+&emsp; &emsp; The last commonly used protocol is the Serial Peripheral Interface (SPI) protocol. This protocol differentiates itself the most since it uses four pins for communication: One for transmitting data as the slave and receiving data as the master (MISO), the second to do the opposite (MOSI), the third to act as the clock syncing the devices (SCK), and the fourth as the indicator of the device as slave or master (NSS). Being able to separate these functions through four pins makes the protocol faster than I2C since it can delegate all the tasks I2C does over more pins. That said, SPI does not have fixed standards, which can lead to some issues with systems developed separately not being able to communicate properly [9].
+
+&emsp; &emsp; After looking at all these protocols, it is apparent that the data logger will need to utilize I2C, USB, & SPI to be able to achieve the final goal. This is possible since microcontrollers in the modern day have multiple pin sets that can be utilized for each protocol to operate at the same time. This allows Team 3 to have more options when looking for the desired sensors for the data logger that Team 3 is developing. 
+
+&emsp; &emsp; With all this background information, Team 3 will be able to develop a data logger, but this project will have to meet several specifications and constraints set by Valinor Dispatch, governing bodies, and the team. While there are other comparable solutions, many fall short of the desired specifications of this project and achieve all these topics. These alternative solutions are taxing on the budget, don’t measure all the required data, don’t store the data to be observed in the future, or do not achieve all the important principles listed above. In addition, they are often not portable and transferable to other types of UVs without modification. With this background, Team 3's Data Logger will aim to achieve these goals, but what are all the specifications for this project. 
 
 
 ### Specifications and Constraints
 &emsp; &emsp; Team 3's Data Logger (DL) has many specifications and constraints given by Valinor Dispatch as well as electrical and communication governing bodies required for the project. These specifications are to help Valinor evaluate the environments their unmanned vehicles are working in and help improve their vehicles based on the performance of them inside these environments. Here are the specifics for this DL project: 
 
 
-#### Specifications
+##### Specifications
 1\.	Physical Attributes
 - The DL shall be less than 500g in mass
 - The DL shall be entirely self-contained
@@ -60,8 +80,7 @@
 - The DL shall write timestamped data onto an SD (or microSD) card in uLog format
 - Data shall be measured at a high enough resolution to be unimpeachable
 - The DL shall utilize Sensor Fusion to understand the environment around the vehicle the DL is mounted to
-- The DL may follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers for this prototype
-
+- The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers under Title 47 Part 15 Guidelines [10]
 
 #### Constraints
 1\.	General Operation Constraints
@@ -69,10 +88,10 @@
 - The DL shall have a large operating temperature range (-20ºC ~ 60ºC)
 
 2\.	Standards and Safety Constraints
-- The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [3] 
-- The DL shall be subject to IP67 rating for Dust and Water resistance [6] 
-- The DL shall conform to IEEE standards for thermal dissipation and handheld devices [4] 
-- The DL shall ensure the module and battery are properly grounded, avoiding electrical shorts or shock as laid out in Article 250 of NFPA 70 [10] 
+- The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [11] 
+- The DL shall be subject to IP67 rating for Dust and Water resistance [12] 
+- The DL shall conform to IEEE standards for thermal dissipation and handheld devices [13] 
+- The DL shall ensure the module and battery are properly grounded, avoiding electrical shorts or shock as laid out in Article 250 of NFPA 70 [14] 
 - The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation 
 
 With all these specifications for the DL, there are many alternative solutions that try to achieve the same goal as Team 3's DL. What are these existing solutions? 
@@ -82,7 +101,7 @@ With all these specifications for the DL, there are many alternative solutions t
 
 &emsp; &emsp; The first type of UV, UAV's, typically requires its data logger to have the capability to utilize all 5 sensors that are going to be used in this project. There are many solutions currently available, however none of the existing solutions that were found used all 5. Here are some of the solutions Team 3 has found while researching for existing solutions. 
 
-1.	YOST LABS 3-Space Data Logger Nav with BLE & GPS [13]
+1.	YOST LABS 3-Space Data Logger Nav with BLE & GPS [15]
     - Pros
         - Has 4 out of the 5 sensors that shall be used in Team 3’s DL.
         - Has a custom tracking engine that is able to pick up everywhere that GPS is not available to track.
@@ -91,7 +110,7 @@ With all these specifications for the DL, there are many alternative solutions t
         - Does not come with the thermometer
         - Comes at a High Price Tag of $750 per unit
 
-2.	Mapir DAQ-A [8]
+2.	Mapir DAQ-A [16]
     - Pros
       - Comes at a cheaper price of $400 per unit 
       - Has support for the companies Camera exposure logging
@@ -104,7 +123,7 @@ With all these specifications for the DL, there are many alternative solutions t
 
 &emsp; &emsp; The next type of vehicle, UGV's, typically utilizes all the same sensors as a typical data logger for UAVs. The main difference between them is the containment or mounting of the data logger used for UGV's since it should be more dust protectant and vibration proof. Here are some of the solutions currently available for UGV's. 
 
-1.	SparkFun DataLogger IoT- 9DoF [11]
+1.	SparkFun DataLogger IoT- 9DoF [17]
     - Pros
       - Comes at the cheapest price as any on this list at $79.95
       - Is built to be a full Plug-and-Play IoT ecosystem meaning that sensors on their supported list can be plugged directly into the board and work immediately without coding them in
@@ -112,7 +131,7 @@ With all these specifications for the DL, there are many alternative solutions t
       - Where it is a full Plug-and-Play IoT ecosystem, the $79.95 price tag only comes with the base sensors, and this includes the IMU and Magnetometer. Everything else has to be purchased after obtaining this particular data logger.
       - Does not come inside of a rigid box and is just the board by itself
 
-2.	Gulf Coast Data Concepts IMU-GPS [4]
+2.	Gulf Coast Data Concepts IMU-GPS [18]
     - Pros
       - Comes with 4 of the 5 sensors that the Team 3 DL will be using
       - Does come inside of the dust proof box
@@ -143,7 +162,7 @@ b. Disadvantages:
 
 2. The Controller Add-On Model
 
-&emsp; &emsp; This model would include the group using an already made controller module and manipulating it to have the capabilities of being a data logger. Also, addition sensors would usually need to be added to make it achieve Valinor's specifications. Team 3 would still develop a custom PCB to add these additional sensors that module does not have. The specific module that has been suggested to Team 3 is the ARK FPV Flight Controller. This flight controller module includes an MCU, IMU, Temperature, Pressure, Magnetometer, and microSD card. The suggested flight controller can be seen in *Figure 1*. [1]
+&emsp; &emsp; This model would include the group using an already made controller module and manipulating it to have the capabilities of being a data logger. Also, addition sensors would usually need to be added to make it achieve Valinor's specifications. Team 3 would still develop a custom PCB to add these additional sensors that module does not have. The specific module that has been suggested to Team 3 is the ARK FPV Flight Controller. This flight controller module includes an MCU, IMU, Temperature, Pressure, Magnetometer, and microSD card. The suggested flight controller can be seen in *Figure 1*. [19]
 
 *<div align="center">![Figure 1](https://hackmd.io/_uploads/H1xZcQjK2zx.png)</div>*
 *<div align="center">Figure 1: The ARK FPV Flight Controller</div>*
@@ -156,59 +175,43 @@ b. Disadvantages:
 
   - The disadvantage of this system is that it removes many aspects that make this project so unique. This can also limit how custom the DL can be. This route is great for the purpose of quantity and not as good for quality. This is not to discredit the chips found on the ARK Flight Controller as bad chips, but it would significantly reduce the customization of the DL. This also would mean that the project is limited by budget or capabilities of the sensors already incorporated into the flight controller. With this route, this project would be more focused on coding than engineering.
 
-&emsp; &emsp; Looking at all the Benefits and Disadvantages for both Team 3 has decided it best to use both models and create The Bare Bones Model for the class project to be able to have a design project, and The Controller Add-On Model to supply Valinor Dispatch with the project scope desired by Valinor Dispatch. This benefits Team 3 because using the ARK flight controller utilizes previous code and wiring. This allows Team 3 to have a finished project for Valinor Dispatch if The Barebones Model gets stuck in the development. 
+&emsp; &emsp; Looking at all the Benefits and Disadvantages for both, Team 3 has decided it best to use the Bare Bones model to achieve Valinor's goals. This will allow Team 3 to customize all the elements to work and expand like Valinor's systems do. 
 
 ## High-Level Solution
 
-&emsp; &emsp; The goal of this project for Valinor Dispatch is to develop a self-contained module that records data from integrated instrumentation and seamlessly implements the module onto their existing unmanned vehicles. Another goal Team 3 has for this data logger is utilizing sensor fusion to interpret the data being obtained to have a better understanding of the environment before storing the data. This goal will be achieved separately from the final project that will be handed over to Valinor Dispatch to achieve their goals.
+&emsp; &emsp; The goal of this project for Valinor Dispatch is to develop a self-contained module that records data from integrated instrumentation and seamlessly implements the module onto their unmanned vehicles and utilize sensor fusion to interpret the data being collected to interpret the environment before storing the data.
 
-&emsp; &emsp; The way Team 3 will maximize achieving Valinor's goal will be utilizing components, modules, and software that the company is already familiar with. This solution will incorporate equipment and software Valinor is already familiar with. This will reduce the amount of time and resources they will need to dedicate to making future adjustments to the module. To achieve Team 3's additional goals, the system will utilize widely available components paired with a commonly utilized MCU to help in the development process. 
+&emsp; &emsp; The way Team 3 will maximize achieving these goals will be utilizing components, modules, and software that the company is already familiar with. This will reduce the amount of time and resources they will need to dedicate to making future adjustments to the module. In addition, the system will utilize widely available components paired with a commonly utilized MCU to help in the development process. 
 
-&emsp; &emsp; The requirements for the data logger going to Valinor Dispatch are to implement components that collect timestamps transmitted through GPS, measure magnetic field strength, ambient temperature and pressure, and vehicle acceleration. The data collected through these components is to be compiled and formatted to an SD card for Valinor Dispatch in ULog format. The module is going to be designed to run off its own battery and support USB-C charging capabilities. While a module can be developed from the ground up, Team 3 aims to follow the Controller Add-On Model for the final project being handed over to Valinor Dispatch utilizing the ARK Flight Controller. Figure 1 shows the model via a Hardware Block diagram that this module will be based off. 
+&emsp; &emsp; This module will be based on the Bare Bones Model presented previously in the section comparing the possible different models and be subject to the requirements listed previously in this document. *Figure 2* shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is using to design the data logger from the ground up. 
 
-*<div align="center">![Figure 2](https://hackmd.io/_uploads/BkjNEjt3Me.png)</div>*
-*<div align="center">Figure 2 – The Controller Add-On Model Block Diagram</div>*
+*<div align="center">![Figure 2](https://hackmd.io/_uploads/SysF4iY2Gl.png)</div>*
+*<div align="center">Figure 2 – Data Logger Block Diagram</div>*
 
-Here is how the model in *Figure 2* will be implemented for Valinor's data logger: 
-
-### Subsystems:
-1. PCB
-  - The PCB subsystem houses the GPS as well as the RGB LED. This will draw power from the Power System and communicate with the Microcontroller via serial communication. The PCB subsystem shall be small enough to fit with the ARK FPV Flight Controller. The PCB shall also isolate the GPS enough to where other sensors will not interfere with its operation.
-
-2. ARK FPV Flight Controller
-  - The ARK FPV Flight Controller will draw power from the Power System. The subsystem houses the microSD and all sensors onboard except the GPS. The ARK FPV will write data onto the microSD in ULog format and communicate with the PCB subsystem via serial communication. The ARK FPV shall be isolated from the sensors to avoid increased noise.
-
-3. Power System
-  - The Power System will regulate input power from a USB-C port and the battery while supplying the other systems with power. The Power System shall comply with grounding, shock, and hazardous material standards [10].
-
-&emsp; &emsp; The requirements for the secondary module are going to be the same but include the sensor fusion goal utilizing digital signal processing through an embedded systems design. In addition, this module will be based on the Bare Bones Model presented previously in the section comparing the possible different models. *Figure 2* shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is designing from the ground up. 
-
-*<div align="center">![Figure 3](https://hackmd.io/_uploads/SysF4iY2Gl.png)</div>*
-*<div align="center">Figure 3 – Bare Bones Model Block Diagram</div>*
-
-Here is how the model in *Figure 3* will be implemented to achieve Team 3's additional goals:
+Here is how the model in *Figure 2* will be implemented to achieve Team 3's goals:
 
 ### Subsystems:
 1. PCB
   - The PCB subsystem houses all sensors as well as the RGB LED. The physical PCB will also house the microSD and Microcontroller subsystems. This will draw power from the Power System and communicate with the Microcontroller via serial communication. The PCB subsystem shall be small enough to fit within housing smaller than 4 in x 3 in x 1 in. The PCB shall also isolate the sensors enough to where they will not interfere with each other’s operation. 
 
 2. Storage System and Data Analysis 
-  - The MicroSD will be housed on the physical PCB. The microcontroller will write data onto the microSD in ULog format. The microSD port shall be compliant with IP67 standards for dust and water resistance [6].  After writing onto the MicroSD card, the data will be analyzed, filtered, and smoothed to get clean data onto the microSD card. 
+  - The MicroSD will be housed on the physical PCB. The microcontroller will write data onto the microSD in ULog format. The microSD port shall be compliant with IP67 standards for dust and water resistance [12].  After writing onto the MicroSD card, the data will be analyzed, filtered, and smoothed to get clean data onto the microSD card. 
 
 3. Microcontroller
   - The Microcontroller will be housed on the physical PCB and draw power from the Power System. The microcontroller will write data onto the microSD in ULog format and communicate with the PCB subsystem via serial communication. The microcontroller shall be isolated from the sensors to avoid increased noise.
 
 4. Power System
-  - The Power System will regulate input power from a USB-C port and the battery while supplying the other systems with power. The Power System shall comply with grounding, shock, and hazardous material standards. 
+  - The Power System will regulate input power from a USB-C port and the battery while supplying the other systems with power. The Power System shall comply with grounding, shock, and hazardous material standards.
 
-&emsp; &emsp; With both these models in mind, most of the flow of the system will be similar between the different models. The operational flowchart to represent this flow can be seen in *Figure 4*. 
+5. Enclosure
+  - The enclosure will be used to prevent dust and water from touching the electronics of the data logger to keep an IP67 rating [12]. This will have a tab that opens to the MicroSD card reader and the USB-C port to access them without removing the entirety of the enclosure.
 
-*<div align="center">![Figure 4](https://hackmd.io/_uploads/rkOA4jYnzl.png)</div>*
-*<div align="center">Figure 4 – Operational Flowchart for Team 3's Data Logger</div>*
+&emsp; &emsp; With this model in mind, it will operate with the signal flow displayed in the operational flowchart shown in *Figure 3*. 
 
-*<div align="center">*Similar to a block diagram, the flow chart aims to specify the system, but from the user's point of view rather than illustrating the arrangement of each subsystem. It outlines the steps a user needs to perform to use the device and the screens/interfaces they will encounter. A diagram should be drawn to represent this process. Each step should be represented in the diagram to visually depict the sequence of actions and corresponding screens/interfaces the user will encounter while using the device.*</div>*
+*<div align="center">![Figure 3](https://hackmd.io/_uploads/rkOA4jYnzl.png)</div>*
+*<div align="center">Figure 3 – Operational Flowchart for Team 3's Data Logger</div>*
 
-<br>&emsp; &emsp; While developing these systems, there have been constraints identified in the Specifications and Constraints section that will need to be followed in the development of these PCB systems. Team 3 plans to adhere to these constraints in the following ways:
+<br>&emsp; &emsp; While developing these systems, there have been constraints identified in the *Specifications and Constraints* section that will need to be followed in the development of these PCB systems. Team 3 plans to adhere to these constraints in the following ways:
 
 ### Physical Attributes
 - The DL shall be less than 500g in mass; The module will utilize multiple components as well as a battery all which are collectively under the weight limit.  
@@ -225,7 +228,7 @@ Here is how the model in *Figure 3* will be implemented to achieve Team 3's addi
   - Pressure 
   - Absolute time
  
-&emsp; &emsp; The design will utilize the instrumentation and components necessary to achieve these goals. 
+The design will utilize the instrumentation and components necessary to achieve these goals. 
 
 - The DL shall have an embedded LED active when data is being logged; SMD LEDs will be incorporated into the design and will be tested extensively to prevent malfunctions abide by the specified constraint.  
 - The DL may use recommended MCU (STM32G474RET6) and JST connections for software updates and changes; Extensive research and embedded systems designs will be tested to confirm the specified MCU will be compatible with the project. Standard JST connectors will be utilized.
@@ -233,17 +236,17 @@ Here is how the model in *Figure 3* will be implemented to achieve Team 3's addi
 ### Data
 - The DL shall write timestamped data onto an SD (or microSD) card in ULog format; The team will research ULog formatting to confirm the data is being formatted and written correctly to the SD card as well as ensuring GPS timestamps are accurate. 
 - Data shall be measured at a high enough resolution to be unimpeachable; Extensive tests will be performed to ensure the data is correct. 
-- The DL may follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers for this prototype; The DL will not interfere with or transmit unwanted signals and comply with FCC regulations.
+- The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers under Title 47 Part 15 Guidelines [10]; Since the DL will be utilizing an antenna for the GPS, it is very important for this antenna system to not interfere with any receivers or transmitters around the DL.
 
 ### General Operation Constraints
 - The DL project budget shall not exceed $3,000; Components will be selected specifically to comply with the budget, also accounting for assembly and bench testing. 
-- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC); Extensive bench testing will be performed, so the module operates within the specified temperature and pressure ranges. Additional temperature regulation techniques	may be implemented to obtain this objective.  \
+- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC); Extensive bench testing will be performed, so the module operates within the specified temperature and pressure ranges. Additional temperature regulation techniques	may be implemented to obtain this objective.
 
 ### Standards and Safety Constraints
-- The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act; [3]; Team 3 will ensure the components that are being utilized as well as the testing procedures will comply with the Federal Hazardous Substances Act. 
-- The DL shall be subject to IP67 rating for Dust and Water resistance; [6]; Team 3 will perform extensive testing to ensure the module is IP67 rated and will make adjustments to ensure the module will be IP67 rated.  
-- The DL shall conform to IEEE standards for thermal dissipation and handheld devices; [4]; Team 3 will ensure the module conforms to IEEE standards and implement passive thermal management designs into the module. 
-- The DL shall ensure the PCB and battery are properly grounded, avoiding electrical shorts or shock; [10]; Team 3 will follow IEEE, NEC, and NFPA to ensure the module adheres to these standards.  
+- The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [11]; Team 3 will ensure the components that are being utilized as well as the testing procedures will comply with the Federal Hazardous Substances Act. 
+- The DL shall be subject to IP67 rating for Dust and Water resistance [12]; Team 3 will perform extensive testing to ensure the module is IP67 rated and will make adjustments to ensure the module will be IP67 rated.  
+- The DL shall conform to IEEE standards for thermal dissipation and handheld devices [13]; Team 3 will ensure the module conforms to IEEE standards and implement passive thermal management designs into the module. 
+- The DL shall ensure the PCB and battery are properly grounded, avoiding electrical shorts or shock [14]; Team 3 will follow IEEE, NEC, and NFPA to ensure the module adheres to these standards.  
 - The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation; Due to the low power consumption of both module versions, low voltage batteries will be utilized as well as following the design constraint listed in the Electronics constraint section.
 
 ## Atomic Subsystem Specifications
@@ -253,16 +256,14 @@ There will be 5 major subsystems that will be considered for these two modules. 
   1. PCB System
   2. Power System
   3. Microcontroller System
-  4. Data Processing and Storage System
-  5. ARK Flight Controller module
+  4. Data Processing & Storage System
+  5. Enclosure
 
-While the ARK controller will share some features, the ARK Flight Controller based module is going to have enough differences that Team 3 is separating it into its own subsystem. Here are some specifics on each of these subsystems. 
+Here are some specifics on each of these subsystems.
 
-### Bare Bones Module
+### PCB Subsystem
 
-#### PCB Subsystem
-
-&emsp; &emsp; The PCB will act as the foundation for the module and will be populated with the necessary instrumentation components as well as a power management system that accommodates battery charging. The PCB will be utilizing all types of signals as it holds all of the components.
+&emsp; &emsp; The PCB will act as the foundation for the module and will be populated with the necessary instrumentation components as well as a power management system that accommodates battery charging. The PCB will be utilizing all types of signals as it holds all of the components. It will also be able to mount to unmanned vehicles utilizing the enclosure it will be contained in. 
 
 &emsp; &emsp; The primary components located on the PCB are as follows: 
 
@@ -282,16 +283,28 @@ While the ARK controller will share some features, the ARK Flight Controller bas
 
 - USB-C connector: Acts as the primary connector for the charging cable. Shall supply power through *standard USB-C protocol* to both the battery and components when cable is connected. The USB-C charging system shall comply with the safety constraints listed in the *High-Level Solution* section.
 
-#### Power System
+### Power System
 
 &emsp; &emsp; The power system will handle power management throughout the PCB as well as the battery charging system. The primary interfaces will be the USB-C connector and the battery's JST connector. The USB-C will act as an input that receives power via external USB-C cable. The JST connector will act as both an input and an output as the battery will charge and discharge through this connector.  
 
-&emsp; &emsp; A handful of small components will be integrated into the power system to manage power regulation as well as battery charging. A battery charger IC will be the primary component of the battery charging circuit and is responsible for managing power that is received from the USB-C connector and regulating that power to the battery. If the battery is charging, a red LED will be illuminated. If the battery is fully charged, the charging IC will stop charging the battery and the red LED will turn off. A 3.3V regulator will be the primary component for voltage regulation throughout the PCB as most of the onboard components have an operating voltage range of 3.3V. Smoothing capacitors will be placed along the power traces to filter high frequencies. *Figure 5* shows the ideal battery charging flowchart.
+&emsp; &emsp; A handful of small components will be integrated into the power system to manage power regulation as well as battery charging. A battery charger IC will be the primary component of the battery charging circuit and is responsible for managing power that is received from the USB-C connector and regulating that power to the battery. If the battery is charging, a red LED will be illuminated. If the battery is fully charged, the charging IC will stop charging the battery and the red LED will turn off. A 3.3V regulator will be the primary component for voltage regulation throughout the PCB as most of the onboard components have an operating voltage range of 3.3V. Smoothing capacitors will be placed along the power traces to filter high frequencies. *Figure 4* shows the ideal battery charging flowchart.
 
-*<div align="center">![Figure 5](https://hackmd.io/_uploads/BJqqditnzx.png)</div>*
-*<div align="center">Figure 5 – Charging System</div>*
+*<div align="center">![Figure 4](https://hackmd.io/_uploads/BJqqditnzx.png)</div>*
+*<div align="center">Figure 4 – Charging System</div>*
 
-#### Microcontroller
+&emsp; &emsp; The battery chosen is a 3.7v 3000mAh rechargeable LiPo battery. With the DL needing to stay powered for 24 hours, the battery has a max current demand of 125mA. The max current demand per component is as follows: 
+
+1. LED = 20 mA
+2. STM = 56 mA
+3. Pressure Sensor = 3.4 µA
+4. Magnetometer = 450 µA
+5. IMU = 790 µA
+6. GPS = 4.5 mA
+7. Temperature Sensor = 220 µA
+
+&emsp; &emsp; With a total current demand of about 92mA, the data logger can run for about 36 hours without being recharged. This means the DL will be able to run for the required 24 hours from a 65% charged battery and above.
+
+### Microcontroller
 
 &emsp; &emsp; The microcontroller chosen for this project is the STM32G474RET6. This microcontroller will allow for the reading of all attached sensors as well as writing the data from these sensors out to the microSD through ULog format. The firmware needed for this subsystem will be written in C and designed using the STM32CubeMX software. 
 
@@ -312,29 +325,28 @@ While the ARK controller will share some features, the ARK Flight Controller bas
 5. **Supervisor Task**
 - This task determines when and if the logger should be actively writing out or not based on a few different factors. It checks if the microSD card has been inserted and has power, if so it tells the logger to write out, if not it flushes the buffer to keep it from getting full of old data.
 
-#### Storage System and Data Analysis
+### Storage System and Data Analysis
 
 &emsp; &emsp; The MicroSD will take the data given to it in ULog format, which on the microSD card will be a single, continuous train of binary data directly from the microcontroller. This data will be in the exact same format that the microcontroller will see. All this data will be raw binary data and will need to be put into some kind of converter to be understood by humans. The benefit of the ULog format though is where it is binary, it does not take up much space. This helps give a heap of data in a small package. To make it able to be read by a human, it will have to be converted to CSV (Comma Separated Variables), by using python. Then this data can then be put into understandable graphs using MATLAB.
 
 &emsp; &emsp; After getting graphs, this subsystem will also take the raw and unfiltered data and smooth it out to make it easily read by a consumer. This will be done with DSP (Digital System Processing). The DSP will include filtering out any high frequency noise and isolating the true system states.  By using PIDs and other Software filters, there shall be a Dynamic Transfer function that will then be flashed onto the MCU at the Analyzer Task.  This process may be repeated as many times as needed to get clean data from the DL. 
 
-#### ARK FPV Flight Controller-Based Module Subsystem
+### Enclosure
 
-&emsp; &emsp; With this subsystem, this will be a system that is separate from the other subsystems when relating it to the Bare Bones Model. That said, all these elements will also be a less complicated version of each of their subsystems to allow the flight controller to achieve the same tasks without the data processing desired for the Bare Bones module. While it will contain many similar components, there are important changes that are required to get the ARK Flight Controller system to data log like the Bare Bones Model but stay within the scope that Valinor has established for their Data Logger.  
+&emsp; &emsp; With this subsystem, the goal is to achieve the IP67 rating that is in the specifications for the project while allowing the Data Logger to function and not overheat [12]. This will be achieved by utilizing a casing that allows for an antenna to fit tightly through the enclosure for the GPS and potentially using cooling fans or systems to prevent damage inflicted on the Data Logger by itself. In addition, it will be the primary source of mounting the Data Logger to these unmanned vehicles utilizing this project.
 
-&emsp; &emsp; One of the major changes is that Team 3 will be developing a separate PCB board to work with the ARK controller to achieve the goal of being a data logger. This means that there will be a need to utilize traces to connect to JST-GH ports to connect the ARK controller to the PCB to provide power and transmit data from the GPS to the microcontroller. Specifically, there will be a JST-GH 3 Pin connection for power and a JST-GH 6 Pin connection for the GPS. The PCB will also need to house the battery providing power for the system. The GPS will need to have a voltage regulator like the Bare Bones Model to step down the 5 V that is going to come from the ARK controller to 3.3 V. Lastly, to mount the PCB to the ARK controller, Team 3 will be utilizing standoffs for this purpose. 
-
-&emsp; &emsp; Another major change is related to the power system. It will still utilize the same flow as indicated in Figure 4, but the battery that will be utilized for this system is going to be on the PCB separate from the charging ports that are on the ARK controller. It is also important to note that the battery for the ARK controller will need to be upgraded to 5 V instead of 3.3 V for the Bare Bones Module to accommodate the needs of the flight controller. With these differences, this module will still use the same battery charging and power regulation components as the Bare Bones' power system. 
-
-&emsp; &emsp; The last major change is that the ARK controller utilizes the STM32H743IIK6 microcontroller in comparison to the STM32G474RET6. This Microcontroller has significantly faster speeds, more memory, and more pins to utilize; however, these features are not important since the goal is the same if not simpler for this module in comparison to the Bare Bones Module. Also, since there are more pins on the ARK, but they are already assigned to specific ports on the controller, the custom drivers programed for the data logger will need to change to reflect the differences between the microcontrollers. With this, it is simpler since this module is not going to be doing the sensor fusion like the Bare Bones module. 
-
-&emsp; &emsp; With all these changes, Team 3 will be able to separately develop a module for Valinor that utilizes the ARK Flight Controller that they commonly use for the data logger they are looking for Team 3 to develop, while Team 3 can further develop a data logger to achieve the additional goals set by the team. 
+&emsp; &emsp; To accomplish this, the enclosure will be utilizing M4 screws and mounting equipment to allow for the Data Logger to be easily added or removed from these vehicles. Also, some more screw will be used to allow for easy access to the microSD card without the requirement of dismounting the logger from the vehicles. 
 
 ## Measures of Success
 &emsp; &emsp; To ensure the accuracy and consistency of the DL, comparisons will be made with established units of various types to ensure the measurements are accurate. In addition, the efficiency of the DL will be verified so Team 3's DL will become the best solution. These will be checked using the following measurements of success: 
 
 1. Sensor Data Measurement
     - Each sensor will have readings taken for a set environment, and the data will be compared to sensors outside of the DL for accuracy.
+      - For the accelerometer,
+      - For the IMU,
+      - For the thermometer, it will be put inside a temperature chamber with a set temperature to compare the readings on the thermometer to the set temperature.
+      - For the pressure gauge,
+      - For the GPS, 
     - Data measurement will be defined based on these error ranges in early testing:
       - Acceleration & Velocity: ± 5 %
       - Magnetic Field Strength: ± 5 %
@@ -347,21 +359,24 @@ While the ARK controller will share some features, the ARK Flight Controller bas
       - Temperature: ± 1 °C
       - Pressure: ± 1 Pa
       - Absolute Time: ± 1 s<br>
+      
 2. Power System Efficiency
-    - The power system of the module shall be able to run all five sensors measuring data at the same time. 
-    - The system shall run the MCU and SD card writing unit as well along with the sensors.
-    - The system shall be rechargeable while onboard and last for more than one operation.
+    - The power system of the module shall be able to run all five sensors measuring data with readings within the previously listed tolerances at the same time for any continuous amount of time until the battery dies or the DL is turned off.  
+    - The system shall run the MCU and SD card writing unit as well along with the sensors for any continuous amount of time without corrupted or missing data from the sensors. 
+    - The system shall be rechargeable while onboard and last for more than one operation as specified previously in constraints without recharging being necessary during the trip.
     - Success is found when the DL can run all five sensors, the MCU, and the SD card writer without part failure from current and voltage draw.
-    - Success is also reliant on the power system running for longer than 1 day without recharging.<br> 
+    - Success is also reliant on the power system running for longer than 1 day without recharging.<br>
+
 3. Data Processing and Transmission System
-    - The power system of the module shall be able to run all five sensors measuring data at the same time. 
-    - The system shall run the MCU and SD card writing unit as well along with the sensors.
-    - The system shall be rechargeable while onboard and last for more than one operation.
-    - Success is found when the DL can run all five sensors, the MCU, and the SD card writer without part failure from current and voltage draw. <br>
-4. Data Storage System
-    - With the data now in uLog format, it must be transmitted to the SD Card writer to write the data onto an SD card to be observed after operation. 
-    - Success can be observed when an SD card put into the writer can be taken out and read off the SD card with timestamps indicated for each set of data. <br>
-5. System Consistency in Different Environments 
+    - The MCU, whether it is an STM32, Raspberry Pi, or any other kind of controller, must be able to process data from all five sensors simultaneously. 
+    - Once it has processed the data, it shall be organized and written in uLog format to the SD card so it can be recovered after a mission is complete. 
+    - This system is deemed successful if the data can be read from the MCU using the STMCubeIDE to monitor these values. 
+    - This system will utilize an RGB LED light to indicate red when the DL is turned on and ready for an SD card, green while the DL is processing data and writing data to the SD card, & Blue when the ulog file on the SD card has been closed and the SD card can be removed.
+    - Success of these systems together will be when the SD card can be inserted into the SD card writer, have accurate data written to it from the MCU, and the ulog file created on the SD card is closed with the data organized in sets of data with timestamps from when it was taken.
+    - Success will also be based on if there is an accurate guess of the environment the DL is in after Sensor Fusion is complete from the data collected.
+    - These measures of success will be tested by mounting the DL onto one of Valinor Dispatch's unmanned vehicles for a 10-minute mission through different environments like outside vs inside to compare the readings of the DL to known temperatures, pressures, and timestamps.<br>
+    
+4. System Consistency in Different Environments 
     - This DL must be able to function properly in any environment. 
     - This measure will be met when the DL consistently gains accurate information on the SD card from the sensors in multiple different environments.<br><br>
 
@@ -379,7 +394,7 @@ While the ARK controller will share some features, the ARK Flight Controller bas
 ### Budget
 
 #### PCB Design
-&emsp; &emsp; This system contains the necessary PCB, along with its basic circuitry that will contain the capacitors, resistors, and other components necessary for its functionality. It also contains a pressure gauge, magnetometer, IMU, GPS, and digital temperature sensor. These parts were carefully chosen due to the specific needs and requirements of our DL and have been compared against our weight and area constraints. 
+&emsp; &emsp; This system contains the necessary PCB, along with its basic circuitry that will contain the capacitors, resistors, and other components necessary for its functionality. It also contains a pressure gauge, magnetometer, IMU, GPS, and digital temperature sensor. These parts were carefully chosen due to the specific needs and requirements of our DL and have been compared against our weight and area constraints. The costs for this subsystem can be seen below. 
 
 - PCB: $50
 - Pressure Gauge: $3
@@ -392,7 +407,7 @@ Subsystem Total: $78
 
 #### Power System
 
-&emsp; &emsp; This system utilizes a Jauch Quartz LP705176JS 3.7V 3.15mAh battery. This battery was chosen as it satisfies the voltage needed for the STM32 microcontroller as well as the other power constraints needed for the PCB and it’s parts. The part itself will be utilized to supply power to the PCB, microcontroller and all other parts of the DL. 
+&emsp; &emsp; This system utilizes a Jauch Quartz LP705176JS 3.7V 3.15Ah battery. This battery was chosen as it satisfies the voltage needed for the STM32 microcontroller as well as the other power constraints needed for the PCB and it’s parts. The part itself will be utilized to supply power to the PCB, microcontroller and all other parts of the DL. The costs for this subsystem can be seen below. 
 
 - Battery: $22
 
@@ -400,7 +415,7 @@ Subsystem Total: $22
 
 #### Microcontroller
 
-&emsp; &emsp; This system utilizes a STM32G474RET6 microcontroller. This chip will be used to read data off of the various sensors that have been implemented on the PCB and will write out data to the MicroSD card at regular intervals. This specific chip was recommended by Valinor Dispatch to Team 3 and was chosen after careful consideration. Using the STM32 will also require the use of a programming cable and the one chosen for this project is the STLINK-V3MINIE. This chip was chosen at the recommendation of Valinor Dispatch and is commonly paired with the STM32 microcontroller. The connector cable required for the STLINK-V3MINIE is the TC2030-CTX-NL-STDC14 cable which will connect the PCB to the STLink for debugging purposes. 
+&emsp; &emsp; This system utilizes a STM32G474RET6 microcontroller. This chip will be used to read data off of the various sensors that have been implemented on the PCB and will write out data to the MicroSD card at regular intervals. This specific chip was recommended by Valinor Dispatch to Team 3 and was chosen after careful consideration. Using the STM32 will also require the use of a programming cable and the one chosen for this project is the STLINK-V3MINIE. This chip was chosen at the recommendation of Valinor Dispatch and is commonly paired with the STM32 microcontroller. The connector cable required for the STLINK-V3MINIE is the TC2030-CTX-NL-STDC14 cable which will connect the PCB to the STLink for debugging purposes. The costs for this subsystem can be seen below. 
 
 - STM32G474RET6: $10
 - Programmer: $25
@@ -408,29 +423,24 @@ Subsystem Total: $22
 
 Subsystem Total: $85
 
-#### Storage System
+#### Data Processing & Storage System
 
-&emsp; &emsp; This system contains the elements required to store data for the DL. It consists of the MicroSD card reader that will be located on the PCB as well as the MicroSD card itself. The MicroSD card reader chosen for this project is the Same Sky MSD-3-A. This part was chosen due to it’s size, weight, and cost as the most effective option. It features the ability to auto-eject out, allowing for easy removal of the MicroSD card. 
+&emsp; &emsp; This system contains the elements required to store data for the DL. It consists of the MicroSD card reader that will be located on the PCB as well as the MicroSD card itself. The MicroSD card reader chosen for this project is the Same Sky MSD-3-A. This part was chosen due to it’s size, weight, and cost as the most effective option. It features the ability to auto-eject out, allowing for easy removal of the MicroSD card. The costs for this subsystem can be seen below.
 
 - MicroSD Card Reader: $1
 - 256GB MicroSD Card: $50
 
 Subsystem Total: $51
 
-#### ARK FPV Flight Controller-Based Module
+#### Enclosure
 
-&emsp; &emsp; This system will have its own separate GPS which will be contained on a PCB that will be connected and working in tandem with the ARK Flight controller. This system will also have its own battery separate from the rest of the project. The flight controller chosen for this project is the ARK FPV Flight Controller, this board was chosen as the recommendation of Valinor Dispatch as well as compared against similar models. This board was chosen over it’s competitors for its simplicity, reliability, and price point. The battery chosen for this project is the 1200mAh 7.4V 2S LiPo battery. This battery is commonly used to power drones and satisfies the ARKs needed 5.5V power consumption benchmark. The GPS chosen for this system is the same as was chosen for the Bare Bones Module, see above for the justification. This system will use the same debugger STLINK and cable as seen in the Microcontroller Subsystem above. 
+This system contains the casing outside the PCB to allow for easy removal utilizing M4 screws and an environmently robust casing to keep the Data Logger functioning. The costs for this system can be seen below. 
 
-- ARK FPV Flight Controller: $200
-- GPS: $12
-- PCB: $50
-- Battery: $26
-
-Subsystem Total: $288
+**TBD**
 
 #### Total Budget
 
-&emsp; &emsp; The total overall proposed budget for Team 3’s Data Logger is $524. As seen above these components have been chosen intentionally to work well together and result in a well rounded Data Logger that successfully reads and writes out data onto a MicroSD card using two separate board styles. 
+&emsp; &emsp; The total overall proposed budget for Team 3’s Data Logger is $236. As seen above these components have been chosen intentionally to work well together and result in a well rounded Data Logger that successfully reads and writes out data onto a MicroSD card using two separate board styles. 
 
 ### Division of Labor 
 
@@ -456,7 +466,7 @@ Based on these skills, the subsystems and their designated members have been div
 
 - Gabe Simpkins will be in charge of the Power System. He is skilled in circuitry and can look at the PCB design and components chosen and determine the power, voltage, and current necessary for the overall design of the Data Logger. He will be checking that the batteries chosen to perform up to standard and expectation as well as ensuring that each component is getting the power it needs to perform properly.
 
-- Andrew Singletary will be working on the ARK Flight Controller as he has a very wide span of knowledge that allows him to see and understand this controller from many different angles including coding as well as signal processing. His main responsibility will be writing the code needed for the ARK to function as needed as well as any other issues that might arise with the flight controller. 
+- Andrew Singletary will be working on the enclosure for the Data Logger to make sure that it does not impede on the functionality of the project while keeping the proper rating. This suits him well with his understanding of microcontrollers and sensor functionality with limitations. He will also be helping Nic with the details of the data processing system once the enclosure subsystem has been complete.
 
 #### Other Personnel
 - Planned Supervisor: Dr. Tarek Elfouly
@@ -511,37 +521,47 @@ Based on these skills, the subsystems and their designated members have been div
 
 ## References
 
-[1] “ARK FPV | ARK Documentation,” Arkelectron.com, Oct. 21, 2026. https://docs.arkelectron.com/products/flight-controller/ark-fpv (accessed Oct. 23, 2026). 
+[1] “Drone Simulation,” www.mathworks.com. https://www.mathworks.com/discovery/drone-simulation.html (accessed Oct. 09, 2026).  
 
-[2] “Drone Simulation,” www.mathworks.com. https://www.mathworks.com/discovery/drone-simulation.html (accessed Oct. 09, 2026).  
+[2] J. Sanchez, “Ruggedized Storage for UAV/Drone Data Logging: Why Consumer-Grade Storage Falls Short,” Delkin Industrial, Jan. 28, 2026. https://www.delkin.com/blog/rugged-uav-data-logging-storage/ (accessed Oct. 09, 2026).  
 
-[3] “Federal Hazardous Substances Act (FHSA) Requirements,” CPSC.gov, Apr. 04, 2016. https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/FHSA-Requirements (accessed Oct. 09, 2026).  
+[3] J. Kocić, N. Jovičić and V. Drndarević, "Sensors and Sensor Fusion in Autonomous Vehicles," 2018 26th Telecommunications Forum (TELFOR), Belgrade, Serbia, 2018, pp. 420-425, doi: 10.1109/TELFOR.2018.8612054.  
 
-[4] IEEE, “Handheld Devices,” IEEE Technology Navigator, 2026. https://technav.ieee.org/topic/handheld-devices/ (accessed Oct. 22, 2026). 
+[4] S. Yu, J. Ma, and W. Wang, “Deep Learning for Denoising,” Geophysics, vol. 84, no. 6, pp. V333-V350, July 2019, doi: 10.1190/geo2018-0668.1. 
 
-[5] “IMU-GPS - Gulf Coast Data Concepts,” Gulf Coast Data Concepts - Simple yet versatile data acquisition, Sept. 06, 2024. https://gulfcoastdataconcepts.com/index.php/product/imu-gps/ (Accessed Oct. 08, 2026).  
+[5] Q. Zhang, Y. Zheng, Q. Yuan, M. Song, H. Yu and Y. Xiao, "Hyperspectral Image Denoising: From Model-Driven, Data-Driven, to Model-Data-Driven," in IEEE Transactions on Neural Networks and Learning Systems, vol. 35, no. 10, pp. 13143-13163, Oct. 2024, doi: 10.1109/TNNLS.2023.3278866. 
 
-[6] International Electrotechnical Commission, “IP Ratings | IEC,” www.iec.ch, 2024. https://www.iec.ch/ip-ratings (accessed Oct. 21, 2026).  
+[6] E. Peña and M. Legaspi, “UART: A Hardware Communication Protocol Understanding Universal Asynchronous Receiver/Transmitter,” VISIT ANALOG.COM, vol. 54, no. 4, 2020, Accessed: Nov. 06, 2026. [Online]. Available: https://fgcoca.github.io/Autocaravana-inteligente/datasheet/uart-a-hardware-communication-protocol.pdf 
 
-[7] J. Sanchez, “Ruggedized Storage for UAV/Drone Data Logging: Why Consumer-Grade Storage Falls Short,” Delkin Industrial, Jan. 28, 2026. https://www.delkin.com/blog/rugged-uav-data-logging-storage/ (accessed Oct. 09, 2026).   
+[7] Dr. T. Elfouly, “Serial Communication - I2C,” ECE 4140 Lecture, Tennessee Technological University, Cookeville, TN, Oct. 12, 2026. Accessed: Nov. 06, 2026. [Online]. Available: https://drive.google.com/file/d/12pZjCredY6Ln2uffFPUiT_TnEynQqUeO/view?usp=sharing 
 
-[8] J. Z. Sasiadek, “Sensor Fusion,” IFAC Proceedings Volumes, vol. 33, no. 27, pp. 1–3, Sept. 2000, doi: 10.1016/s1474-6670(17)37896-5. 
+[8] Dawoud Shenouda Dawoud, SERIAL COMMUNICATION PROTOCOLS and STANDARDS: Rs232/485, Uart/Usart, Spi, Usb, Insteon, Wi-Fi and Wimax. Aalborg: River Publishers, 2020. 
 
-[9] MAPIR, “DAQ-A,” MAPIR, 2026. https://www.mapir.camera/products/daq-a (accessed Oct. 08, 2026). 
+[9] Dr. T. Elfouly, “Serial Communication - SPI,” ECE 4140 Lecture, Tennessee Technological University, Cookeville, TN, Oct. 26, 2026. Accessed: Nov. 06, 2026. [Online]. Available: https://drive.google.com/file/d/1nXYp2KQZq13p0-WOEwmBI7-R9dWzmG6O/view?usp=sharing 
 
-[10] National Fire Protection Association and National Fire Protection Association. National Electrical Code Committee, "Article 250," NEC 2017: NFPA 70 National Electrical Code. Quincy, Ma: National Fire Protection Association, 2016. 
+[10] Federal Communications Commission, Telecommunication, 47 C.F.R. pts. 40–69 (2026). 
 
-[11] None V.Muneeswaran, K. N. Kumar, None P.Manikandan, M. N. Kumar, C.Vishnu Chaithanya, and M. Ganga Priyadarshini, “Performance Analysis of Communication Protocols (I2C, SPI) for Embedded Applications With IMU Sensor Using Verilog,” pp. 685–689, Apr. 2025, doi: 10.1109/ictmim65579.2025.10988065. 
+[11] “Federal Hazardous Substances Act (FHSA) Requirements,” CPSC.gov, Apr. 04, 2016. https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/FHSA-Requirements (accessed Oct. 09, 2026).  
 
-[12] “SparkFun DataLogger IoT - 9DoF,” Sparkfun.com, 2025. https://www.sparkfun.com/sparkfun-datalogger-iot-9dof.html (Accessed Oct. 08, 2026).  
+[12] International Electrotechnical Commission, “IP Ratings | IEC,” www.iec.ch, 2024. https://www.iec.ch/ip-ratings (accessed Oct. 21, 2026).  
 
-[13] S. Yu, J. Ma, and W. Wang, “Deep Learning for Denoising,” Geophysics, vol. 84, no. 6, pp. V333-V350, July 2019, doi: 10.1190/geo2018-0668.1. 
+[13] IEEE, “Handheld Devices,” IEEE Technology Navigator, 2026. https://technav.ieee.org/topic/handheld-devices/ (accessed Oct. 22, 2026).  
 
-[14] Yost Labs, "3-Space™ Data Logger Nav with BLE & GPS,” Yost Labs, https://yostlabs.com/product/data-logger-nav-ble-gps/?srsltid=AU7gw4WEJ3qvT_4odsTwyClEaaVQxsDjtb8ClRZoBbiuZgtiw0GERoP8 (accessed Oct. 08, 2026) 
+[14] National Fire Protection Association and National Fire Protection Association. National Electrical Code Committee, "Article 250," NEC 2017: NFPA 70 National Electrical Code. Quincy, Ma: National Fire Protection Association, 2016.  
+
+[15] Yost Labs, "3-Space™ Data Logger Nav with BLE & GPS,” Yost Labs, https://yostlabs.com/product/data-logger-nav-ble-gps/?srsltid=AU7gw4WEJ3qvT_4odsTwyClEaaVQxsDjtb8ClRZoBbiuZgtiw0GERoP8 (accessed Oct. 08, 2026)  
+
+[16] MAPIR, “DAQ-A,” MAPIR, 2026. https://www.mapir.camera/products/daq-a (accessed Oct. 08, 2026).  
+
+[17] “SparkFun DataLogger IoT - 9DoF,” Sparkfun.com, 2025. https://www.sparkfun.com/sparkfun-datalogger-iot-9dof.html (Accessed Oct. 08, 2026).  
+
+[18] “IMU-GPS - Gulf Coast Data Concepts,” Gulf Coast Data Concepts - Simple yet versatile data acquisition, Sept. 06, 2024. https://gulfcoastdataconcepts.com/index.php/product/imu-gps/ (Accessed Oct. 08, 2026).  
+
+[19] “ARK FPV | ARK Documentation,” Arkelectron.com, Oct. 21, 2026. https://docs.arkelectron.com/products/flight-controller/ark-fpv (accessed Oct. 23, 2026). 
 
 ## Statement of Contributions
 These are the contributions the team made to this document:<br><br>
-Nicolas Campbell: Survey of Existing Solutions, Operational Flowchart, Comparative Analysis of Potential Solutions, <br>Storage Systems and Data Analysis<br><br>
+Nicolas Campbell: Survey of Existing Solutions, Operational Flowchart, Comparative Analysis of Potential Solutions, Storage Systems and Data Analysis<br><br>
 Lucy Dunn: Resources, Budget, Timeline, Division of Labor, Microcontroller Subsystem<br><br>
 Sean Ottaway: Broader Implications, Specific Implications, High Level Solution, PCB Subsystem, Power Subsystem<br><br>
 Gabriel Simpkins: Background, Specifications, & Constraints, Fully Formulating the Problem, Hardware Diagram<br><br>
