@@ -185,28 +185,29 @@ b. Disadvantages:
 
 &emsp; &emsp; This module will be based on the Bare Bones Model presented previously in the section comparing the possible different models and be subject to the requirements listed previously in this document. *Figure 2* shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is using to design the data logger from the ground up. 
 
-*<div align="center">![Figure 2](https://hackmd.io/_uploads/SysF4iY2Gl.png)</div>*
+*<div align="center">![Block Diagram](https://hackmd.io/_uploads/SJPU-vbCfe.jpg)</div>*
 *<div align="center">Figure 2 – Data Logger Block Diagram</div>*
 
 Here is how the model in *Figure 2* will be implemented to achieve Team 3's goals:
 
 ### Subsystems:
-1. PCB
-  - The PCB subsystem houses all sensors as well as the RGB LED. The physical PCB will also house the microSD and Microcontroller subsystems. This will draw power from the Power System and communicate with the Microcontroller via serial communication. The PCB subsystem shall be small enough to fit within housing smaller than 4 in x 3 in x 1 in. The PCB shall also isolate the sensors enough to where they will not interfere with each other’s operation. 
+1\. PCB (the large green box)
+  - The PCB subsystem houses all sensors as well as the battery regulation IC, RGB LED, button, switch, USB-C port, and microSD. This will draw power from the Power System (red) and communicate with the Microcontroller (darker green) via serial communication. The PCB subsystem shall be small enough to fit within housing smaller than 4 in x 3 in x 1 in. The PCB shall also isolate the sensors enough to where they will not interfere with each other’s operation.  
 
-2. Storage System and Data Analysis 
-  - The MicroSD will be housed on the physical PCB. The microcontroller will write data onto the microSD in ULog format. The microSD port shall be compliant with IP67 standards for dust and water resistance [12].  After writing onto the MicroSD card, the data will be analyzed, filtered, and smoothed to get clean data onto the microSD card. 
+2\. Data Processing & Storage System (orange and blue respectively)
+  - The MicroSD will be housed on the physical PCB. The microcontroller will write data from the sensors onto the microSD in ULog format when the button is pressed. The microcontroller will stop writing data when the button is pressed again. The microSD port shall be compliant with IP67 standards for dust and water resistance [12].  After writing onto the MicroSD card, the data will be analyzed, filtered, and smoothed to get clean data onto the microSD card.  
 
-3. Microcontroller
-  - The Microcontroller will be housed on the physical PCB and draw power from the Power System. The microcontroller will write data onto the microSD in ULog format and communicate with the PCB subsystem via serial communication. The microcontroller shall be isolated from the sensors to avoid increased noise.
+3\. Microcontroller (darker green)
+  - The Microcontroller will be housed on the physical PCB and draw power from the Power System. The microcontroller will write data onto the microSD in ULog format and communicate with the PCB subsystem via serial communication. The microcontroller shall be isolated from the sensors to avoid increased noise. 
 
-4. Power System
+4\. Power System (red)
   - The Power System will regulate input power from a USB-C port and the battery while supplying the other systems with power. The Power System shall comply with grounding, shock, and hazardous material standards.
 
-5. Enclosure
+5\. Enclosure (grey)
   - The enclosure will be used to prevent dust and water from touching the electronics of the data logger to keep an IP67 rating [12]. This will have a tab that opens to the MicroSD card reader and the USB-C port to access them without removing the entirety of the enclosure.
 
-&emsp; &emsp; With this model in mind, it will operate with the signal flow displayed in the operational flowchart shown in *Figure 3*. 
+<br><br>
+&emsp; &emsp; With this diagram in mind, it will operate with the signal flow displayed in the operational flowchart shown in *Figure 3*. 
 
 *<div align="center">![Nics flowchart](https://hackmd.io/_uploads/rJqgJvbCGg.png)</div>*
 *<div align="center">Figure 3 – Operational Flowchart for Team 3's Data Logger</div>*
