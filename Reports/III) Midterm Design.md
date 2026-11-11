@@ -311,32 +311,32 @@ Here are some specifics on each of these subsystems.
 
 &emsp; &emsp; The firmware needed for this program will have 5 parts: 
 
-1. **Setup**
+1\. **Setup**
 - This section will initialize all the peripherals needed. It will also initialize each of the four tasks needed and the ring buffer required for the logger task. It will also handle mounting the microSD card.
 
-2. **Sensor Task**
+2\. **Sensor Task**
 - The sensor task will read the data coming from the sensors at regular intervals and push the data to the next task for analysis.
 
-3. **Analyzer Task**
+3\. **Analyzer Task**
 - This task will take the data analysis curated by Nic through the Storage System and Data Analysis subsystem and implement it on the microcontroller before pushing the now processed data to the logger.
 
-4. **Logger Task**
+4\. **Logger Task**
 - The logger task takes the processed data from the analyzer task and writes it out in ULog format to the microSD card. A ring buffer is used to keep the sensor and the logger from interrupting the other’s timing and throwing each other off balance.
 
-5. **Supervisor Task**
-- This task determines when and if the logger should be actively writing out or not based on a few different factors. It checks if the microSD card has been inserted and has power, if so it tells the logger to write out, if not it flushes the buffer to keep it from getting full of old data.
+5\. **Supervisor Task**
+- This task determines when and if the logger should be actively writing out or not based on a few different factors. It checks if the microSD card has been inserted and has power, if so it tells the logger to write out, if not it flushes the buffer to keep it from getting full of old data.<br><br>
 
 ### Storage System and Data Analysis
 
 &emsp; &emsp; The MicroSD will take the data given to it in ULog format, which on the microSD card will be a single, continuous train of binary data directly from the microcontroller. This data will be in the exact same format that the microcontroller will see. All this data will be raw binary data and will need to be put into some kind of converter to be understood by humans. The benefit of the ULog format though is where it is binary, it does not take up much space. This helps give a heap of data in a small package. To make it able to be read by a human, it will have to be converted to CSV (Comma Separated Variables), by using python. Then this data can then be put into understandable graphs using MATLAB.
 
-&emsp; &emsp; After getting graphs, this subsystem will also take the raw and unfiltered data and smooth it out to make it easily read by a consumer. This will be done with DSP (Digital System Processing). The DSP will include filtering out any high frequency noise and isolating the true system states.  By using PIDs and other Software filters, there shall be a Dynamic Transfer function that will then be flashed onto the MCU at the Analyzer Task.  This process may be repeated as many times as needed to get clean data from the DL. 
+&emsp; &emsp; After getting graphs, this subsystem will also take the raw and unfiltered data and smooth it out to make it easily read by a consumer. This will be done with DSP (Digital System Processing). The DSP will include filtering out any high frequency noise and isolating the true system states.  By using PIDs and other Software filters, there shall be a Dynamic Transfer function that will then be flashed onto the MCU at the Analyzer Task.  This process may be repeated as many times as needed to get clean data from the DL.<br><br> 
 
 ### Enclosure
 
 &emsp; &emsp; With this subsystem, the goal is to achieve the IP67 rating that is in the specifications for the project while allowing the Data Logger to function and not overheat [12]. This will be achieved by utilizing a casing that allows for an antenna to fit tightly through the enclosure for the GPS and potentially using cooling fans or systems to prevent damage inflicted on the Data Logger by itself. In addition, it will be the primary source of mounting the Data Logger to these unmanned vehicles utilizing this project.
 
-&emsp; &emsp; To accomplish this, the enclosure will be utilizing M4 screws and mounting equipment to allow for the Data Logger to be easily added or removed from these vehicles. Also, some more screw will be used to allow for easy access to the microSD card without the requirement of dismounting the logger from the vehicles. 
+&emsp; &emsp; To accomplish this, the enclosure will be utilizing M4 screws and mounting equipment to allow for the Data Logger to be easily added or removed from these vehicles. Also, some more screw will be used to allow for easy access to the microSD card without the requirement of dismounting the logger from the vehicles. <br><br>
 
 ## Measures of Success
 &emsp; &emsp; To ensure the accuracy and consistency of the DL, comparisons will be made with established units of various types to ensure the measurements are accurate. In addition, the efficiency of the DL will be verified so Team 3's DL will become the best solution. These will be checked using the following measurements of success: 
@@ -393,55 +393,75 @@ Here are some specifics on each of these subsystems.
 
 
 ### Budget
+&emsp; &emsp; Within the budget is each subsystem and the required components and costs assocaited with it. The source for these costs and expenses were found through DigiKey. Each component was carefully chosen from a master file that was made to compare different attributes such as operating voltage, operating current, tempurature, and accuracy. <br><br>
+
 
 #### PCB Design
-&emsp; &emsp; This system contains the necessary PCB, along with its basic circuitry that will contain the capacitors, resistors, and other components necessary for its functionality. It also contains a pressure gauge, magnetometer, IMU, GPS, and digital temperature sensor. These parts were carefully chosen due to the specific needs and requirements of our DL and have been compared against our weight and area constraints. The costs for this subsystem can be seen below. 
+&emsp; &emsp; This system contains the necessary PCB, along with its basic circuitry that will contain the capacitors, resistors, and other components necessary for its functionality. It also contains a pressure gauge, magnetometer, IMU, GPS, and digital temperature sensor. These parts were carefully chosen due to the specific needs and requirements of our DL and have been compared against our weight and area constraints. For each of these components 3 chips are planning to be ordered so that there will be backups on hand incase of any unexpected issues. The costs for this subsystem can be seen below in single quantity value. 
 
 - PCB: $50
-- Pressure Gauge: $3
-- Magnetometer: $3
-- IMU: $4
-- GPS: $12
-- Digital Temperature Sensor: $6
+- Pressure Gauge: $3.81
+- Magnetometer: $3.32
+- IMU: $3.91
+- GPS: $7.86
+- Digital Temperature Sensor: $6.29
+- RGB LED: $0.85
 
-Subsystem Total: $78
+Subsystem Total (accounting for multiples): 129.82
+<br><br>
 
 #### Power System
 
-&emsp; &emsp; This system utilizes a Jauch Quartz LP705176JS 3.7V 3.15Ah battery. This battery was chosen as it satisfies the voltage needed for the STM32 microcontroller as well as the other power constraints needed for the PCB and it’s parts. The part itself will be utilized to supply power to the PCB, microcontroller and all other parts of the DL. The costs for this subsystem can be seen below. 
+&emsp; &emsp; This system utilizes a Jauch Quartz LP705176JS 3.7V 3.15Ah battery. This battery was chosen as it satisfies the voltage needed for the STM32 microcontroller as well as the other power constraints needed for the PCB and it’s parts. The part itself will be utilized to supply power to the PCB, microcontroller and all other parts of the DL. For the battery 2 parts are planning to be ordered, adn for the IC 3 will be ordered so that there will be backups on hand incase of any unexpected issues. The costs for this subsystem can be seen below in single quantity value. 
 
-- Battery: $22
+- Battery: $21.59
+- Battery Charging IC: $0.69
 
-Subsystem Total: $22
+Subsystem Total (accounting for multiples): $45.25
+<br><br>
 
 #### Microcontroller
 
-&emsp; &emsp; This system utilizes a STM32G474RET6 microcontroller. This chip will be used to read data off of the various sensors that have been implemented on the PCB and will write out data to the MicroSD card at regular intervals. This specific chip was recommended by Valinor Dispatch to Team 3 and was chosen after careful consideration. Using the STM32 will also require the use of a programming cable and the one chosen for this project is the STLINK-V3MINIE. This chip was chosen at the recommendation of Valinor Dispatch and is commonly paired with the STM32 microcontroller. The connector cable required for the STLINK-V3MINIE is the TC2030-CTX-NL-STDC14 cable which will connect the PCB to the STLink for debugging purposes. The costs for this subsystem can be seen below. 
+&emsp; &emsp; This system utilizes a STM32G474RET6 microcontroller. This chip will be used to read data off of the various sensors that have been implemented on the PCB and will write out data to the MicroSD card at regular intervals. This specific chip was recommended by Valinor Dispatch to Team 3 and was chosen after careful consideration. Using the STM32 will also require the use of a programming cable and the one chosen for this project is the STLINK-V3MINIE. This chip was chosen at the recommendation of Valinor Dispatch and is commonly paired with the STM32 microcontroller. The connector cable required for the STLINK-V3MINIE is the TC2030-CTX-NL-STDC14 cable which will connect the PCB to the STLink for debugging purposes. There will also be devboards and breakout kits associated with this subsytem for early testing of the firmware. For each of these components 2 boards are planning to be ordered so that there will be backups on hand incase of any unexpected issues. The costs for this subsystem can be seen below in single quantity value. 
 
-- STM32G474RET6: $10
-- Programmer: $25
-- Programming Cable: $50
+- MCU STM32G474RET6: $10.70
+- MCU Devboard STM32G474RET6 Nucleo: $20.13
+- Magnometer Breakout: $22.64
+- Tempurature Breakout: $11.50
+- Pressure Breakout: $20.00
+- IMU Breakout: $20.00
+- GPS Breakout: $45.95
+- SD Card Breakout: $9.00
+- Battery Charge IC Breakout: $6.95
+- Breadboard: $2.90
+- M-M Jumper Wires: $1.95
+- M-F Jumper Wires: $1.95
+- Programmer STLINK-V3MINIE: $25.51
+- Programming Cable: $43.00
 
-Subsystem Total: $85
+Subsystem Total (accounting for multiples): $512.42
+<br><br>
 
 #### Data Processing & Storage System
 
-&emsp; &emsp; This system contains the elements required to store data for the DL. It consists of the MicroSD card reader that will be located on the PCB as well as the MicroSD card itself. The MicroSD card reader chosen for this project is the Same Sky MSD-3-A. This part was chosen due to it’s size, weight, and cost as the most effective option. It features the ability to auto-eject out, allowing for easy removal of the MicroSD card. The costs for this subsystem can be seen below.
+&emsp; &emsp; This system contains the elements required to store data for the DL. It consists of the MicroSD card reader that will be located on the PCB as well as the MicroSD card itself. The MicroSD card reader chosen for this project is the Same Sky MSD-3-A. This part was chosen due to it’s size, weight, and cost as the most effective option. It features the ability to auto-eject out, allowing for easy removal of the MicroSD card. For the MicroSD card reader 3 chips are planning to be ordered so that there will be backups on hand incase of any unexpected issues. The costs for this subsystem can be seen below in single quantity value.
 
-- MicroSD Card Reader: $1
+- MicroSD Card Reader: $0.57
 - 256GB MicroSD Card: $50
 
-Subsystem Total: $51
+Subsystem Total: $51.71
+<br><br>
 
 #### Enclosure
 
 This system contains the casing outside the PCB to allow for easy removal utilizing M4 screws and an environmently robust casing to keep the Data Logger functioning. The costs for this system can be seen below. 
 
 **TBD**
+<br><br>
 
 #### Total Budget
 
-&emsp; &emsp; The total overall proposed budget for Team 3’s Data Logger is $236. As seen above these components have been chosen intentionally to work well together and result in a well rounded Data Logger that successfully reads and writes out data onto a MicroSD card using two separate board styles. 
+&emsp; &emsp; The total overall proposed budget for Team 3’s Data Logger is $739.20. As seen above these components have been chosen intentionally to work well together and result in a well rounded Data Logger that successfully reads and writes out data onto a MicroSD card. <br><br>
 
 ### Division of Labor 
 
