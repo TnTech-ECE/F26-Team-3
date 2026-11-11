@@ -575,6 +575,8 @@ Based on these skills, the subsystems and their designated members have been div
 
 [19] “ARK FPV | ARK Documentation,” Arkelectron.com, Oct. 21, 2026. https://docs.arkelectron.com/products/flight-controller/ark-fpv (accessed Oct. 23, 2026). 
 
+[20] R. Cole, Norwegian Elkhound Dog Wanted Poster Isometric Dot Drawing Paper Notebook Featuring 120 Pages 6X9. Amazon Digital Services LLC - KDP Print US, 2019. 
+
 ## Statement of Contributions
 These are the contributions the team made to this document:<br><br>
 Nicolas Campbell: Survey of Existing Solutions, Operational Flowchart, Comparative Analysis of Potential Solutions, Storage Systems and Data Analysis<br><br>
