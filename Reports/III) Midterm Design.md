@@ -231,7 +231,7 @@ Here is how the model in *Figure 2* will be implemented to achieve Team 3's goal
 - Easily attached to the outside of a UAS or UGV; The DL will remain securely attached when mounted and will be designed to resist vibrations and shock.<br><br>
 
 ### Electronics
-- The DL shall have an onboard battery with enough charge to run multiple missions without being recharged; An appropriate battery will be chosen that follows IEEE IEC 62133 safety requirements for portable rechargeable batteries as well as utilizing manufacturer specified charge cycles/ battery life expectancy. The battery will also be below the weight limit specified in the Physical Attributes constraints.  
+- The DL shall have an onboard battery with enough charge to run for 24 hours without being recharged; An appropriate battery will be chosen that follows IEEE IEC 62133 safety requirements for portable rechargeable batteries as well as utilizing manufacturer specified charge cycles/ battery life expectancy. The battery will also be below the weight limit specified in the Physical Attributes constraints.  
 - The DL shall record the following types of data...  
   - Acceleration and velocity 
   - Magnetic field strength 
@@ -246,7 +246,7 @@ The design will utilize the instrumentation and components necessary to achieve 
 
 ### Data
 - The DL shall write timestamped data onto an SD (or microSD) card in ULog format; The team will research ULog formatting to confirm the data is being formatted and written correctly to the SD card as well as ensuring GPS timestamps are accurate. 
-- Data shall be measured at a high enough resolution to be unimpeachable; Extensive tests will be performed, to ensure the data is correct. These tests will include but not be limited to: Using the Tempurature Chamber to check that the tempurature data gathered is accurate to the tempurature of the environment, checking that the accelerometer is gathering accurate readings by attaching it to an automobile and comparing the data gathered to the expected values, and using a known true clock to test the GPS's measured time.
+- Data shall be measured with a 16-bit resolution or at the highest resolution available from each sensor if higher. Accuracy for each sensor shall have an error of no more than 2%; Extensive tests will be performed, to ensure the data is correct. These tests will include but not be limited to: Using the Tempurature Chamber to check that the tempurature data gathered is accurate to the tempurature of the environment, checking that the accelerometer is gathering accurate readings by attaching it to an automobile and comparing the data gathered to the expected values, and using a known true clock to test the GPS's measured time.
 - The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers under Title 47 Part 15 Guidelines [10]; Since the DL will be utilizing an antenna for the GPS, it is very important for this antenna system to not interfere with any receivers or transmitters around the DL.<br><br>
 
 ### General Operation Constraints
@@ -463,14 +463,15 @@ Subsystem Total (accounting for multiples): $51.71
 
 #### Enclosure
 
-This system contains the casing outside the PCB to allow for easy removal utilizing M4 screws and an environmently robust casing to keep the Data Logger functioning. The costs for this system can be seen below. 
+This system contains the casing outside the PCB to allow for easy removal utilizing M4 screws and an environmently robust casing to keep the Data Logger functioning. The costs for this system can be seen below. The cost for this subsystem can be seen below in single quantity value.
 
-**TBD**
+
+- 2 rolls of ABS filament: $40.00
 <br><br>
 
 #### Total Budget
 
-&emsp; &emsp; The total overall proposed budget for Team 3’s Data Logger is $739.20. As seen above these components have been chosen intentionally to work well together and result in a well rounded Data Logger that successfully reads and writes out data onto a MicroSD card. <br><br><br>
+&emsp; &emsp; The total overall proposed budget for Team 3’s Data Logger is $779.20. As seen above these components have been chosen intentionally to work well together and result in a well rounded Data Logger that successfully reads and writes out data onto a MicroSD card. <br><br><br>
 
 ### Division of Labor 
 
