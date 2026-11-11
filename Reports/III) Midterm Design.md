@@ -208,7 +208,7 @@ Here is how the model in *Figure 2* will be implemented to achieve Team 3's goal
 
 &emsp; &emsp; With this model in mind, it will operate with the signal flow displayed in the operational flowchart shown in *Figure 3*. 
 
-*<div align="center">![Figure 3](https://hackmd.io/_uploads/rkOA4jYnzl.png)</div>*
+*<div align="center">![Figure 3]((https://hackmd.io/_uploads/rJqgJvbCGg.png))</div>*
 *<div align="center">Figure 3 – Operational Flowchart for Team 3's Data Logger</div>*
 
 <br>&emsp; &emsp; While developing these systems, there have been constraints identified in the *Specifications and Constraints* section that will need to be followed in the development of these PCB systems. Team 3 plans to adhere to these constraints in the following ways:
@@ -388,7 +388,7 @@ Here are some specifics on each of these subsystems.
 
 
 ### Timeline
-![Team 3 Development Timeline](https://hackmd.io/_uploads/HymNoo73Gl.png)
+![Team 3 Development Timeline]((https://hackmd.io/_uploads/r15ekwbCzl.png))
 
 
 ### Budget
