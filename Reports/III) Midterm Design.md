@@ -426,16 +426,16 @@ Subsystem Total (accounting for multiples): $45.25
 - MCU Devboard STM32G474RET6 Nucleo [(Link)](https://www.digikey.com/en/products/detail/stmicroelectronics/NUCLEO-G474RE/10231585): $20.13
 - Magnometer Breakout [(Link)](https://www.digikey.com/en/products/detail/memsic-inc/MMC5983MA-B/10452798): $22.64
 - Tempurature Breakout [(Link)](https://www.digikey.com/en/products/detail/adafruit-industries-llc/4821/13571586): $11.50
-- Pressure Breakout: $20.00
-- IMU Breakout: $20.00
-- GPS Breakout: $45.95
-- SD Card Breakout: $9.00
-- Battery Charge IC Breakout: $6.95
-- Breadboard: $2.90
-- M-M Jumper Wires: $1.95
-- M-F Jumper Wires: $1.95
-- Programmer STLINK-V3MINIE: $25.51
-- Programming Cable: $43.00
+- Pressure Breakout (https://www.digikey.com/en/products/detail/mikroelektronika/MIKROE-5296/16678065): $20.00
+- IMU Breakout [(Link)](https://www.digikey.com/en/products/detail/mikroelektronika/MIKROE-5606/18898730): $20.00
+- GPS Breakout [(Link)](https://learn.sparkfun.com/tutorials/gnss-receiver-breakout---max-m10s-qwiic-hookup-guide/all): $45.95
+- SD Card Breakout [(Link)](https://www.digikey.com/en/products/detail/digilent-inc/410-380/9445906?gclsrc=aw.ds&gad_source=1&gad_campaignid=20243136172&gclid=CjwKCAiAhqHXBhAXEiwATbksU2ueabw-PNaRGPGg3dPd7UwolnNYDsyq8bofRPN2shAwIAp95Uo42BoCUEoQAvD_BwE): $9.00
+- Battery Charge IC Breakout [(Link)](https://www.digikey.com/en/products/detail/adafruit-industries-llc/1904/5054545): $6.95
+- Breadboard [(Link)](https://www.digikey.com/en/products/detail/dfrobot/FIT0096/7597069): $2.90
+- M-M Jumper Wires [(Link)](https://www.digikey.com/en/products/detail/adafruit-industries-llc/1957/6827090): $1.95
+- M-F Jumper Wires [(Link)](https://www.digikey.com/en/products/detail/adafruit-industries-llc/1954/6827087): $1.95
+- Programmer STLINK-V3MINIE [(Link)](https://www.digikey.com/en/products/detail/stmicroelectronics/STLINK-V3MINIE/16284301): $25.51
+- Programming Cable [(Link)](https://www.tag-connect.com/product/tc2030-ctx-nl-stdc14-for-use-with-stm32-processors-with-stlink-v3): $43.00
 
 Subsystem Total (accounting for multiples): $512.42
 <br><br>
@@ -444,7 +444,7 @@ Subsystem Total (accounting for multiples): $512.42
 
 &emsp; &emsp; This system contains the elements required to store data for the DL. It consists of the MicroSD card reader that will be located on the PCB as well as the MicroSD card itself. The MicroSD card reader chosen for this project is the Same Sky MSD-3-A. This part was chosen due to it’s size, weight, and cost as the most effective option. It features the ability to auto-eject out, allowing for easy removal of the MicroSD card. For the MicroSD card reader 3 chips are planning to be ordered so that there will be backups on hand incase of any unexpected issues. The costs for this subsystem can be seen below in single quantity value.
 
-- MicroSD Card Reader: $0.57
+- MicroSD Card Reader [(Link)](https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/MSD-3-A/21799535): $0.57
 - 256GB MicroSD Card: $50
 
 Subsystem Total (accounting for multiples): $51.71
