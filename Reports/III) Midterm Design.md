@@ -426,7 +426,7 @@ Subsystem Total (accounting for multiples): $45.25
 - MCU Devboard STM32G474RET6 Nucleo [(Link)](https://www.digikey.com/en/products/detail/stmicroelectronics/NUCLEO-G474RE/10231585): $20.13
 - Magnometer Breakout [(Link)](https://www.digikey.com/en/products/detail/memsic-inc/MMC5983MA-B/10452798): $22.64
 - Tempurature Breakout [(Link)](https://www.digikey.com/en/products/detail/adafruit-industries-llc/4821/13571586): $11.50
-- Pressure Breakout (https://www.digikey.com/en/products/detail/mikroelektronika/MIKROE-5296/16678065): $20.00
+- Pressure Breakout [(Link)](https://www.digikey.com/en/products/detail/mikroelektronika/MIKROE-5296/16678065): $20.00
 - IMU Breakout [(Link)](https://www.digikey.com/en/products/detail/mikroelektronika/MIKROE-5606/18898730): $20.00
 - GPS Breakout [(Link)](https://learn.sparkfun.com/tutorials/gnss-receiver-breakout---max-m10s-qwiic-hookup-guide/all): $45.95
 - SD Card Breakout [(Link)](https://www.digikey.com/en/products/detail/digilent-inc/410-380/9445906?gclsrc=aw.ds&gad_source=1&gad_campaignid=20243136172&gclid=CjwKCAiAhqHXBhAXEiwATbksU2ueabw-PNaRGPGg3dPd7UwolnNYDsyq8bofRPN2shAwIAp95Uo42BoCUEoQAvD_BwE): $9.00
