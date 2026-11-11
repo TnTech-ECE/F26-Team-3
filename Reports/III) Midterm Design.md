@@ -7,11 +7,11 @@
 
 &emsp; &emsp; To address these needs, Team 3 is conducting research and development to find a lower-cost, modular, and mass-producible data logger module able to obtain accurate time stamps and measure magnetic fields, temperature, pressure, and dynamic movement around these vehicles. Once this data logger obtains these measurements, it will be able to write this information in uLog formatting onto a microSD card to be easily understood and interpreted. This self-contained system will integrate five sensors, a microcontroller, and a power source while being mountable to unmanned vehicles and staying under $3,000 for the process of developing the module. This project is being developed for Valinor Dispatch to help with analysis of environments for various tasks of their unmanned vehicles and the health of these vehicles in these environments.  
 
-&emsp; &emsp; This proposal outlines the background of Data Loggers and a thorough evaluation of existing solutions. It will address the difficulties involved with such an embedded system and further elaborate on the need for this project. This will distinguish the restrictions on the data logger along with definitions of the measurements of success for the data logger. It will present the details of the budget, proficiencies of the team and assisting experts, the timeline with milestones of the project, and more about the stakeholder of this project, Valinor Dispatch. Finally, the proposal will end by discussing the implications of success and ethics concerns related to this data logger. 
+&emsp; &emsp; This proposal outlines the background of Data Loggers and a thorough evaluation of existing solutions. It will address the difficulties involved with such an embedded system and further elaborate on the need for this project. This will distinguish the restrictions on the data logger along with definitions of the measurements of success for the data logger. It will present the details of the budget, proficiencies of the team and assisting experts, the timeline with milestones of the project, and more about the stakeholder of this project, Valinor Dispatch. Finally, the proposal will end by discussing the implications of success and ethics concerns related to this data logger. <br><br><br>
 
 
 ## Formulating the Problem
-&emsp; &emsp; For data measurement, unmanned vehicles (UVs) typically only have an onboard IMU and do not have dedicated memory drives for data tracking. The Data Logger will be able to track IMU data, temperature, pressure, magnetic field strength, and log all of this data with absolute-time timestamps. Dedicated data logger units like this one exist only at high price points or high footprints. The Data Logger being designed in this project must be portable and easily transferable to any unmanned vehicles. A dedicated unit for data tracking will free up the UV to focus on navigation and achieve the task given to it while gaining more accurate data. This can help the user learn more about environments for future tasks of any UV with tasks in the same area. 
+&emsp; &emsp; For data measurement, unmanned vehicles (UVs) typically only have an onboard IMU and do not have dedicated memory drives for data tracking. The Data Logger will be able to track IMU data, temperature, pressure, magnetic field strength, and log all of this data with absolute-time timestamps. Dedicated data logger units like this one exist only at high price points or high footprints. The Data Logger being designed in this project must be portable and easily transferable to any unmanned vehicles. A dedicated unit for data tracking will free up the UV to focus on navigation and achieve the task given to it while gaining more accurate data. This can help the user learn more about environments for future tasks of any UV with tasks in the same area. <br><br>
 
 
 ### Background
@@ -19,15 +19,15 @@
 
 &emsp; &emsp; So what happens if there is errors in the data stored related to these environments? If, for example, data related to rough terrain and harsh environments is not the same as the data being written on SD cards, then this information stored on the SD card could lead to ill-informed decisions related to military uses or any other business utilizing UVs [2]. This means the quality of the Data Logging system on any unmanned vehicles is important to prevent these issues. This is why decisions to use Consumer-Grade equipment for Data Logging because of monetary concerns sometimes lead to major errors that are not easy to fix without running another separate trip to confirm the data being recorded and check the functionality of the Data Logging system, which is highly inefficient [2].
 
-&emsp; &emsp; Designing a product that meets all the criteria provided for this project requires a knowledge of sensors, embedded systems, MCUs, and PCB design. Some specific topics related to these areas are sensor fusion, data denoising, and understanding of serial communication, which include Inter-Integrated Circuit (I2C) and Serial Peripheral Interface (SPI). Here are some specifics on these topics. 
+&emsp; &emsp; Designing a product that meets all the criteria provided for this project requires a knowledge of sensors, embedded systems, MCUs, and PCB design. Some specific topics related to these areas are sensor fusion, data denoising, and understanding of serial communication, which include Inter-Integrated Circuit (I2C) and Serial Peripheral Interface (SPI). Here are some specifics on these topics. <br><br>
 
-1. Sensor Fusion
+1\. Sensor Fusion
 
 &emsp; &emsp; With this data logger utilizing multiple types of sensors all at once, it is possible to implement a data logger with the information from each sensor is processed separately. That said, Sensor Fusion is another approach that can be utilized. The idea of Sensor Fusion is to process all the data from separate sensors to make one coherent picture. For example, autonomous vehicles utilize this technique to combine the information from a camera and a lidar to give the vehicle a more complete understanding of the environment around it [3]. The benefit of having a more complete picture rather than having individual data is that the vehicle can make better informed decisions like avoiding obstacles and interpreting green vs red on a traffic light.
 
-&emsp; &emsp; Because of this big benefit, Team 3's DL will be utilizing Sensor Fusion as a form of Digital Signal Processing by combining the information of all sensors together to form a picture of the type of environment that the vehicle the DL is mounted to is in. This will make Team 3's DL distinguish itself from other data loggers on the market. 
+&emsp; &emsp; Because of this big benefit, Team 3's DL will be utilizing Sensor Fusion as a form of Digital Signal Processing by combining the information of all sensors together to form a picture of the type of environment that the vehicle the DL is mounted to is in. This will make Team 3's DL distinguish itself from other data loggers on the market.<br><br> 
 
-2. Data Denoising
+2\. Data Denoising
 
 &emsp; &emsp; Data denoising is extremely important to be able to use data coming from any of the sensors on a data logger since there is always some noise present in every signal whether it is desired or not. This means that Team 3 will need a method to handle the noise.  
 
@@ -35,9 +35,9 @@
 
 &emsp; &emsp; Another method is utilizing filters like a Low Pass Filter or Band Pass Filter to eliminate noise that is outside a specified region for signal. This technique would utilize hardware like RLC circuits to remove the undesired signal manually rather than using processing to remove the signal. While this is simpler to set up on a data logger, the con to utilizing this method is the range is set and cannot change without changing either the resistor, capacitor, or inductor used for the filter. This will be an important consideration during the development of the DL. 
 
-&emsp; &emsp; One last method that can be utilized is setting up a model that represents what noise may look like based on previous knowledge of the sensor rather than using a specified data set to remove the noise element of the data. For example, Hyperspectral Image (HSI) denoising can use characteristics of the image to inform the model what the noise will look like [5]. 
+&emsp; &emsp; One last method that can be utilized is setting up a model that represents what noise may look like based on previous knowledge of the sensor rather than using a specified data set to remove the noise element of the data. For example, Hyperspectral Image (HSI) denoising can use characteristics of the image to inform the model what the noise will look like [5]. <br><br>
 
-3. Serial Communication
+3\. Serial Communication
 
 &emsp; &emsp; Serial communication is one of the most important parts of a data logger since it is required for a microcontroller to communicate with an individual sensor or especially with multiple sensors at the same time. There are many different protocols that can be used for serial communication, but here are some of the most commonly utilized. 
 
@@ -51,14 +51,14 @@
 
 &emsp; &emsp; After looking at all these protocols, it is apparent that the data logger will need to utilize I2C, USB, & SPI to be able to achieve the final goal. This is possible since microcontrollers in the modern day have multiple pin sets that can be utilized for each protocol to operate at the same time. This allows Team 3 to have more options when looking for the desired sensors for the data logger that Team 3 is developing. 
 
-&emsp; &emsp; With all this background information, Team 3 will be able to develop a data logger, but this project will have to meet several specifications and constraints set by Valinor Dispatch, governing bodies, and the team. While there are other comparable solutions, many fall short of the desired specifications of this project and achieve all these topics. These alternative solutions are taxing on the budget, don’t measure all the required data, don’t store the data to be observed in the future, or do not achieve all the important principles listed above. In addition, they are often not portable and transferable to other types of UVs without modification. With this background, Team 3's Data Logger will aim to achieve these goals, but what are all the specifications for this project. 
+&emsp; &emsp; With all this background information, Team 3 will be able to develop a data logger, but this project will have to meet several specifications and constraints set by Valinor Dispatch, governing bodies, and the team. While there are other comparable solutions, many fall short of the desired specifications of this project and achieve all these topics. These alternative solutions are taxing on the budget, don’t measure all the required data, don’t store the data to be observed in the future, or do not achieve all the important principles listed above. In addition, they are often not portable and transferable to other types of UVs without modification. With this background, Team 3's Data Logger will aim to achieve these goals, but what are all the specifications for this project. <br><br><br>
 
 
 ### Specifications and Constraints
-&emsp; &emsp; Team 3's Data Logger (DL) has many specifications and constraints given by Valinor Dispatch as well as electrical and communication governing bodies required for the project. These specifications are to help Valinor evaluate the environments their unmanned vehicles are working in and help improve their vehicles based on the performance of them inside these environments. Here are the specifics for this DL project: 
+&emsp; &emsp; Team 3's Data Logger (DL) has many specifications and constraints given by Valinor Dispatch as well as electrical and communication governing bodies required for the project. These specifications are to help Valinor evaluate the environments their unmanned vehicles are working in and help improve their vehicles based on the performance of them inside these environments. Here are the specifics for this DL project: <br><br>
 
 
-##### Specifications
+#### Specifications
 1\.	Physical Attributes
 - The DL shall be less than 500g in mass
 - The DL shall be entirely self-contained
@@ -80,7 +80,7 @@
 - The DL shall write timestamped data onto an SD (or microSD) card in uLog format
 - Data shall be measured at a high enough resolution to be unimpeachable
 - The DL shall utilize Sensor Fusion to understand the environment around the vehicle the DL is mounted to
-- The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers under Title 47 Part 15 Guidelines [10]
+- The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers under Title 47 Part 15 Guidelines [10]<br><br>
 
 #### Constraints
 1\.	General Operation Constraints
@@ -94,7 +94,7 @@
 - The DL shall ensure the module and battery are properly grounded, avoiding electrical shorts or shock as laid out in Article 250 of NFPA 70 [14] 
 - The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation 
 
-With all these specifications for the DL, there are many alternative solutions that try to achieve the same goal as Team 3's DL. What are these existing solutions? 
+With all these specifications for the DL, there are many alternative solutions that try to achieve the same goal as Team 3's DL. What are these existing solutions? <br><br><br>
 
 ## Survey of Existing Solutions
 &emsp; &emsp; When looking at Existing Solutions, the traditional data logger has a minimum of at least 3 of the 5 sensors that Team 3 will be using. This helps make it a standalone data logger and does not require use of any onboard sensors of the vehicle it is mounted to. This gives the user a second source of data that can help verify the sensor data on the Unmanned Vehicle. This Survey of Existing Solutions shall look at the separate data loggers for various types of Unmanned Vehicles. 
@@ -142,40 +142,38 @@ With all these specifications for the DL, there are many alternative solutions t
     - One Main Takeaway from the UGVs data loggers is that they come at a cheaper price than UAVs DLs because they are not limited by size.  
     - Another takeaway is that they are more universal in the quantity of chips that can be used to track whatever is needed in the business specs without paying extra for unnecessary sensors. <br><br>
 
-&emsp; &emsp; From these findings, there are all kinds of different quality and prices of DL's that exist to accomplish the goals of Team 3's DL. If a company needs their data logger to be usable for both types of vehicles, they are looking at spending anywhere from $400 - $1,110 without the shipping costs included. With Team 3's DL, the costs will be less, and there is no process required to combine one of these solutions with add-ons to fulfill all the specifications and constraints listed in this document. This will lead to Team 3's DL becoming the best solution available after development. <br><br>
+&emsp; &emsp; From these findings, there are all kinds of different quality and prices of DL's that exist to accomplish the goals of Team 3's DL. If a company needs their data logger to be usable for both types of vehicles, they are looking at spending anywhere from $400 - $1,110 without the shipping costs included. With Team 3's DL, the costs will be less, and there is no process required to combine one of these solutions with add-ons to fulfill all the specifications and constraints listed in this document. This will lead to Team 3's DL becoming the best solution available after development. <br><br><br>
 
 ## Comparative Analysis of Potential Solutions
 
 &emsp; &emsp; When looking at all the different ways to go about this project, there are ways that can be created from the bare bones, and there are some that can take an already existing solution and build it. This section shall hypothesize the possible solutions and present the benefits versus the disadvantages.
 
-1. The Bare Bones Model
+1\. The Bare Bones Model
 
 &emsp; &emsp; This model includes picking out an MCU, IMU, GPS, Magnetometer, Pressure, and temperature gauge. The group would have to create the PCB to be mountable and able to use all these sensors using traces on the PCB. The group would also have to mount and use an onboard battery to power the system as well as an onboard charging system for the battery. In addition, an SD card reader is required to store the data being measured on the board. After mounting everything, the group would then have to use a MCU flasher to flash the program onto the CPU to let the CPU be able to talk to each individual sensor. On top of this, addition digital signal processing would be added to interpret the environment it is in using sensor fusion. 
 
-a. Benefits:
+- Benefits:
 
   - The benefit of this system is that it would play heavily upon the electrical circuitry of the PCB which multiple group members have stated to be included in their strong suits. It also has the benefit of complete customization in the fact that the group would get to pick every single sensor that would be wanted for the specific purpose.
 
-b. Disadvantages:
+- Disadvantages:
 
-  - The Disadvantage of this system is that if the company wanted to mass produce this product it would be increasingly difficult to have to source every single product to build the DL. Also, it would increase the amount of labor it would require the engineer to build the project.
+  - The Disadvantage of this system is that if the company wanted to mass produce this product it would be increasingly difficult to have to source every single product to build the DL. Also, it would increase the amount of labor it would require the engineer to build the project.<br><br>
 
-2. The Controller Add-On Model
+2\. The Controller Add-On Model
 
 &emsp; &emsp; This model would include the group using an already made controller module and manipulating it to have the capabilities of being a data logger. Also, addition sensors would usually need to be added to make it achieve Valinor's specifications. Team 3 would still develop a custom PCB to add these additional sensors that module does not have. The specific module that has been suggested to Team 3 is the ARK FPV Flight Controller. This flight controller module includes an MCU, IMU, Temperature, Pressure, Magnetometer, and microSD card. The suggested flight controller can be seen in *Figure 1*. [19]
 
 *<div align="center">![Figure 1](https://hackmd.io/_uploads/H1xZcQjK2zx.png)</div>*
 *<div align="center">Figure 1: The ARK FPV Flight Controller</div>*
 
-a. Benefits:
-
+- Benefits:
   - The benefit of The Controller Add-On Model is that it is a faster and easier alternative to the bare bones model. Much less is needed to do to get this model completely functional. All that would be required is to develop a custom "Hat" PCB to hold the GPS and create a battery pack system and wire it to the Flight Controller. After this, Team 3 would be required to do some addition coding to get the new GPS sensor to work with the on-board MCU. This would make it much cheaper and faster for Valinor Dispatch if they would like to create many copies of this design.  
 
-b. Disadvantages:
-
+- Disadvantages:
   - The disadvantage of this system is that it removes many aspects that make this project so unique. This can also limit how custom the DL can be. This route is great for the purpose of quantity and not as good for quality. This is not to discredit the chips found on the ARK Flight Controller as bad chips, but it would significantly reduce the customization of the DL. This also would mean that the project is limited by budget or capabilities of the sensors already incorporated into the flight controller. With this route, this project would be more focused on coding than engineering.
 
-&emsp; &emsp; Looking at all the Benefits and Disadvantages for both, Team 3 has decided it best to use the Bare Bones model to achieve Valinor's goals. This will allow Team 3 to customize all the elements to work and expand like Valinor's systems do. 
+&emsp; &emsp; Looking at all the Benefits and Disadvantages for both, Team 3 has decided it best to use the Bare Bones model to achieve Valinor's goals. This will allow Team 3 to customize all the elements to work and expand like Valinor's systems do. <br><br><br>
 
 ## High-Level Solution
 
@@ -183,7 +181,7 @@ b. Disadvantages:
 
 &emsp; &emsp; The way Team 3 will maximize achieving these goals will be utilizing components, modules, and software that the company is already familiar with. This will reduce the amount of time and resources they will need to dedicate to making future adjustments to the module. In addition, the system will utilize widely available components paired with a commonly utilized MCU to help in the development process. 
 
-&emsp; &emsp; This module will be based on the Bare Bones Model presented previously in the section comparing the possible different models and be subject to the requirements listed previously in this document. *Figure 2* shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is using to design the data logger from the ground up. 
+&emsp; &emsp; This module will be based on the Bare Bones Model presented previously in the section comparing the possible different models and be subject to the requirements listed previously in this document. *Figure 2* shows the block diagram for the diagram based on the Bare Bones Model that Team 3 is using to design the data logger from the ground up. <br><br>
 
 *<div align="center">![Block Diagram](https://hackmd.io/_uploads/SJPU-vbCfe.jpg)</div>*
 *<div align="center">Figure 2 – Data Logger Block Diagram</div>*
@@ -218,7 +216,7 @@ Here is how the model in *Figure 2* will be implemented to achieve Team 3's goal
 - The DL shall be less than 500g in mass; The module will utilize multiple components as well as a battery all which are collectively under the weight limit.  
 - Entirely self-contained; The DL shall be isolated and not interfere with vehicle communications or existing onboard components. 
 - Shall be approximately 4in x 3in x 1in; Due to the size of the components, this constraint will be achieved. 
-- Easily attached to the outside of a UAS or UGV; The DL will remain securely attached when mounted and will be designed to resist vibrations and shock.
+- Easily attached to the outside of a UAS or UGV; The DL will remain securely attached when mounted and will be designed to resist vibrations and shock.<br><br>
 
 ### Electronics
 - The DL shall have an onboard battery with enough charge to run multiple missions without being recharged; An appropriate battery will be chosen that follows IEEE IEC 62133 safety requirements for portable rechargeable batteries as well as utilizing manufacturer specified charge cycles/ battery life expectancy. The battery will also be below the weight limit specified in the Physical Attributes constraints.  
@@ -232,23 +230,23 @@ Here is how the model in *Figure 2* will be implemented to achieve Team 3's goal
 The design will utilize the instrumentation and components necessary to achieve these goals. 
 
 - The DL shall have an embedded LED active when data is being logged; SMD LEDs will be incorporated into the design and will be tested extensively to prevent malfunctions abide by the specified constraint.  
-- The DL may use recommended MCU (STM32G474RET6) and JST connections for software updates and changes; Extensive research and embedded systems designs will be tested to confirm the specified MCU will be compatible with the project. Standard JST connectors will be utilized.
+- The DL may use recommended MCU (STM32G474RET6) and JST connections for software updates and changes; Extensive research and embedded systems designs will be tested to confirm the specified MCU will be compatible with the project. Standard JST connectors will be utilized.<br><br>
 
 ### Data
 - The DL shall write timestamped data onto an SD (or microSD) card in ULog format; The team will research ULog formatting to confirm the data is being formatted and written correctly to the SD card as well as ensuring GPS timestamps are accurate. 
 - Data shall be measured at a high enough resolution to be unimpeachable; Extensive tests will be performed, to ensure the data is correct. These tests will include but not be limited to: Using the Tempurature Chamber to cehck that the tempurature data gathered is accurate to the tempurature of the environment, checking that the accelerometer is gathering accurate readings by attaching it to an automobile and comparing the data gathered to the expected values, and using a known true clock to test the GPS's measured time.
-- The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers under Title 47 Part 15 Guidelines [10]; Since the DL will be utilizing an antenna for the GPS, it is very important for this antenna system to not interfere with any receivers or transmitters around the DL.
+- The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers under Title 47 Part 15 Guidelines [10]; Since the DL will be utilizing an antenna for the GPS, it is very important for this antenna system to not interfere with any receivers or transmitters around the DL.<br><br>
 
 ### General Operation Constraints
 - The DL project budget shall not exceed $3,000; Components will be selected specifically to comply with the budget, also accounting for assembly and bench testing. 
-- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC); Extensive bench testing will be performed, ensuring the module operates within the specified temperature and pressure ranges. Additional temperature regulation techniques	may be implemented to obtain this objective. This testing will include but not be limited to individually running and testing each sensor ordered to ensure it operates as expected, at the tempurature expected. This will be done using the STM32 software as that is the type of MCU handpicked for this project. 
+- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC); Extensive bench testing will be performed, ensuring the module operates within the specified temperature and pressure ranges. Additional temperature regulation techniques	may be implemented to obtain this objective. This testing will include but not be limited to individually running and testing each sensor ordered to ensure it operates as expected, at the tempurature expected. This will be done using the STM32 software as that is the type of MCU handpicked for this project. <br><br>
 
 ### Standards and Safety Constraints
 - The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [11]; Team 3 will ensure the components that are being utilized as well as the testing procedures will comply with the Federal Hazardous Substances Act. 
 - The DL shall be subject to IP67 rating for Dust and Water resistance [12]; Team 3 will perform extensive testing to ensure the module is IP67 rated and will make adjustments to ensure the module will be IP67 rated.  
 - The DL shall conform to IEEE standards for thermal dissipation and handheld devices [13]; Team 3 will ensure the module conforms to IEEE standards and implement passive thermal management designs into the module. 
 - The DL shall ensure the PCB and battery are properly grounded, avoiding electrical shorts or shock [14]; Team 3 will follow IEEE, NEC, and NFPA to ensure the module adheres to these standards.  
-- The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation; Due to the low power consumption of both module versions, low voltage batteries will be utilized as well as following the design constraint listed in the Electronics constraint section.
+- The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation; Due to the low power consumption of both module versions, low voltage batteries will be utilized as well as following the design constraint listed in the Electronics constraint section.<br><br><br>
 
 ## Atomic Subsystem Specifications
 
@@ -260,7 +258,7 @@ There will be 5 major subsystems that will be considered for these two modules. 
   4. Data Processing & Storage System
   5. Enclosure
 
-Here are some specifics on each of these subsystems.
+Here are some specifics on each of these subsystems.<br><br>
 
 ### PCB Subsystem
 
@@ -282,7 +280,7 @@ Here are some specifics on each of these subsystems.
 
 - SD Card Reader/Writer: Shall accept data transmission from MCU after data is formatted to specification and write that data to the SD card. 
 
-- USB-C connector: Acts as the primary connector for the charging cable. Shall supply power through *standard USB-C protocol* to both the battery and components when cable is connected. The USB-C charging system shall comply with the safety constraints listed in the *High-Level Solution* section.
+- USB-C connector: Acts as the primary connector for the charging cable. Shall supply power through *standard USB-C protocol* to both the battery and components when cable is connected. The USB-C charging system shall comply with the safety constraints listed in the *High-Level Solution* section.<br><br>
 
 ### Power System
 
@@ -303,7 +301,7 @@ Here are some specifics on each of these subsystems.
 6. GPS = 4.5 mA
 7. Temperature Sensor = 220 µA
 
-&emsp; &emsp; With a total current demand of about 92mA, the data logger can run for about 36 hours without being recharged. This means the DL will be able to run for the required 24 hours from a 65% charged battery and above.
+&emsp; &emsp; With a total current demand of about 92mA, the data logger can run for about 36 hours without being recharged. This means the DL will be able to run for the required 24 hours from a 65% charged battery and above.<br><br>
 
 ### Microcontroller
 
@@ -336,7 +334,7 @@ Here are some specifics on each of these subsystems.
 
 &emsp; &emsp; With this subsystem, the goal is to achieve the IP67 rating that is in the specifications for the project while allowing the Data Logger to function and not overheat [12]. This will be achieved by utilizing a casing that allows for an antenna to fit tightly through the enclosure for the GPS and potentially using cooling fans or systems to prevent damage inflicted on the Data Logger by itself. In addition, it will be the primary source of mounting the Data Logger to these unmanned vehicles utilizing this project.
 
-&emsp; &emsp; To accomplish this, the enclosure will be utilizing M4 screws and mounting equipment to allow for the Data Logger to be easily added or removed from these vehicles. Also, some more screw will be used to allow for easy access to the microSD card without the requirement of dismounting the logger from the vehicles. <br><br>
+&emsp; &emsp; To accomplish this, the enclosure will be utilizing M4 screws and mounting equipment to allow for the Data Logger to be easily added or removed from these vehicles. Also, some more screw will be used to allow for easy access to the microSD card without the requirement of dismounting the logger from the vehicles. <br><br><br>
 
 ## Measures of Success
 &emsp; &emsp; To ensure the accuracy and consistency of the DL, comparisons will be made with established units of various types to ensure the measurements are accurate. In addition, the efficiency of the DL will be verified so Team 3's DL will become the best solution. These will be checked using the following measurements of success: 
@@ -381,16 +379,16 @@ Here are some specifics on each of these subsystems.
     - This DL must be able to function properly in any environment. 
     - This measure will be met when the DL consistently gains accurate information on the SD card from the sensors in multiple different environments.<br><br>
 
-&emsp; &emsp; All these indications are important to the success of the DL, but it is not a complete success unless it meets the criteria listed previously in this document as well. <br><br>
+&emsp; &emsp; All these indications are important to the success of the DL, but it is not a complete success unless it meets the criteria listed previously in this document as well. <br><br><br>
 
 
 ## Resources
-&emsp; &emsp; The resources required for this project can be categorized in three ways: budget, labor, and timeline. Within these, the budget will specify what the expected costs are for each subsystem as well as the total expected cost for the project. The division of labor will clarify the team’s areas of expertise and how each member is going to contribute moving forward. The expected timeline will also be proposed, indicated using a Gantt Chart specifying the tasks needed to complete the project as well as when they are expected to be completed. 
+&emsp; &emsp; The resources required for this project can be categorized in three ways: budget, labor, and timeline. Within these, the budget will specify what the expected costs are for each subsystem as well as the total expected cost for the project. The division of labor will clarify the team’s areas of expertise and how each member is going to contribute moving forward. The expected timeline will also be proposed, indicated using a Gantt Chart specifying the tasks needed to complete the project as well as when they are expected to be completed. <br><br><br>
 
 
 ### Timeline
 ![Final Gantt Chart](https://hackmd.io/_uploads/r15ekwbCzl.png)
-
+<br><br><br>
 
 ### Budget
 &emsp; &emsp; Within the budget is each subsystem and the required components and costs assocaited with it. The source for these costs and expenses were found through DigiKey. Each component was carefully chosen from a master file that was made to compare different attributes such as operating voltage, operating current, tempurature, and accuracy. <br><br>
@@ -461,7 +459,7 @@ This system contains the casing outside the PCB to allow for easy removal utiliz
 
 #### Total Budget
 
-&emsp; &emsp; The total overall proposed budget for Team 3’s Data Logger is $739.20. As seen above these components have been chosen intentionally to work well together and result in a well rounded Data Logger that successfully reads and writes out data onto a MicroSD card. <br><br>
+&emsp; &emsp; The total overall proposed budget for Team 3’s Data Logger is $739.20. As seen above these components have been chosen intentionally to work well together and result in a well rounded Data Logger that successfully reads and writes out data onto a MicroSD card. <br><br><br>
 
 ### Division of Labor 
 
@@ -487,7 +485,7 @@ Based on these skills, the subsystems and their designated members have been div
 
 - Gabe Simpkins will be in charge of the Power System. He is skilled in circuitry and can look at the PCB design and components chosen and determine the power, voltage, and current necessary for the overall design of the Data Logger. He will be checking that the batteries chosen to perform up to standard and expectation as well as ensuring that each component is getting the power it needs to perform properly.
 
-- Andrew Singletary will be working on the enclosure for the Data Logger to make sure that it does not impede on the functionality of the project while keeping the proper rating. This suits him well with his understanding of microcontrollers and sensor functionality with limitations. He will also be helping Nic with the details of the data processing system once the enclosure subsystem has been complete.
+- Andrew Singletary will be working on the enclosure for the Data Logger to make sure that it does not impede on the functionality of the project while keeping the proper rating. This suits him well with his understanding of microcontrollers and sensor functionality with limitations. He will also be helping Nic with the details of the data processing system once the enclosure subsystem has been complete.<br><br>
 
 #### Other Personnel
 - Planned Supervisor: Dr. Tarek Elfouly
@@ -495,7 +493,7 @@ Based on these skills, the subsystems and their designated members have been div
 - Valinor Dispatch Contact: John Cain
   - John Cain along with Valinor Dispatch is the customer of this project, and they are looking to utilize this project once it is fully developed to influence future improvements of their unmanned vehicles. They are also looking to obtain information related to any environment they may be sending unmanned vehicles to for many purposes like navigation of these vehicles. 
 - Instructor: Dr. Christopher Storm Johnson
-  - Dr. Johnson is the main supervisor over the project progress and documentation for this project. All documentation will be put through him to be approved before moving on in the development of this DL. Lastly, if any interpersonal matters escalate to negatively affect the development process, he will act as oversight and mediator if necessary to help progress this project. 
+  - Dr. Johnson is the main supervisor over the project progress and documentation for this project. All documentation will be put through him to be approved before moving on in the development of this DL. Lastly, if any interpersonal matters escalate to negatively affect the development process, he will act as oversight and mediator if necessary to help progress this project. <br><br>
 
 
 ## Specific Implications
@@ -505,24 +503,24 @@ Based on these skills, the subsystems and their designated members have been div
 
 #### *Technical Implications*
 
-&emsp; &emsp; Developing a data logging module is an in-depth hands-on project. There is quite a bit of component research and testing that needs to be conducted. While there are readily available and universal off the shelf units, this DL is designed specifically for the company's autonomous vehicles and is much more cost effective than the competitors. This DL collects data from onboard sensors that measure GPS time stamps, pressure, temperature, electromagnetic fields, and writes the data to a micro-SD card. This unit is self-contained and features its own battery power source with support for USB-C charging. With these inclusions, it will stand out against other data loggers used for Unmanned Vehicles. 
+&emsp; &emsp; Developing a data logging module is an in-depth hands-on project. There is quite a bit of component research and testing that needs to be conducted. While there are readily available and universal off the shelf units, this DL is designed specifically for the company's autonomous vehicles and is much more cost effective than the competitors. This DL collects data from onboard sensors that measure GPS time stamps, pressure, temperature, electromagnetic fields, and writes the data to a micro-SD card. This unit is self-contained and features its own battery power source with support for USB-C charging. With these inclusions, it will stand out against other data loggers used for Unmanned Vehicles. <br><br>
 
 
 #### *Manufacturing Implications*  
 
-&emsp; &emsp; This DL is designed to use readily manufactured and widely available components. The module will feature its own PCB that can be easily manufactured by most PCB manufacturing companies without going through a custom manufacturer. The cost to develop and manufacture the DL will be well under the $3,000.00 budget allocated for the project.  
+&emsp; &emsp; This DL is designed to use readily manufactured and widely available components. The module will feature its own PCB that can be easily manufactured by most PCB manufacturing companies without going through a custom manufacturer. The cost to develop and manufacture the DL will be well under the $3,000.00 budget allocated for the project.  <br><br>
 
 
 #### *Operational Implications*  
 
-&emsp; &emsp; This DL will be developed to be a self-contained unit that utilizes the shelf components that do not require maintenance intervals. If one of the DLs malfunctions or needs to be replaced, a new one can be easily swapped in without requiring the knowledge of an engineer. This will allow for sustainability of the DL without being replaced frequently. 
+&emsp; &emsp; This DL will be developed to be a self-contained unit that utilizes the shelf components that do not require maintenance intervals. If one of the DLs malfunctions or needs to be replaced, a new one can be easily swapped in without requiring the knowledge of an engineer. This will allow for sustainability of the DL without being replaced frequently. <br><br>
 
 
 #### *Strategic Implications*  
 
-&emsp; &emsp; This DL is designed specifically to integrate with the company's already existing autonomous vehicles and will be mountable to any vehicle Valinor Dispatch would like and does not need any extra connections, excluding the battery charging cable. This makes the DL unique from competing data loggers and easily used for any task Valinor Dispatch desires to utilize Unmanned Vehicles on. <br><br>
+&emsp; &emsp; This DL is designed specifically to integrate with the company's already existing autonomous vehicles and will be mountable to any vehicle Valinor Dispatch would like and does not need any extra connections, excluding the battery charging cable. This makes the DL unique from competing data loggers and easily used for any task Valinor Dispatch desires to utilize Unmanned Vehicles on.
 
-&emsp; &emsp; With all these implications, the DL will benefit Valinor Dispatch's needs for autonomous vehicle data logging in many ways to help with further development of their autonomous charging stations and other technology; however, there are some considerations that are required in the process of this DL. <br><br>
+&emsp; &emsp; With all these implications, the DL will benefit Valinor Dispatch's needs for autonomous vehicle data logging in many ways to help with further development of their autonomous charging stations and other technology; however, there are some considerations that are required in the process of this DL. <br><br><br>
 
 ## Broader Implications, Ethics, and Responsibility as Engineers
 
@@ -538,7 +536,7 @@ Based on these skills, the subsystems and their designated members have been div
 - Team members who are responsible for the software will program the modules to only capture data within the project scope.
 - Team members who are responsible for hardware will construct and develop the DL to comply with basic safety standards as well as staying within project scope.<br><br>
 
-&emsp; &emsp; In summary, Team 3 will be developing this DL with success being measured based on these considerations, the specifications, and the measures of success listed in this document. When it meets all these standards, it will bring the promised benefits also listed and fulfill Valinor Dispatch's request for the DL, which will demonstrate innovation through Team 3's development of this project. 
+&emsp; &emsp; In summary, Team 3 will be developing this DL with success being measured based on these considerations, the specifications, and the measures of success listed in this document. When it meets all these standards, it will bring the promised benefits also listed and fulfill Valinor Dispatch's request for the DL, which will demonstrate innovation through Team 3's development of this project. <br><br><br>
 
 ## References
 
