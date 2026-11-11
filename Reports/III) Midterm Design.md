@@ -66,7 +66,7 @@
 - The DL may be easily attached to the outside of a UAS, UGV, or USV
 
 2\.	Electronics
-- The DL shall have an onboard battery with enough charge to run multiple missions without being recharged
+- The DL shall have an onboard battery with enough charge to run for 24 hours without being recharged
 - The DL shall record the following types of data
   - Acceleration and velocity
   - Magnetic field strength
@@ -78,7 +78,7 @@
 
 3\.	Data
 - The DL shall write timestamped data onto an SD (or microSD) card in uLog format
-- Data shall be measured at a high enough resolution to be unimpeachable
+- Data shall be measured with a 16-bit resolution or at the highest resolution available from each sensor if higher. Accuracy for each sensor shall have an error of no more than 2%
 - The DL shall utilize Sensor Fusion to understand the environment around the vehicle the DL is mounted to
 - The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers under Title 47 Part 15 Guidelines [10]<br><br>
 
