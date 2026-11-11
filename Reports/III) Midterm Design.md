@@ -398,8 +398,8 @@ Here are some specifics on each of these subsystems.<br><br>
 &emsp; &emsp; This system contains the necessary PCB, along with its basic circuitry that will contain the capacitors, resistors, and other components necessary for its functionality. It also contains a pressure gauge, magnetometer, IMU, GPS, and digital temperature sensor. These parts were carefully chosen due to the specific needs and requirements of our DL and have been compared against our weight and area constraints. For each of these components 3 chips are planning to be ordered so that there will be backups on hand incase of any unexpected issues. The costs for this subsystem can be seen below in single quantity value. 
 
 - PCB: $50
-- Pressure Gauge: $3.81
-- Magnetometer: $3.32
+- [Pressure Gauge](https://www.digikey.com/en/products/detail/bosch-sensortec/BMP384/13681277): $3.81
+- [Magnetometer](https://www.digikey.com/en/products/detail/memsic-inc/MMC5983MA/10452795): $3.32
 - IMU: $3.91
 - GPS: $7.86
 - Digital Temperature Sensor: $6.29
