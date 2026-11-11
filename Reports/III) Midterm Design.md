@@ -235,12 +235,12 @@ The design will utilize the instrumentation and components necessary to achieve 
 
 ### Data
 - The DL shall write timestamped data onto an SD (or microSD) card in ULog format; The team will research ULog formatting to confirm the data is being formatted and written correctly to the SD card as well as ensuring GPS timestamps are accurate. 
-- Data shall be measured at a high enough resolution to be unimpeachable; Extensive tests will be performed to ensure the data is correct. 
+- Data shall be measured at a high enough resolution to be unimpeachable; Extensive tests will be performed, to ensure the data is correct. These tests will include but not be limited to: Using the Tempurature Chamber to cehck that the tempurature data gathered is accurate to the tempurature of the environment, checking that the accelerometer is gathering accurate readings by attaching it to an automobile and comparing the data gathered to the expected values, and using a known true clock to test the GPS's measured time.
 - The DL shall follow Federal Communications Commission (FCC) regulations on radio transmitters and receivers under Title 47 Part 15 Guidelines [10]; Since the DL will be utilizing an antenna for the GPS, it is very important for this antenna system to not interfere with any receivers or transmitters around the DL.
 
 ### General Operation Constraints
 - The DL project budget shall not exceed $3,000; Components will be selected specifically to comply with the budget, also accounting for assembly and bench testing. 
-- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC); Extensive bench testing will be performed, so the module operates within the specified temperature and pressure ranges. Additional temperature regulation techniques	may be implemented to obtain this objective.
+- The DL shall have a large operating temperature and pressure range (-20ºC ~ 60ºC); Extensive bench testing will be performed, ensuring the module operates within the specified temperature and pressure ranges. Additional temperature regulation techniques	may be implemented to obtain this objective. This testing will include but not be limited to individually running and testing each sensor ordered to ensure it operates as expected, at the tempurature expected. This will be done using the STM32 software as that is the type of MCU handpicked for this project. 
 
 ### Standards and Safety Constraints
 - The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [11]; Team 3 will ensure the components that are being utilized as well as the testing procedures will comply with the Federal Hazardous Substances Act. 
@@ -306,7 +306,7 @@ Here are some specifics on each of these subsystems.
 
 ### Microcontroller
 
-&emsp; &emsp; The microcontroller chosen for this project is the STM32G474RET6. This microcontroller will allow for the reading of all attached sensors as well as writing the data from these sensors out to the microSD through ULog format. The firmware needed for this subsystem will be written in C and designed using the STM32CubeMX software. 
+&emsp; &emsp; The microcontroller chosen for this project is the STM32G474RET6. This microcontroller was chosen over similar models (M32L4 or STM32L4+ series) due to first, its speed. THe G474 has a speed of 170 MHz compared to the other's 80 or 120 MHz. It also wins in terms of it's integrated analog, it is better suited for battery monitoring as well as analog sensing which is needed both for the onboard rechargable battery as well as the many analog sensors that will be implemented on the PCB. This microcontroller will allow for the reading of all attached sensors as well as writing the data from these sensors out to the microSD through ULog format. The firmware needed for this subsystem will be written in C and designed using the STM32CubeMX software. 
 
 &emsp; &emsp; The firmware needed for this program will have 5 parts: 
 
