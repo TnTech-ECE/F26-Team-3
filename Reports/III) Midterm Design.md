@@ -398,12 +398,12 @@ Here are some specifics on each of these subsystems.<br><br>
 &emsp; &emsp; This system contains the necessary PCB, along with its basic circuitry that will contain the capacitors, resistors, and other components necessary for its functionality. It also contains a pressure gauge, magnetometer, IMU, GPS, and digital temperature sensor. These parts were carefully chosen due to the specific needs and requirements of our DL and have been compared against our weight and area constraints. For each of these components 3 chips are planning to be ordered so that there will be backups on hand incase of any unexpected issues. The costs for this subsystem can be seen below in single quantity value. 
 
 - PCB: $50
-- [Pressure Gauge](https://www.digikey.com/en/products/detail/bosch-sensortec/BMP384/13681277): $3.81
-- [Magnetometer](https://www.digikey.com/en/products/detail/memsic-inc/MMC5983MA/10452795): $3.32
-- IMU: $3.91
-- GPS: $7.86
-- Digital Temperature Sensor: $6.29
-- RGB LED: $0.85
+- Pressure Gauge [(Link)](https://www.digikey.com/en/products/detail/bosch-sensortec/BMP384/13681277): $3.81
+- Magnetometer [(Link)](https://www.digikey.com/en/products/detail/memsic-inc/MMC5983MA/10452795): $3.32
+- IMU [(Link)](https://www.digikey.com/en/products/detail/bosch-sensortec/BMI323/16719593): $3.91
+- GPS [(Link)](https://www.digikey.com/en/products/detail/u-blox/MAX-M10M-00B/15712905?gclsrc=aw.ds&gad_source=1&gad_campaignid=20228387720&gbraid=0AAAAADrbLljvJ-1I-1_NaWb_rzqx7soxi&gclid=CjwKCAiAhqHXBhAXEiwATbksU7LjIfOxw2qxhTWNShfTg9Bl4JaITFYMsg_SCnPCYULTqsRj5095vRoCYRoQAvD_BwE): $7.86
+- Digital Temperature Sensor [(Link)](https://www.digikey.com/en/products/detail/texas-instruments/TMP117AIDRVR/9685284): $6.29
+- RGB LED [(Link)](https://www.digikey.com/en/products/detail/inolux/INL-5TB4URGB25/7604615): $0.85
 
 Subsystem Total (accounting for multiples): 129.82
 <br><br>
@@ -412,8 +412,8 @@ Subsystem Total (accounting for multiples): 129.82
 
 &emsp; &emsp; This system utilizes a Jauch Quartz LP705176JS 3.7V 3.15Ah battery. This battery was chosen as it satisfies the voltage needed for the STM32 microcontroller as well as the other power constraints needed for the PCB and it’s parts. The part itself will be utilized to supply power to the PCB, microcontroller and all other parts of the DL. For the battery 2 parts are planning to be ordered, adn for the IC 3 will be ordered so that there will be backups on hand incase of any unexpected issues. The costs for this subsystem can be seen below in single quantity value. 
 
-- Battery: $21.59
-- Battery Charging IC: $0.69
+- Battery [(Link)](https://www.digikey.com/en/products/detail/jauch-quartz/LP705176JS-PCM-2-WIRES-70MM/9560997?gclsrc=aw.ds&gad_source=4&gad_campaignid=20243136172&gbraid=0AAAAADrbLlismywxQ7WURthfyVpzAM9U-&gclid=CjwKCAiAhqHXBhAXEiwATbksU_NHZMns89RoSdnLlWYQi7C6qBOYp1QBK97-6_Af1sXxuTq03ZkZBhoCb-4QAvD_BwE): $21.59
+- Battery Charging IC [(Link)](https://www.digikey.com/en/products/detail/microchip-technology/MCP73811T-420I-OT/1626617): $0.69
 
 Subsystem Total (accounting for multiples): $45.25
 <br><br>
@@ -422,10 +422,10 @@ Subsystem Total (accounting for multiples): $45.25
 
 &emsp; &emsp; This system utilizes a STM32G474RET6 microcontroller. This chip will be used to read data off of the various sensors that have been implemented on the PCB and will write out data to the MicroSD card at regular intervals. This specific chip was recommended by Valinor Dispatch to Team 3 and was chosen after careful consideration. Using the STM32 will also require the use of a programming cable and the one chosen for this project is the STLINK-V3MINIE. This chip was chosen at the recommendation of Valinor Dispatch and is commonly paired with the STM32 microcontroller. The connector cable required for the STLINK-V3MINIE is the TC2030-CTX-NL-STDC14 cable which will connect the PCB to the STLink for debugging purposes. There will also be devboards and breakout kits associated with this subsytem for early testing of the firmware. For each of these components 2 boards are planning to be ordered so that there will be backups on hand incase of any unexpected issues. The costs for this subsystem can be seen below in single quantity value. 
 
-- MCU STM32G474RET6: $10.70
-- MCU Devboard STM32G474RET6 Nucleo: $20.13
-- Magnometer Breakout: $22.64
-- Tempurature Breakout: $11.50
+- MCU STM32G474RET6 [(Link)](https://www.digikey.com/en/products/detail/stmicroelectronics/STM32G474RET6/10326780): $10.70
+- MCU Devboard STM32G474RET6 Nucleo [(Link)](https://www.digikey.com/en/products/detail/stmicroelectronics/NUCLEO-G474RE/10231585): $20.13
+- Magnometer Breakout [(Link)](https://www.digikey.com/en/products/detail/memsic-inc/MMC5983MA-B/10452798): $22.64
+- Tempurature Breakout [(Link)](https://www.digikey.com/en/products/detail/adafruit-industries-llc/4821/13571586): $11.50
 - Pressure Breakout: $20.00
 - IMU Breakout: $20.00
 - GPS Breakout: $45.95
