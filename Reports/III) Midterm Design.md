@@ -243,7 +243,7 @@ The design will utilize the instrumentation and components necessary to achieve 
 
 ### Standards and Safety Constraints
 - The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [11]; Team 3 will ensure the components that are being utilized as well as the testing procedures will comply with the Federal Hazardous Substances Act. 
-- The DL shall be subject to IP67 rating for Dust and Water resistance [12]; Team 3 will perform extensive testing to ensure the module is IP67 rated and will make adjustments to ensure the module will be IP67 rated.  
+- The DL shall be subject to IP67 rating for Dust and Water resistance [12]; Team 3 will test to ensure the module is IP67 rated and will make adjustments to ensure the module will be IP67 rated.  
 - The DL shall conform to IEEE standards for thermal dissipation and handheld devices [13]; Team 3 will ensure the module conforms to IEEE standards and implement passive thermal management designs into the module. 
 - The DL shall ensure the PCB and battery are properly grounded, avoiding electrical shorts or shock [14]; Team 3 will follow IEEE, NEC, and NFPA to ensure the module adheres to these standards.  
 - The DL shall use a low voltage battery (<50V) to follow general low voltage electronics protocol and regulation; Due to the low power consumption of both module versions, low voltage batteries will be utilized as well as following the design constraint listed in the Electronics constraint section.<br><br><br>
