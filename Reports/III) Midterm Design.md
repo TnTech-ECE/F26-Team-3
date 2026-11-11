@@ -447,7 +447,7 @@ Subsystem Total (accounting for multiples): $512.42
 - MicroSD Card Reader: $0.57
 - 256GB MicroSD Card: $50
 
-Subsystem Total: $51.71
+Subsystem Total (accounting for multiples): $51.71
 <br><br>
 
 #### Enclosure
