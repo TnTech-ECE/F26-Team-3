@@ -42,11 +42,10 @@ Every subsystem must incorporate at least one constraint stemming from standards
 - The DL shall have a large operating temperature range (-20ºC ~ 60ºC)
 
 2\.	Standards and Safety Constraints
-- The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [11] 
-- The DL shall be subject to IP67 rating for Dust and Water resistance [12] 
-- The DL shall conform to IEEE standards for thermal dissipation and handheld devices [13]
-- The DL shall ensure the module and battery are properly grounded, avoiding electrical shorts or shock as laid out in Article 250 of NFPA 70 [14] 
-
+- The DL shall avoid hazardous materials in accordance with the Federal Hazardous Substances Act [1] 
+- The DL shall be subject to IP67 rating for Dust and Water resistance [2]
+- The DL shall conform to IEEE standards for thermal dissipation and handheld devices [3]
+- The DL shall ensure the module and battery are properly grounded, avoiding electrical shorts or shock as laid out in Article 250 of NFPA 70 [4] 
 
 ## Overview of Proposed Solution
 
